@@ -127,10 +127,13 @@ Contains information about the real estate the building belong to. Refer to Real
 
 ### Format
 Specifies the version of Real Estate Core used, e.g. rec2.2
-    "format": "rec2.2"
+    
+	"format": "rec2.2"
 
 
 ### Example of a complete message
+Example of a complete Idun message.
+
 	{
 	  "observation": {
 		"observationTime": "2018-06-18T09:01:21.934Z",
