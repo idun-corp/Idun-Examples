@@ -1,1 +1,1 @@
-# Idun-Examples-Streaming
+# Idun-Examples
