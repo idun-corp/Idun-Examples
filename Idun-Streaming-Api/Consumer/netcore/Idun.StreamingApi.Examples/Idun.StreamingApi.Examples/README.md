@@ -30,11 +30,6 @@ The appsettings.json contains of five configuratrion parameters.
  The data is a json formatted object and based on Real Estate Core (https://www.realestatecore.io)
 
  The json object contains six nested objects:
-  - device : 
-  - buildingstructurecomponent : 
-  - buildingstructure : 
-  - realestate : 
-  - format : Specifies the version of Real Estate Core used, e.g. rec2.2
 
   ### Observation
   Contains information about an observed sensor value.
@@ -130,3 +125,60 @@ Contains information about the real estate the building belong to. Refer to Real
 - id : The unique identifier of the real estate.
 - locatedat : The longitude / latitude of the position of the building.
 
+### Format
+Specifies the version of Real Estate Core used, e.g. rec2.2
+    "format": "rec2.2"
+
+
+### Example of a complete message
+	{
+	  "observation": {
+		"observationTime": "2018-06-18T09:01:21.934Z",
+		"value": 22.9,
+		"quantityKind": "Temperature",
+		"sensorId": "b00df055-1f34-46d3-be02-22b1c56f892b"
+	  },
+	  "sensor": {
+		"id": "b00df055-1f34-46d3-be02-22b1c56f892b",
+		"class": "Sensor",
+		"ispartofdevice": "d794def5-4282-4a6d-882a-2362518cc5f2",
+		"quantitykind": "Temperature",
+		"locatedin": "2956c8ea-b12f-4c30-be0f-b1b89662cc57",
+		"powersource": "CommunicationBus"
+	  },
+	  "device": {
+		"id": "d794def5-4282-4a6d-882a-2362518cc5f2",
+		"class": "Device",
+		"devicefunction": "DataAqusition,Control",
+		"servedby": "69aa19f7-3e44-4d71-b831-fa9e5584e1c7,db0003f5-3c25-4a81-a698-0776d69bd853",
+		"littera": "LB01/02-96:Office-TD21:35",
+		"locatedin": "2956c8ea-b12f-4c30-be0f-b1b89662cc57",
+		"powersource": "CommunicationBus"
+	  },
+	  "buildingstructurecomponent": {
+		"id": "2956c8ea-b12f-4c30-be0f-b1b89662cc57",
+		"class": "OfficeRoom",
+		"locatedin": "bd3a9840-4067-4b34-baec-42fe7a57a958",
+		"locatedatlocalcoordinates": "-;-;35.21",
+		"littera": "96:Office"
+	  },
+	  "buildingstructure": {
+		"id": "bd3a9840-4067-4b34-baec-42fe7a57a958",
+		"class": "BuildingStructure",
+		"aliasid": 591009,
+		"littera": 591009,
+		"popularname": ""Main Building",
+		"locatedat": "57,12349;17,5439;10.0",
+		"belongsto": "6855aeaf-3c5e-4376-afdd-9c046ae76b05"
+	  },
+	  "realestate": {
+		"id": "6855aeaf-3c5e-4376-afdd-9c046ae76b05",
+		"class": "RealEstate",
+		"aliasid": 591,
+		"littera": 591,
+		"locatedat": "57,1234;17,543;10.0",
+		"popularname": "Main Building"
+	  },
+
+	  "format": "rec2.2"
+	}
