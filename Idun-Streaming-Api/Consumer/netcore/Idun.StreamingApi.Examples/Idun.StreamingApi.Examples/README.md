@@ -29,6 +29,8 @@ The appsettings.json contains of five configuratrion parameters.
  What you will see in the console is all messages that is published to your event hub starting at your time of program startup.
  The data is a json formatted object and based on Real Estate Core (https://www.realestatecore.io)
 
+PLEASE NOTE: The camel case of json parameter names is in this preview inconsistent, future implementations will produce camel case as isPartOfDevice instead of current ispartofdevice etc.
+
  The json object contains six nested objects:
 
   ### Observation
