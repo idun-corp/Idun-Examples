@@ -1,6 +1,7 @@
 # Idun-Examples
 
-## Streaming API
+## 1. Streaming API
 The streaming API lets you consume telemetry.
-https://github.com/Vasakronan/Idun-Examples/tree/master/Idun-Streaming-Api/Consumer/netcore/Idun.StreamingApi.Examples/Idun.StreamingApi.Examples
+(#Consuming-Idun-Streaming-API-using-EventProcessorHostg)
+x
 
