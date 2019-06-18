@@ -5,7 +5,7 @@ In summary:
 * the kafka _'bootstrap.servers'_ property should be set to _'eventhub entity path:9093'_  
 * the kafka _'ssl.ca'_ property should be set to _'SASL_SSL'_  
 * the kafka _'sasl.username'_ property should be set to _'$ConnectionString'_ (literally)  
-* the kafka _'sasl.password'_ property should be set to _'<the connection string>'_  
+* the kafka _'sasl.password'_ property should be set to _'\<the connection string\>'_  
 
 For information about event hubs and how to consume messages via the EventProcessorHost, please refer to https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-programming-guide
 
