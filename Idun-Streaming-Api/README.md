@@ -16,7 +16,7 @@ For information about event hubs and how to consume messages via the EventProces
          "value": "21.5",
          "quantityKind": "Temperature",
          "sensorId": "0234c884-f8dc-48d6-b627-2f0d8f8705d6",
-         "observationTime": "2019-06-06T13:33:32.379Z"
+         "observationTime": "2019-06-06T13:37:32.379Z"
        },
        "sensor": "https://example.graph.idunrealestate.com/api/sensor/0234c884-f8dc-48d6-b627-2f0d8f8705d6"
      }
