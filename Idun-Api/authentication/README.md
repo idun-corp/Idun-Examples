@@ -11,7 +11,7 @@ After user (application) authenticate itself, it obtains a token in JWT format, 
 for every REST call to Idun REST API. It has to be prepended by Bearer clause:
 --header 'Authorization: Bearer XXXXXX_TOKEN_BODY_XXXXXXXXXX'  
 
-1. Interactive authentication uses OAuth Authorization Code flow.
+1. Interactive authentication uses OAuth Implicit Grant flow.
 
 For Web UI application that is interacting with the user, there is MSAL for Javascript Library provided by Microsoft,
 that allows to perform authorization of the user in the frame of UI. It exists for several JS frameworks as well as framework-agnostic version.
@@ -20,8 +20,10 @@ Details can be found here:
 https://github.com/AzureAD/microsoft-authentication-library-for-js
 
 NOTE: The Scope during the request must be set to 'Api.Use'.
+Depending on type of usage, the refreshing of the token is handled by MSAL library.
 
 The example of how to use it can be found in examples folder.
+
 
 2. Application Authorization.
 
@@ -45,7 +47,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ==================================================================================================
 
 important fields here are:
-client=_id: ID of the application, obtained after its creation in Idun AD;
+client_id: ID of the application, obtained after its creation in Idun AD;
 client_secret: also generated after the application creation;
 scope: this has to be application name followed by '/.default';
 grant_type: indicates flow, must be 'client_credentials'.
@@ -53,4 +55,17 @@ grant_type: indicates flow, must be 'client_credentials'.
 
 Another way is to use MSAL Library provided by Microsoft. The example of how to use it can be found in examples folder.
 
+The token provided has an expiration time. Usually it is one hour, and it is up to an application to track this timeout 
+and/or expiration errors from server side. 
+
 Current version is  '0.5.0-preview'   
+Details how to use the lib in the project can be found here:
+https://github.com/AzureAD/microsoft-authentication-library-for-java
+
+
+
+Migration from old Authentication method.
+
+In previous version, Idun authentication was done by putting predefined Authorization code into Authorization header.
+In a new version, this is basically the same, the only difference is that the token is not statically defined, 
+but obtained during the authentication process. Another difference is that the token is preceded by 'Bearer ' keyword.   
