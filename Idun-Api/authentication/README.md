@@ -12,7 +12,7 @@ Authentication is performed in Microsoft Identity Platform (former Active Direct
 In case of application authentication, the application need to have it's own ID in Idun AD. 
 After user (application) authenticate itself, it obtains a token in JWT format, which is then put into Authorization header
 for every REST call to Idun REST API. It has to be prepended by Bearer clause:
-```
+```text
 --header 'Authorization: Bearer XXXXXX_TOKEN_BODY_XXXXXXXXXX'  
 ```
 
@@ -26,10 +26,18 @@ Details can be found here:
 
 https://github.com/AzureAD/microsoft-authentication-library-for-js
 
-NOTE: The Scope during the request must be set to 'Api.Use'.
+**NOTE: The Scope during the request must be set to 'Api.Use'.**
 Depending on type of usage, the refreshing of the token is handled by MSAL library.
 
 The example of how to use it can be found in examples folder.
+
+In case of a web application when backend makes the call to Idun API (and therefore need to authorize),
+a OAuth Grant Code flow can be used, which is supported by MSAL:
+
+```text
+https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#authorization-code
+```
+   
 
 
 ### 2. Application Authentication.
@@ -43,7 +51,7 @@ After the creation of identity, the ID and Secret of the application is obtained
 The most straightforward and universal (language-independent) way for application to authenticate itself 
 is directly using HTTP POST method on Microsoft authentication endpoint.
 
-```
+```text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -55,10 +63,10 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ``` 
 
 important fields here are:
-client_id: ID of the application, obtained after its creation in Idun AD;
-client_secret: also generated after the application creation;
-scope: this has to be application name followed by '/.default';
-grant_type: indicates flow, must be 'client_credentials'.
+* client_id: ID of the application, obtained after its creation in Idun AD;
+* client_secret: also generated after the application creation;
+* scope: **this has to be application name followed by '/.default';**
+* grant_type: indicates flow, must be 'client_credentials'.
 
 
 Another way is to use MSAL Library provided by Microsoft. The example of how to use it can be found in examples folder.
@@ -82,3 +90,12 @@ Also, in case of 'Daemon application', the token refreshment must be coded and d
 Additionally, proper error handling in case the token validation failed, must be performed.
    
 In case of MSAL libraries for Javascript (Angular or other frameworks), the token refreshment is performed by the library itself.
+
+## Resources
+
+For more information about Microsoft Identity Platform, OAuth2 and MSAL Libraries for different languages, it is recommended to 
+visit Microsoft official documentation
+
+```text
+https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios
+``` 
