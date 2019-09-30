@@ -13,10 +13,14 @@ import java.util.concurrent.Future;
 /**
  * this is an example of Access Token retrieval using MSAL Library and Client Credentials Flow
  * using Client Id, Password, and Tenant Id
+ * tenantId - id of Idun in AAD
+ * clientId - id of the application (NOT a user) in Idun AD. Obtained from Idun administrator.
+ * clientSecret - secret of the application in Idun AD
  */
+
 public class MicrosoftADGraphClient {
 
-    public String acquireTokenForGraphApiClientCreds(String tenantId, String clientSecret, String clientId)
+    public String acquireTokenForGraphApiClientCreds(String tenantId, String clientId, String clientSecret)
             throws ExecutionException, InterruptedException, MalformedURLException {
 
         ConfidentialClientApplication app =
