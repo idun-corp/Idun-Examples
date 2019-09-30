@@ -1,7 +1,10 @@
+
+## Authentication in Idun REST API
+
 Authentication in Idun uses OAuth 2.0 protocol.
 It can be separated into two categories:
-- interactive authentication (from UI, operated by user)
-- application (daemon) authentication, for applications working w/o user interaction.
+* interactive authentication (from UI, operated by user)
+* application (daemon) authentication, for applications working w/o user interaction.
 
 In both cases, the final goal is to obtain an Access Token, which is used in HTTP header for every call. 
 
@@ -11,7 +14,7 @@ After user (application) authenticate itself, it obtains a token in JWT format, 
 for every REST call to Idun REST API. It has to be prepended by Bearer clause:
 --header 'Authorization: Bearer XXXXXX_TOKEN_BODY_XXXXXXXXXX'  
 
-1. Interactive authentication uses OAuth Implicit Grant flow.
+### 1. Interactive authentication uses OAuth Implicit Grant flow.
 
 For Web UI application that is interacting with the user, there is MSAL for Javascript Library provided by Microsoft,
 that allows to perform authorization of the user in the frame of UI. It exists for several JS frameworks as well as framework-agnostic version.
@@ -25,7 +28,7 @@ Depending on type of usage, the refreshing of the token is handled by MSAL libra
 The example of how to use it can be found in examples folder.
 
 
-2. Application Authorization.
+### 2. Application Authorization.
 
 In case of this type of authorization, a 'Client Credentials' OAuth flow is used. The application has its own id and password, 
 and uses it to obtain a token. 
@@ -36,6 +39,7 @@ The most straightforward and universal (language-independent) way for applicatio
 is directly using HTTP POST method on Microsoft authentication endpoint.
 
 ==================================================================================================
+```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -43,7 +47,8 @@ Content-Type: application/x-www-form-urlencoded
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &client_secret=qWgdYAmab0YSkuL1qKv5bPX
-&grant_type=client_credentials 
+&grant_type=client_credentials
+``` 
 ==================================================================================================
 
 important fields here are:
@@ -64,8 +69,13 @@ https://github.com/AzureAD/microsoft-authentication-library-for-java
 
 
 
-Migration from old Authentication method.
+## Migration from old Authentication method.
 
 In previous version, Idun authentication was done by putting predefined Authorization code into Authorization header.
-In a new version, this is basically the same, the only difference is that the token is not statically defined, 
-but obtained during the authentication process. Another difference is that the token is preceded by 'Bearer ' keyword.   
+In a new version, the procedure is basically the same, the only difference is that the token is not statically defined, 
+but obtained during the authentication process described above. 
+Another difference is that the token is preceded by 'Bearer ' keyword in Authorization header.
+Also, in case of 'Daemon application', the token refreshment must be coded and daemon must take care that the token is not expired.
+Additionally, proper error handling in case the token validation failed, must be performed.
+   
+In case of MSAL libraries for Javascript (Angular or other frameworks), the token refreshment is performed by the library itself.
