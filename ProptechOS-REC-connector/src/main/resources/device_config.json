@@ -1,0 +1,11 @@
+{
+  "iotHubAddress":"youriothub.azure-devices.net",
+  "deviceId":"deviceid_name_given_when_registring_the_device",
+  "deviceKey":"key_returned_when_registring_the_device",
+  "sensors": [
+    {
+      "sensorType": "Temperature",
+      "sensorId": "id of temperature sensor"
+    }
+  ]
+}

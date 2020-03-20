@@ -1,3 +1,6 @@
+# Build output
+target/
+*.class
 
 # NuGet Packages
 *.nupkg
