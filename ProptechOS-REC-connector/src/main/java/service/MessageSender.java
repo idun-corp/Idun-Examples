@@ -25,19 +25,10 @@ public class MessageSender implements Runnable {
         RecMessage telemetry = telemetryGenerator.generateTelemetry();
         // Add the telemetry to the message body as JSON.
         String msgStr = parseToString(telemetry);
-        Message msg = new Message(msgStr);
-
+        Message message = new Message(msgStr);
         System.out.println("Sending message: " + msgStr);
-
-        Object lockobj = new Object();
-        // Send the message.
-        EventCallback callback = new EventCallback();
-        client.sendEventAsync(msg, callback, lockobj);
-
-        synchronized (lockobj) {
-          lockobj.wait();
-        }
-        Thread.sleep(10000);
+        client.sendEventAsync(message, null, new Object());
+        Thread.sleep(5000);
       }
     } catch (InterruptedException e) {
       System.out.println("Finished.");

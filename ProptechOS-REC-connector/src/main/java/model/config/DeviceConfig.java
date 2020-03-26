@@ -5,9 +5,7 @@ import static java.lang.String.join;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
-import lombok.Getter;
 
-@Getter
 public class DeviceConfig {
 
   private String iotHubAddress;
@@ -33,4 +31,11 @@ public class DeviceConfig {
     return join(";", hostName, deviceConnection, sharedAccessKey);
   }
 
+  public String getDeviceId() {
+    return deviceId;
+  }
+
+  public List<Sensor> getSensors() {
+    return sensors;
+  }
 }

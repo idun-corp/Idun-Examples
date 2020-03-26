@@ -1,9 +1,7 @@
 package model.message;
 
 import java.time.ZonedDateTime;
-import lombok.Getter;
 
-@Getter
 public class RecObservation {
 
   private final ZonedDateTime observationTime;
@@ -19,4 +17,19 @@ public class RecObservation {
     this.sensorId = sensorId;
   }
 
+  public ZonedDateTime getObservationTime() {
+    return observationTime;
+  }
+
+  public Object getValue() {
+    return value;
+  }
+
+  public String getQuantityKind() {
+    return quantityKind;
+  }
+
+  public String getSensorId() {
+    return sensorId;
+  }
 }

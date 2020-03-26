@@ -3,11 +3,7 @@ package model.message;
 import static java.util.Collections.emptyList;
 
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class RecMessage {
 
   private final String format = "rec3.2";
@@ -24,4 +20,23 @@ public class RecMessage {
     this.observations = observations;
   }
 
+  public void setDeviceId(String deviceId) {
+    this.deviceId = deviceId;
+  }
+
+  public void setObservations(List<RecObservation> observations) {
+    this.observations = observations;
+  }
+
+  public String getFormat() {
+    return format;
+  }
+
+  public String getDeviceId() {
+    return deviceId;
+  }
+
+  public List<RecObservation> getObservations() {
+    return observations;
+  }
 }

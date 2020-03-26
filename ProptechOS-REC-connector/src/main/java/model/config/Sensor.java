@@ -2,9 +2,7 @@ package model.config;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
 
-@Getter
 public class Sensor {
 
   private final String sensorId;
@@ -17,4 +15,11 @@ public class Sensor {
     this.sensorType = sensorType;
   }
 
+  public String getSensorId() {
+    return sensorId;
+  }
+
+  public String getSensorType() {
+    return sensorType;
+  }
 }
