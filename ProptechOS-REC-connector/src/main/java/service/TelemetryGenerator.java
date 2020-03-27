@@ -25,8 +25,7 @@ public class TelemetryGenerator {
     final RecMessage recMessage = new RecMessage();
     final Sensor randomSensor = getRandomSensor();
     final RecObservation observation = new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-        generateRandomTemperature(),
-        randomSensor.getSensorType(), randomSensor.getSensorId());
+        generateRandomTemperature(), randomSensor.getQuantityKind(), randomSensor.getSensorId());
     recMessage.setDeviceId(deviceConfig.getDeviceId());
     recMessage.setObservations(Collections.singletonList(observation));
     return recMessage;
