@@ -12,16 +12,19 @@ public class DeviceConfig {
   private String deviceId;
   private String deviceKey;
   private List<Sensor> sensors;
+  private List<Actuator> actuators;
 
   @JsonCreator
   public DeviceConfig(@JsonProperty(value = "iotHubAddress") String iotHubAddress,
       @JsonProperty(value = "deviceId") String deviceId,
       @JsonProperty(value = "deviceKey") String deviceKey,
-      @JsonProperty(value = "sensors") List<Sensor> sensors) {
+      @JsonProperty(value = "sensors") List<Sensor> sensors,
+      @JsonProperty(value = "actuators") List<Actuator> actuators) {
     this.iotHubAddress = iotHubAddress;
     this.deviceId = deviceId;
     this.deviceKey = deviceKey;
     this.sensors = sensors;
+    this.actuators = actuators;
   }
 
   public String createConnectionString() {
@@ -37,5 +40,9 @@ public class DeviceConfig {
 
   public List<Sensor> getSensors() {
     return sensors;
+  }
+
+  public List<Actuator> getActuators() {
+    return actuators;
   }
 }

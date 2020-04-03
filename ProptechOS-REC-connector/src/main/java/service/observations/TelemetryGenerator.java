@@ -1,4 +1,7 @@
-package service;
+package service.observations;
+
+import static java.util.Objects.isNull;
+import static service.actuations.DeviceMessageCallback.actuationValue;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
@@ -22,13 +25,17 @@ public class TelemetryGenerator {
   }
 
   public RecMessage generateTelemetry() {
-    final RecMessage recMessage = new RecMessage();
     final Sensor randomSensor = getRandomSensor();
+    //we use temperature from actuation, in case
+    //when there was no actuation from ProptechOS we use some randomly generated one
+    Object temperatureValue = isNull(actuationValue)
+        ? generateRandomTemperature()
+        : actuationValue;
     final RecObservation observation = new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-        generateRandomTemperature(), randomSensor.getQuantityKind(), randomSensor.getSensorId());
-    recMessage.setDeviceId(deviceConfig.getDeviceId());
-    recMessage.setObservations(Collections.singletonList(observation));
-    return recMessage;
+        temperatureValue, randomSensor.getQuantityKind(), randomSensor.getSensorId());
+    return new RecMessage()
+        .setDeviceId(deviceConfig.getDeviceId())
+        .setObservations(Collections.singletonList(observation));
   }
 
   private double generateRandomTemperature() {

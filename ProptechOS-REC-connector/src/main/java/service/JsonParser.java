@@ -10,7 +10,7 @@ import java.net.URL;
 import model.config.DeviceConfig;
 import model.message.RecMessage;
 
-public class ConfigParser {
+public class JsonParser {
 
   private static final ObjectMapper MAPPER =
       new ObjectMapper()
@@ -20,6 +20,10 @@ public class ConfigParser {
               DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES,
               DeserializationFeature.FAIL_ON_NULL_CREATOR_PROPERTIES
           );
+
+  public static RecMessage fromBytes(byte[] bytes) throws IOException {
+    return MAPPER.readValue(bytes, RecMessage.class);
+  }
 
   public static DeviceConfig parse(URL source) {
     try {

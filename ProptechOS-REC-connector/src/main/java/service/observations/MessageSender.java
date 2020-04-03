@@ -1,6 +1,6 @@
-package service;
+package service.observations;
 
-import static service.ConfigParser.parseToString;
+import static service.JsonParser.parseToString;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.microsoft.azure.sdk.iot.device.DeviceClient;
@@ -28,7 +28,7 @@ public class MessageSender implements Runnable {
         Message message = new Message(msgStr);
         System.out.println("Sending message: " + msgStr);
         client.sendEventAsync(message, null, new Object());
-        Thread.sleep(5000);
+        Thread.sleep(10000);
       }
     } catch (InterruptedException e) {
       System.out.println("Finished.");

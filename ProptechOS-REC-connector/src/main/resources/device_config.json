@@ -7,5 +7,10 @@
       "sensorType": "Temperature",
       "sensorId": "id of temperature sensor"
     }
+  ],
+  "actuators": [
+    {
+      "actuatorId": "id of actuator"
+    }
   ]
 }
