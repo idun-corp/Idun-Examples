@@ -5,8 +5,7 @@ import java.time.ZonedDateTime;
 public class RecActuationCommand {
 
   private ZonedDateTime actuationCommandTime;
-  private String actuationId;
-  private String actuationInterfaceId;
+  private String actuationCommandId;
   private String actuatorId;
   private Object value;
 
@@ -14,12 +13,8 @@ public class RecActuationCommand {
     return actuationCommandTime;
   }
 
-  public String getActuationId() {
-    return actuationId;
-  }
-
-  public String getActuationInterfaceId() {
-    return actuationInterfaceId;
+  public String getActuationCommandId() {
+    return actuationCommandId;
   }
 
   public String getActuatorId() {

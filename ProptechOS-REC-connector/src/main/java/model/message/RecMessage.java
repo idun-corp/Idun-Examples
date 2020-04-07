@@ -1,9 +1,13 @@
 package model.message;
 
+import static java.util.Collections.emptyList;
+import static java.util.Objects.isNull;
+
 import java.util.List;
 import model.message.actuation.RecActuationCommand;
 import model.message.actuation.RecActuationResponse;
 import model.message.exception.RecException;
+import model.message.modulestate.ModuleMessage;
 
 public class RecMessage {
 
@@ -13,6 +17,7 @@ public class RecMessage {
   private List<RecException> exceptions;
   private List<RecActuationCommand> actuationCommands;
   private List<RecActuationResponse> actuationResponses;
+  private ModuleMessage edgeStatus;
 
   public String getFormat() {
     return format;
@@ -28,7 +33,9 @@ public class RecMessage {
   }
 
   public List<RecObservation> getObservations() {
-    return observations;
+    return isNull(observations)
+        ? emptyList()
+        : observations;
   }
 
   public RecMessage setObservations(List<RecObservation> observations) {
@@ -37,15 +44,21 @@ public class RecMessage {
   }
 
   public List<RecException> getExceptions() {
-    return exceptions;
+    return isNull(exceptions)
+        ? emptyList()
+        : exceptions;
   }
 
   public List<RecActuationCommand> getActuationCommands() {
-    return actuationCommands;
+    return isNull(actuationCommands)
+        ? emptyList()
+        : actuationCommands;
   }
 
   public List<RecActuationResponse> getActuationResponses() {
-    return actuationResponses;
+    return isNull(actuationResponses)
+        ? emptyList()
+        : actuationResponses;
   }
 
   public RecMessage setActuationResponses(List<RecActuationResponse> actuationResponses) {
@@ -53,4 +66,7 @@ public class RecMessage {
     return this;
   }
 
+  public ModuleMessage getEdgeStatus() {
+    return edgeStatus;
+  }
 }

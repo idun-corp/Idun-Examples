@@ -24,7 +24,7 @@ public class DeviceResponseGenerator {
 
   private RecActuationResponse generateActuationResponse(RecActuationCommand actuationCommand) {
     return new RecActuationResponse()
-        .setActuationCommandId(actuationCommand.getActuationId())
+        .setActuationCommandId(actuationCommand.getActuationCommandId())
         .setActuationResponseTime(ZonedDateTime.now(ZoneOffset.UTC))
         .setActuatorId(actuationCommand.getActuatorId())
         .setResponseCode(ActuationResponseCode.SUCCESS);
