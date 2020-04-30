@@ -4,7 +4,7 @@
   "deviceKey":"key_returned_when_registering_the_device",
   "sensors": [
     {
-      "sensorType": "Temperature",
+      "quantityKind": "Temperature",
       "sensorId": "id of temperature sensor"
     }
   ],
