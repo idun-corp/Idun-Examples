@@ -11,7 +11,7 @@ It can be separated into two categories:
 * interactive authentication (for applications accessing the API on behalf of user, like web apps and UIs)
 * application (daemon) authentication, for applications working without user interaction.
 
-See more in [the Authentication section](ProptechOS-Api/authentication)
+See more in [the Authentication section](authentication)
 
 # JSON and JSON-LD
 The API follow RealEstateCore, which means JSON-LD and [hydra](https://hydra-cg.com). (link to JSON-LD parsers to be added here). However ProptechOS also includes plain JSON versions of all endpoints using the `/json/` prefix for the endpoints. E.g. the `/api/sensor` endpoint has a JSON version at `/api/json/sensor`.
@@ -30,4 +30,4 @@ Using curl: `-H "accept: application/json"`
 
 
 
-See more in [the Alias and AliasNamespace section](ProptechOS-Api/alias-aliasnamespace)
+See more in [the Alias and AliasNamespace section](alias-aliasnamespace)
