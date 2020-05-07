@@ -1,6 +1,6 @@
 ![Idun logo](images/Idun-logotype-ex.png)
 
-# Idun ProptechOS Developer Documents
+# Developer Documents
 
 ![ProptechOS logo](images/ProptechOS-logotype-ex.png)
 
