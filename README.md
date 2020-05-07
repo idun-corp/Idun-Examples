@@ -1,14 +1,15 @@
 # Idun ProptechOS Examples
-
-## 1. REST API
+![Idun logo](//images/Idun-logotype.png)
+![ProptechOS logo](//images/ProptechOS-logotype.png)
+## REST API
 The streaming API lets you explore and edit the knowledge graph, query telemetry and execute actuations.  
 [Consuming Idun ProptechOS REST API](https://github.com/Vasakronan/Idun-Examples/tree/master/ProptechOS-Api/)
 
-## 2. Streaming API
+## Streaming API
 The streaming API lets you consume telemetry.  
 [Consuming Idun ProptechOS Streaming API](https://github.com/Vasakronan/Idun-Examples/tree/master/ProptechOS-Streaming-Api/)
 
-## 3. Edge Interface
+## Edge Interface
 Learn about Edge integrations with the [Idun Edge Interface and sample Connector](https://github.com/Vasakronan/Idun-Examples/tree/master/ProptechOS-Edge-Interface).  
 ProptechOS uses [RealEstateCore Edge messages](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages) and is implemented using [Microsoft Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/)
 

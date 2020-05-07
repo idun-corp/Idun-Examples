@@ -1,103 +1,494 @@
-## Consuming the REST API
-The resources and state of them are exposed via an endpoint each per top level class, with GET and POST methods for reading and creating/changing them. Please see the dynamic (Swagger) docs for up-to-date details.
+# ![ProptechOS logo](//images/ProptechOS-logotype.png) API
 
-### Authentication
+The resources and state of them are exposed via an endpoint each per top level class, with GET and POST methods for reading and creating/changing them. Please see Open API Specification (Swagger) docs for up-to-date details.
+
+# Authentication
 
 Authentication in ProptechOS uses OAuth 2.0 protocol.
 It can be separated into two categories:
-* interactive authentication (from UI, operated by user)
-* application (daemon) authentication, for applications working w/o user interaction.
+* interactive authentication (for applications accessing the API on behalf of user, like web apps and UIs)
+* application (daemon) authentication, for applications working without user interaction.
 
-In both cases, the final goal is to obtain an Access Token, which is used in HTTP header for every call.
+See more in [the Authentication section](ProptechOS-Api/authentication)
 
-Authentication is performed in Microsoft Identity Platform (former Active Directory (AD)), so the user need to have an account in Idun AD.
-In case of application authentication, the application need to have it's own ID in Idun AD.
-After user (application) authenticate itself, it obtains a token in JWT format, which is then put into Authorization header
-for every REST call to Idun REST API. It has to be prepended by Bearer clause:
-```text
---header 'Authorization: Bearer XXXXXX_TOKEN_BODY_XXXXXXXXXX'  
+# JSON and JSON-LD
+asdfasdf
+
+# Using Aliases and AliasNamespaces
+
+## Namespaces
+
+### Retrievable
+URI based
+### Non-Retrievable
+Non URI based
+## Use cases
+### Find your object in ProptechOS via your Alias I
+Let’s say you want to get observations from a sensor that you have represented in your system as `https://mysystem.com/sensor/63350079-9c76-4580-a3a2-97b586dae15a`, then you can get that sensor by querying based on Alias:
+
+**Request - Get Sensor based on Alias**
+```
+// line breaks for clarity
+GET https://foo.proptechos.com/api/sensor?
+alias_ids=https%3A%2F%2Fmysystem.com%2Fsensor%2F63350079-9c76-4580-a3a2-97b586dae15a
+&page=0
+&size=1
+```
+<details>
+<summary> Full response</summary>
+
+```
+{
+  "@context": {
+    "@vocab": "https://w3id.org/rec/device"
+  },
+  "@type": "Sensor",
+  "comment": {},
+  "createdTime": "2019-04-09T13:05:18.220Z",
+  "deviceMeasurementUnit": "https://w3id.org/rec/device/CubicMeter",
+  "devicePlacementContext": "https://w3id.org/rec/device/SupplyAir",
+  "deviceQuantityKind": "https://w3id.org/rec/core/Flow",
+  "hasAlias": [
+    {
+      "@context": {
+        "@vocab": "http://proptechos.com/ontology/extension",
+        "Alias": "http://proptechos.com/ontology/extension/Alias",
+        "isMemberOfAliasNamespace": "http://proptechos.com/ontology/extension/isMemberOfAliasNamespace"
+      },
+      "@type": "Alias",
+      "isMemberOfAliasNamespace": {
+        "@id": "https://foo.proptechos.com/api/aliasnamespace/91fc9574-6dbf-4bd8-9508-6ce1edeb28b2",
+        "@type": "@id"
+      },
+      "@id": "https://mysystem.com/sensor/63350079-9c76-4580-a3a2-97b586dae15a"
+    }
+  ],
+  "hasDeviceFunctionType": null,
+  "hasSuperDevice": {
+    "@id": "https://foo.proptechos.com/api/device/59f0f33b-9edd-42b8-b4c5-44d401402e46",
+    "@type": "@id"
+  },
+  "isMountedInBuildingComponent": {
+    "@id": "https://foo.proptechos.com/api/buildingcomponent/c3d8823d-1a7f-49bd-96af-89522e3549a0",
+    "@type": "@id"
+  },
+  "@id": "https://foo.proptechos.com/api/sensor/a755904b-7ba6-49db-9bc2-05053226af17",
+  "littera": null,
+  "observesActuator": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "popularName": null,
+  "servesBuilding": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "servesBuildingComponent": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "source": {
+    "powerSource": "CommunicationBus"
+  },
+  "updatedTime": "2019-06-14T13:30:08.677Z"
+}
+
+```
+</details>
+The ProptechOS ID is in the response:
+
+```
+"@id": "https://foo.proptechos.com/api/sensor/a755904b-7ba6-49db-9bc2-05053226af17"
 ```
 
-#### 1. Interactive authentication uses OAuth Implicit Grant flow.
+Then you can get observations using that ID  
+**Request - Get Observations for Sensor**
+```
+GET https://foo.proptechos.com/api/sensor/a755904b-7ba6-49db-9bc2-05053226af17/observation
+```
+<details>
+<summary> Full response</summary>
 
-For Web UI application that is interacting with the user, there is MSAL for Javascript Library provided by Microsoft,
-that allows to perform authorization of the user in the frame of UI.
-In this case, the application (usually, web page) is acting on behalf of the user that was authenticated.
-The library exists for several JS frameworks as well as framework-agnostic version.
-Details can be found here:
+```
+[
+  {
+    "observationTime": "2020-05-05T12:25:18.563Z",
+    "value": 19
+  },
+  {
+    "observationTime": "2020-05-05T12:25:35.799Z",
+    "value": 19
+  },
+  {
+    "observationTime": "2020-05-05T12:25:43.928Z",
+    "value": 19
+  },
+  {
+    "observationTime": "2020-05-05T12:26:17.196Z",
+    "value": 19
+  },
+  {
+    "observationTime": "2020-05-05T12:26:26.378Z",
+    "value": 19
+  },
+  {
+    "observationTime": "2020-05-05T12:27:36.215Z",
+    "value": 19
+  },
+  {
+    "observationTime": "2020-05-05T12:27:44.470Z",
+    "value": 19
+  },
+  {
+    "observationTime": "2020-05-05T12:28:43.718Z",
+    "value": 19
+  }
+]
+```
+</details>
 
-https://github.com/AzureAD/microsoft-authentication-library-for-js
+### Find your object in ProptechOS via your Alias II
+Instead, let's say you want to find a presence sensor in a room, based only on your ID for the room `https://mysystem.com/room/40b9c6a8-e738-4da8-a2e1-e661e1977e7a`, then you first request the room, with that Alias, and then a presence sensor in that room.
+**Request - Get Room by Alias**
 
-**NOTE: The Scope during the request must be set to 'Api.Use'.**
-Depending on type of usage, the refreshing of the token is handled by MSAL library.
+```
+// line breaks for clarity
+GET https://foo.proptechos.com/api/sensor?
+alias_ids=https%3A%2F%2Fmysystem.com%2Froom%2F40b9c6a8-e738-4da8-a2e1-e661e1977e7a
+&page=0
+&size=1
+```
+<details>
+<summary> Full object</summary>
 
-The example of how to use it can be found in examples folder.
+```
+{
+  "@context": {
+    "@vocab": "https://w3id.org/rec/core",
+    "Room": "https://w3id.org/rec/core/Room",
+    "isPartOfBuilding": "https://w3id.org/rec/core/isPartOfBuilding",
+    "hasSubBuildingComponent": "https://w3id.org/rec/core/hasSubBuildingComponent",
+    "hasSuperBuildingComponent": "https://w3id.org/rec/core/hasSuperBuildingComponent",
+    "isPartOfStorey": "https://w3id.org/rec/core/isPartOf",
+    "hasAlias": "http://proptechos.com/ontology/extension/hasAlias"
+  },
+  "@type": "Room",
+  "comment": {},
+  "createdTime": "2020-04-15T13:03:39.517Z",
+  "geoReferenceOrigo": "27.88;11.72;45.41",
+  "hasAlias": [
+    {
+      "@context": {
+        "@vocab": "http://proptechos.com/ontology/extension",
+        "Alias": "http://proptechos.com/ontology/extension/Alias",
+        "isMemberOfAliasNamespace": "http://proptechos.com/ontology/extension/isMemberOfAliasNamespace"
+      },
+      "@type": "Alias",
+      "isMemberOfAliasNamespace": {
+        "@id": "https://foo.proptechos.com/api/aliasnamespace/91fc9574-6dbf-4bd8-9508-6ce1edeb28b2",
+        "@type": "@id"
+      },
+      "@id": "https://mysystem.com/room/40b9c6a8-e738-4da8-a2e1-e661e1977e7a"
+    }
+  ],
+  "hasSubBuildingComponent": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "hasSuperBuildingComponent": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "isPartOfBuilding": {
+    "@id": "https://foo.proptechos.com/api/realestatecomponent/0c4b6fae-da27-4502-ad10-0729e45ab68a",
+    "@type": "@id"
+  },
+  "isPartOfStorey": {
+    "@id": "https://foo.proptechos.com/api/storey/efb87367-5f5e-442a-b993-c330110ec6c8",
+    "@type": "@id"
+  },
+  "@id": "https://foo.proptechos.com/api/buildingcomponent/e3d443ac-d30e-435d-afc5-56073dd06856",
+  "littera": "1009-G9",
+  "popularName": null,
+  "roomType": "https://w3id.org/rec/building/GroupRoom",
+  "source": {},
+  "updatedTime": null
+}
+```
+</details>
+Use the Room ID to get the presence sensor:
 
-In case of a web application when backend makes the call to Idun API (and therefore need to authorize),
-a OAuth Grant Code flow can be used, which is supported by MSAL:
+**Request - Get Sensor by Room and QuantityKind**
 
-```text
-https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#authorization-code
+```
+// line breaks for clarity
+GET https://foo.proptechos.com/api/sensor?
+buildingcomponent_ids=e3d443ac-d30e-435d-afc5-56073dd06856
+&quantity_kinds=Presence
+&page=0
+&size=1
+```
+<details>
+<summary> Full response</summary>
+
+```
+{
+  "@context": {
+    "@vocab": "http://www.w3.org/ns/hydra/core#",
+    "Sensor": "https://w3id.org/rec/device/Sensor",
+    "servesBuildingComponent": "https://w3id.org/rec/core/servesBuildingComponent",
+    "observesActuator": "https://w3id.org/rec/device/observesActuator",
+    "hasSuperDevice": "https://w3id.org/rec/core/hasSuperDevice",
+    "isMountedInBuildingComponent": "https://w3id.org/rec/core/isMountedInBuildingComponent",
+    "hasAlias": "http://proptechos.com/ontology/extension/hasAlias",
+    "servesBuilding": "https://w3id.org/rec/core/servesBuilding"
+  },
+  "@type": "Collection",
+  "member": [
+    {
+      "@context": {
+        "@vocab": "https://w3id.org/rec/device"
+      },
+      "@type": "Sensor",
+      "comment": {},
+      "createdTime": "2019-04-09T13:05:18.220Z",
+      "deviceMeasurementUnit": "https://w3id.org/rec/core/Boolean",
+      "devicePlacementContext": "https://w3id.org/rec/device/IndoorAir",
+      "deviceQuantityKind": "https://w3id.org/rec/core/Presence",
+      "hasAlias": [
+        {
+          "@context": {
+            "@vocab": "http://proptechos.com/ontology/extension",
+            "Alias": "http://proptechos.com/ontology/extension/Alias",
+            "isMemberOfAliasNamespace": "http://proptechos.com/ontology/extension/isMemberOfAliasNamespace"
+          },
+          "@type": "Alias",
+          "isMemberOfAliasNamespace": {
+            "@id": "https://foo.proptechos.com/api/aliasnamespace/91fc9574-6dbf-4bd8-9508-6ce1edeb28b2",
+            "@type": "@id"
+          },
+          "@id": "https://ns.proptechos.com/another/system/098762983"
+        }
+      ],
+      "hasDeviceFunctionType": null,
+      "hasSuperDevice": {
+        "@id": "https://foo.proptechos.com/api/device/62e52874-9fa4-41a0-abb2-f4a72e65575a",
+        "@type": "@id"
+      },
+      "isMountedInBuildingComponent": {
+        "@id": "https://foo.proptechos.com/api/buildingcomponent/e3d443ac-d30e-435d-afc5-56073dd06856",
+        "@type": "@id"
+      },
+      "@id": "https://foo.proptechos.com/api/sensor/b59d9314-bcb7-4fb6-b30c-8156584f0363",
+      "littera": null,
+      "observesActuator": {
+        "@id": null,
+        "@type": "@id"
+      },
+      "popularName": null,
+      "servesBuilding": {
+        "@id": null,
+        "@type": "@id"
+      },
+      "servesBuildingComponent": {
+        "@id": null,
+        "@type": "@id"
+      },
+      "source": {
+        "powerSource": "CommunicationBus"
+      },
+      "updatedTime": "2019-06-14T13:30:08.677Z"
+    }
+  ],
+  "totalItems": 1,
+  "view": {
+    "@type": "PartialCollectionView"
+  }
+}
+```
+</details>
+
+### Find a ProptechOS object in another system using Alias
+#### URI based system - Retrievable Alias
+Let’s say you come across a Sensor, that you want to look up further in another system which is called “MyOtherSystem”:
+<details>
+<summary> Full object</summary>
+
+```
+{
+  "@context": {
+    "@vocab": "https://w3id.org/rec/device",
+    "Sensor": "https://w3id.org/rec/device/Sensor",
+    "servesBuildingComponent": "https://w3id.org/rec/core/servesBuildingComponent",
+    "observesActuator": "https://w3id.org/rec/device/observesActuator",
+    "hasSuperDevice": "https://w3id.org/rec/core/hasSuperDevice",
+    "isMountedInBuildingComponent": "https://w3id.org/rec/core/isMountedInBuildingComponent",
+    "hasAlias": "http://proptechos.com/ontology/extension/hasAlias",
+    "servesBuilding": "https://w3id.org/rec/core/servesBuilding"
+  },
+  "@type": "Sensor",
+  "comment": {},
+  "createdTime": "2018-06-06T11:22:27.703Z",
+  "deviceMeasurementUnit": "https://w3id.org/rec/device/Pascal",
+  "devicePlacementContext": "https://w3id.org/rec/device/SupplyAir",
+  "deviceQuantityKind": "https://w3id.org/rec/core/Pressure",
+  "hasAlias": [
+    {
+      "@context": {
+        "@vocab": "http://proptechos.com/ontology/extension",
+        "Alias": "http://proptechos.com/ontology/extension/Alias",
+        "isMemberOfAliasNamespace": "http://proptechos.com/ontology/extension/isMemberOfAliasNamespace"
+      },
+      "@type": "Alias",
+      "isMemberOfAliasNamespace": {
+        "@id": "https://foo.proptechos.com/api/aliasnamespace/91fc9574-6dbf-4bd8-9508-6ce1edeb28b2",
+        "@type": "@id"
+      },
+      "@id": "https://myothersystem.com/63350079-9c76-4580-a3a2-97b586dae15a"
+    }
+  ],
+  "hasDeviceFunctionType": null,
+  "hasSuperDevice": {
+    "@id": "https://foo.proptechos.com/api/device/1c09a986-f136-4b51-9a58-7c60a518d513",
+    "@type": "@id"
+  },
+  "isMountedInBuildingComponent": {
+    "@id": "https://foo.proptechos.com/api/buildingcomponent/00c21ecc-ef1d-4472-8def-c910fca54739",
+    "@type": "@id"
+  },
+  "@id": "https://foo.proptechos.com/api/sensor/1af49db2-033b-4f09-b286-000452ce7519",
+  "littera": null,
+  "observesActuator": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "popularName": null,
+  "servesBuilding": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "servesBuildingComponent": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "source": {
+    "powerSource": "CommunicationBus"
+  },
+  "updatedTime": "2019-06-14T13:16:15.717Z"
+}
+```
+</details>
+
+```
+"hasAlias": [
+    {
+      "@context": {
+        "@vocab": "http://proptechos.com/ontology/extension",
+        "Alias": "http://proptechos.com/ontology/extension/Alias",
+        "isMemberOfAliasNamespace": "http://proptechos.com/ontology/extension/isMemberOfAliasNamespace"
+      },
+      "@type": "Alias",
+      "isMemberOfAliasNamespace": {
+        "@id": "https://foo.proptechos.com/api/aliasnamespace/91fc9574-6dbf-4bd8-9508-6ce1edeb28b2",
+        "@type": "@id"
+      },
+      "@id": "https://myothersystem.com/63350079-9c76-4580-a3a2-97b586dae15a"
+    }
+  ]
 ```
 
+To see the Sensor in MyOtherSystem, just follow the URI: `https://myothersystem.com/63350079-9c76-4580-a3a2-97b586dae15a`  
+Since _MyOtherSystem_ has objects with URIs, the namespace is retrievable and Alias usage is not more complicated than that.
+#### Non-Retrievable Alias
+Now, let’s say you come across another Sensor, that you want to look up further in yet another system which is called _“MyOtherNonRetrievableSystem”_ (and which does not have URIs for its objects - it is not retrievable):
 
+<details>
+<summary> Full object</summary>
 
-#### 2. Application Authentication.
+```
+{
+  "@context": {
+    "@vocab": "https://w3id.org/rec/device",
+    "Sensor": "https://w3id.org/rec/device/Sensor",
+    "servesBuildingComponent": "https://w3id.org/rec/core/servesBuildingComponent",
+    "observesActuator": "https://w3id.org/rec/device/observesActuator",
+    "hasSuperDevice": "https://w3id.org/rec/core/hasSuperDevice",
+    "isMountedInBuildingComponent": "https://w3id.org/rec/core/isMountedInBuildingComponent",
+    "hasAlias": "http://proptechos.com/ontology/extension/hasAlias",
+    "servesBuilding": "https://w3id.org/rec/core/servesBuilding"
+  },
+  "@type": "Sensor",
+  "comment": {},
+  "createdTime": "2019-06-14T12:13:59.180Z",
+  "deviceMeasurementUnit": "https://w3id.org/rec/core/Celsius",
+  "devicePlacementContext": "https://w3id.org/rec/device/IndoorAir",
+  "deviceQuantityKind": "https://w3id.org/rec/core/Temperature",
+  "hasAlias": [
+    {
+      "@context": {
+        "@vocab": "http://proptechos.com/ontology/extension",
+        "Alias": "http://proptechos.com/ontology/extension/Alias",
+        "isMemberOfAliasNamespace": "http://proptechos.com/ontology/extension/isMemberOfAliasNamespace"
+      },
+      "@type": "Alias",
+      "isMemberOfAliasNamespace": {
+        "@id": "https://foo.proptechos.com/api/aliasnamespace/91fc9574-6dbf-4bd8-9508-6ce1edeb28b2",
+        "@type": "@id"
+      },
+      "@id": "https://ns.proptechos.com/my_other_system/508-52/62"
+    }
+  ],
+  "hasDeviceFunctionType": null,
+  "hasSuperDevice": {
+    "@id": "https://foo.proptechos.com/api/device/f8c79a6b-945a-4039-baaf-519346cb68f9",
+    "@type": "@id"
+  },
+  "isMountedInBuildingComponent": {
+    "@id": "https://foo.proptechos.com/api/buildingcomponent/dd2e3c64-3eab-40a0-afbb-610efda7490e",
+    "@type": "@id"
+  },
+  "@id": "https://foo.proptechos.com/api/sensor/a8df11d6-e0a9-4c88-a68f-00042c6b1a2a",
+  "littera": null,
+  "observesActuator": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "popularName": null,
+  "servesBuilding": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "servesBuildingComponent": {
+    "@id": null,
+    "@type": "@id"
+  },
+  "source": {
+    "powerSource": "CommunicationBus"
+  },
+  "updatedTime": "2019-06-18T10:19:56.377Z"
+}
+```
+</details>
 
-In case of this type of authorization, a 'Client Credentials' OAuth flow is used. The application has its own id and password,
-and uses it to obtain a token.
-
-The application that wants to use Idun API, need to have its own identity in Idun Active Directory, as opposite to impersonating a user and acting on its behalf, like in previous section.
-This is done by Idun Admin once for each application.
-After the creation of identity, the ID and Secret of the application is obtained.
-The most straightforward and universal (language-independent) way for application to authenticate itself
-is directly using HTTP POST method on Microsoft authentication endpoint.
-
-```text
-POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
-Host: login.microsoftonline.com
-Content-Type: application/x-www-form-urlencoded
-
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
-&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=qWgdYAmab0YSkuL1qKv5bPX
-&grant_type=client_credentials
+```
+"hasAlias": [
+    {
+      "@context": {
+        "@vocab": "http://proptechos.com/ontology/extension",
+        "Alias": "http://proptechos.com/ontology/extension/Alias",
+        "isMemberOfAliasNamespace": "http://proptechos.com/ontology/extension/isMemberOfAliasNamespace"
+      },
+      "@type": "Alias",
+      "isMemberOfAliasNamespace": {
+        "@id": "https://foo.proptechos.com/api/aliasnamespace/91fc9574-6dbf-4bd8-9508-6ce1edeb28b2",
+        "@type": "@id"
+      },
+      "@id": "https://ns.proptechos.com/my_other_non_retrievable_system/508-52/62"
+    }
+  ]
 ```
 
-important fields here are:
-* client_id: ID of the application, obtained after its creation in Idun AD;
-* client_secret: also generated after the application creation;
-* scope: **this has to be application name followed by '/.default';**
-* grant_type: indicates flow, must be 'client_credentials'.
+The Alias `https://ns.proptechos.com/my_other_non_retrievable_system/508-52/62`, which is on the ns.proptechos.com domain, and hence not retrievable.  
+If you are familiar with MyOtherNonRetrievableSystem, you might know already what to with the id "508-52/62", otherwise you can look up the AliasNamespace to see instructions and descriptions on how to interpret the Alias.
 
-
-Another way is to use MSAL Library provided by Microsoft. An example of how to use it can be found in the **authentication/examples folder**.
-
-The token provided has an expiration time. Usually it is one hour, and it is up to an application to track this timeout
-and/or expiration errors from server side.
-
-Current version is  '0.5.0-preview'   
-Details how to use the lib in the project can be found here:
-https://github.com/AzureAD/microsoft-authentication-library-for-java
-
-
-
-### Migration from old Authentication method.
-
-In previous version, Idun authentication was done by putting predefined Authorization code into Authorization header.
-In a new version, the procedure is basically the same, the only difference is that the token is not statically defined,
-but obtained during the authentication process described above.
-Another difference is that the token is preceded by 'Bearer ' keyword in Authorization header.
-Also, in case of 'Daemon application', the token refreshment must be coded and daemon must take care that the token is not expired.
-Additionally, proper error handling in case the token validation failed, must be performed.
-
-In case of MSAL libraries for Javascript (Angular or other frameworks), the token refreshment is performed by the library itself.
-
-### Resources
-
-For more information about Microsoft Identity Platform, OAuth2 and MSAL Libraries for different languages, it is recommended to
-visit Microsoft official documentation
-
-```text
-https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios
-```
+### Setting up your AliasNamespace
