@@ -6,7 +6,7 @@
 ProptechOS use the RealEstateCore Edge message format for messages to and from edge Devices, like Sensors and Actuators. Use the [documentation from RealEstateCore](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages) to get more familiar with how the edge messages can be used.
 
 ## Edge Connector
-Review the Developer Guide [RealEstateCore Edge Connector for ProptechOS using Microsoft IoT Hub Client](https://drive.google.com/file/d/16jfOR6D6iLCvO4XVjhHgu0S1HESHTL8A/view) to get guided through the java example.
+Review the Developer Guide [RealEstateCore Edge Connector for ProptechOS using Microsoft IoT Hub Client](edge-connector-module) to get guided through the java example.
 
 ## Get started
 To get going you will need the following information at minimum:
