@@ -1,4 +1,4 @@
-# ![ProptechOS logo](//images/ProptechOS-logotype.png) API
+# ![ProptechOS logo](../images/ProptechOS-logotype-ex.png) API
 
 The resources and state of them are exposed via an endpoint each per top level class, with GET and POST methods for reading and creating/changing them. Please see Open API Specification (Swagger) docs for up-to-date details.
 
