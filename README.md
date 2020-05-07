@@ -1,5 +1,5 @@
 # Idun ProptechOS Examples
-![Idun logo](images/Idun-logotype.png)
+![Idun logo](images/Idun-logotype-ex.png)
 ![ProptechOS logo](images/ProptechOS-logotype.png)
 ## REST API
 The streaming API lets you explore and edit the knowledge graph, query telemetry and execute actuations.  
