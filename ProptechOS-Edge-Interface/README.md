@@ -1,4 +1,4 @@
-![ProptechOS logo](images/ProptechOS-logotype-ex.png)
+![ProptechOS logo](../images/ProptechOS-logotype-ex.png)
 
 # Edge Interface
 
