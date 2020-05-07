@@ -37,7 +37,7 @@ alias_ids=https%3A%2F%2Fmysystem.com%2Fsensor%2F63350079-9c76-4580-a3a2-97b586da
 <details>
 <summary> Full response</summary>
 
-```json
+```JSON
 {
   "@context": {
     "@vocab": "https://w3id.org/rec/device"
