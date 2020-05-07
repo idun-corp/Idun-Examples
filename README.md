@@ -3,7 +3,7 @@
 ![Idun logo](images/Idun-logotype-ex.png)
 
 
-![ProptechOS logo](images/ProptechOS-logotype.png)
+![ProptechOS logo](images/ProptechOS-logotype-ex.png)
 
 
 ## REST API
