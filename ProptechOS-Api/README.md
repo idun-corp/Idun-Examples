@@ -12,7 +12,17 @@ It can be separated into two categories:
 See more in [the Authentication section](ProptechOS-Api/authentication)
 
 # JSON and JSON-LD
-asdfasdf
+The API follow RealEstateCore, which means JSON-LD and [hydra](https://hydra-cg.com). (link to JSON-LD parsers to be added here). However ProptechOS also includes plain JSON versions of all endpoints using the `/json/` prefix for the endpoints. E.g. the `/api/sensor` endpoint has a JSON version at `/api/json/sensor`.
+
+Note that besides the endpoints and the contents being different, the different flavours of endpoints rely on different content type headers:
+
+_JSON-LD_  
+`type: application/ld+json`  
+Using curl: `-H "accept: application/ld+json"`
+
+_JSON_  
+`type: application/json`  
+Using curl: `-H "accept: application/json"`
 
 # Using Aliases and AliasNamespaces
 
