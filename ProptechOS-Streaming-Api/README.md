@@ -10,6 +10,7 @@ In summary:
 For information about event hubs and how to consume messages via the EventProcessorHost, please refer to https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-programming-guide
 
  ## The Idun ProptechOS Stream message:
+
 ```json
  {
    "observation": {
@@ -22,4 +23,8 @@ For information about event hubs and how to consume messages via the EventProces
  }
 ```
 
- The Idun Streaming message contains a json formatted RealEstateCore (https://www.realestatecore.io) Observation and the URI of the sensor that produced the observation. To get additional information on the message and the sensor, follow the sensor URI (e.g. the device, the BuildingStrcutureComponent, the RealEstate or related Actuators).
+The Idun Streaming message contains a json formatted RealEstateCore (https://www.realestatecore.io) Observation and the URI of the sensor that produced the observation. To get additional information on the message and the sensor, follow the sensor URI (e.g. the device, the BuildingStrcutureComponent, the RealEstate or related Actuators).
+
+## Deprecated
+### Old Streaming API - Deprecated since 0.0.4
+[Consuming ProptechOS Streaming API using Azure EventProcessorHost](examples-deprecated/netcore/Idun.StreamingApi.Examples/Idun.StreamingApi.Examples)
