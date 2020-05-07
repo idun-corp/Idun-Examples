@@ -37,7 +37,7 @@ alias_ids=https%3A%2F%2Fmysystem.com%2Fsensor%2F63350079-9c76-4580-a3a2-97b586da
 <details>
 <summary> Full response</summary>
 
-```
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/rec/device"
@@ -109,7 +109,7 @@ GET https://foo.proptechos.com/api/sensor/a755904b-7ba6-49db-9bc2-05053226af17/o
 <details>
 <summary> Full response</summary>
 
-```
+```json
 [
   {
     "observationTime": "2020-05-05T12:25:18.563Z",
@@ -161,7 +161,7 @@ alias_ids=https%3A%2F%2Fmysystem.com%2Froom%2F40b9c6a8-e738-4da8-a2e1-e661e1977e
 <details>
 <summary> Full object</summary>
 
-```
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/rec/core",
@@ -231,7 +231,7 @@ buildingcomponent_ids=e3d443ac-d30e-435d-afc5-56073dd06856
 <details>
 <summary> Full response</summary>
 
-```
+```json
 {
   "@context": {
     "@vocab": "http://www.w3.org/ns/hydra/core#",
@@ -314,7 +314,7 @@ Let’s say you come across a Sensor, that you want to look up further in anothe
 <details>
 <summary> Full object</summary>
 
-```
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/rec/device",
@@ -379,7 +379,7 @@ Let’s say you come across a Sensor, that you want to look up further in anothe
 ```
 </details>
 
-```
+```json
 "hasAlias": [
     {
       "@context": {
@@ -405,7 +405,7 @@ Now, let’s say you come across another Sensor, that you want to look up furthe
 <details>
 <summary> Full object</summary>
 
-```
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/rec/device",
@@ -470,7 +470,7 @@ Now, let’s say you come across another Sensor, that you want to look up furthe
 ```
 </details>
 
-```
+```json
 "hasAlias": [
     {
       "@context": {
