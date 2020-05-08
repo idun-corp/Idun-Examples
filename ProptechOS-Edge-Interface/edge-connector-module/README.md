@@ -243,6 +243,8 @@ If  the Observations  match, you have done everything correctly.
 
 An easy way to get authenticated and authorized, and to make the request for /observation/ is to use the Open API Specification Docs, (“Swagger docs”), provided by ProptechOS (see screenshot below).
 
+![GET observations via OAS UI](images/oas-get-observations.png)
+
 ## ProptechOS sending actuations
 To send the actuation we need to use the PUT request method.
 
@@ -251,7 +253,6 @@ To send the actuation we need to use the PUT request method.
 PUT -H "Content-Type: application/json" -d {json object}
 foo.proptechos.com/api/actuator/{id}/actuation
 ```
-
 
 exchange
 * `{json object}` using next json format
@@ -264,10 +265,12 @@ exchange
 }
 ```
 
-        as actuationInterface use any interface that suits your actuation.
+as actuationInterface use any interface that suits your actuation.
 * `{id}` with id of actuator that you about to use
 
 The easier way to send actuation is again, to use the Open API Specification Docs, provided by ProptechOS
+
+![PUT actuation via OAS ui](images/oas-put-actuation.png)
 
 ## Edge Connector receiving actuations
 Now we can check in our connector console logs if it receives any messages from ProptechOS. As we run sending and receiving messages in parallel, we will see outcoming and incoming messages in one list You should see next messages in console:
@@ -362,4 +365,4 @@ Import the project folder you just created with project files to your IDE as a M
 </dependencies>
 ```
 
-Note that versions of dependencies above are the last stable versions at the time of writing this documentation. You can check if there are newer versions of those libraries and use them. 
+Note that versions of dependencies above are the last stable versions at the time of writing this documentation. You can check if there are newer versions of those libraries and use them.
