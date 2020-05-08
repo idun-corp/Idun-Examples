@@ -1,8 +1,8 @@
-![Idun logo](images/Idun-logotype-ex.png)
+![Idun logo](images/Idun-logotype-ex.png)   ![ProptechOS logo](images/ProptechOS-logotype-ex.png)
 
 # Developer Documents
 
-![ProptechOS logo](images/ProptechOS-logotype-ex.png)
+
 
 
 ## REST API
