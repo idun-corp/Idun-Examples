@@ -1,11 +1,10 @@
-![Idun logo](images/Idun-logotype-ex.png)   ![ProptechOS logo](images/ProptechOS-logotype-ex.png)
+![Idun logo](images/Idun-logotype-ex.png)  
+![ProptechOS logo](images/ProptechOS-logotype-ex.png)
 
 # Developer Documents
 
 
-
-
-## REST API
+## API
 The streaming API lets you explore and edit the knowledge graph, query telemetry and execute actuations.  
 [Consuming Idun ProptechOS REST API](ProptechOS-Api)
 
