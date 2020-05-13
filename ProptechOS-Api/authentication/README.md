@@ -1,5 +1,5 @@
 # Authentication
-![ProptechOS logo](images/ProptechOS-logotype.png)  
+![ProptechOS logo](../../images/ProptechOS-logotype-ex.png)  
 Authentication in ProptechOS uses OAuth 2.0 protocol.
 It can be separated into two categories:
 * interactive authentication (for applications accessing the API on behalf of user, like web apps and UIs)
