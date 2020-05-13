@@ -1,0 +1,102 @@
+<script>
+  /**
+   * Create a wrapped version of google.script.run that
+   * is adapted for Angular promises.
+   */
+  var ScriptService = function($q) {
+    var self = this;
+    var promisify = function(key) {
+      return function() {
+        var args = arguments;
+        return $q(function(resolve, reject) {
+          google.script.run
+            .withSuccessHandler(resolve)
+            .withFailureHandler(reject)
+            [key].apply(google.script.run, args);
+        });
+      };
+    };
+    angular.forEach(google.script.run, function(_, key) {
+      self[key] = promisify(key)
+    });
+  };
+
+  /**
+   * The controller for the sidebar.
+   */
+  var SidebarController = function($scope, $window, script, intercom) {
+    var self = this;
+
+    // Hold onto some dependencies.
+    self.$window = $window;
+    self.script = script;
+
+    // Initialize state.
+    self.email = $window.email;
+    self.isSignedIn = $window.isSignedIn;
+    self.authorizationUrl = $window.authorizationUrl;
+    self.user = null;
+
+    // Watch for changes to isSignedIn.
+    $scope.$watch('sidebar.isSignedIn', function(isSignedIn) {
+      if (isSignedIn) {
+        self.getUser();
+      } else {
+        self.user = null;
+      }
+    });
+
+    // Listen for the event that indicates that the OAuth flow has completed.
+    intercom.on('oauthComplete', function(data) {
+      // Make sure the event is for the same Google account.
+      if (data.email === self.email) {
+        $scope.$apply(function() {
+          self.isSignedIn = data.isSignedIn;
+        });
+      }
+    });
+
+    // there is a delay in Authorization storage
+    self.getUser = function () {
+      script.getUser().then(function(user) {
+        if (user) {
+          self.user = user;
+        }
+        else {
+          self.getUser();
+        }
+      }, self.handleError);
+    };
+  };
+
+  // Handler for the sign in button.
+  SidebarController.prototype.signIn = function() {
+    var self = this;
+    self.$window.open(self.authorizationUrl);
+  };
+
+  // Handler for the sign out button.
+  SidebarController.prototype.signOut = function() {
+    var self = this;
+
+    self.signOutPending = true;
+
+    self.script.signOut().then(function() {
+      self.signOutPending = false;
+      self.isSignedIn = false;
+    }, self.handleError);
+  };
+
+  // A generic handler for script errors.
+  SidebarController.prototype.handleError = function(error) {
+    var self = this;
+      console.error(error);
+  };
+
+  var module = angular.module('sidebarApp', [])
+    .service('script', ScriptService)
+    .service('intercom', function() {
+      return Intercom.getInstance();
+    })
+    .controller('SidebarController', SidebarController);
+</script>

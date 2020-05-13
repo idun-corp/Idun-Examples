@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="sidebarApp">
+
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intercom.js/0.1.4/intercom.min.js"></script>
+</head>
+
+<body ng-controller="SidebarController as sidebar">
+  <div ng-show="!sidebar.isSignedIn">
+    <p>Please sign in</p>
+
+    <button ng-click="sidebar.signIn()">Sign in</button>
+  </div>
+
+  <div ng-show="sidebar.isSignedIn">
+    <div ng-show="sidebar.user">
+      <p>Hello {{sidebar.user.displayName || '...' }}</p>
+      <p>Current token is: {{ sidebar.user.token }}</p>
+
+      <button ng-click="sidebar.signOut()" ng-disabled="sidebar.signOutPending">{{ sidebar.signOutPending ? "Please wait..." : "Sign out" }}</button>
+    </div>
+
+    <div ng-show="!sidebar.user">
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <script>
+    var email = '<?= email ?>';
+    var isSignedIn = '<?= isSignedIn ?>' == 'true';
+    var authorizationUrl = '<?= authorizationUrl ?>';
+  </script>
+
+  <?!= include('OAuth2_Sidebar.js') ?>
+</body>
+</html>
