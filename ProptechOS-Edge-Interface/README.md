@@ -314,39 +314,39 @@ Sending message:
 Incoming message:
 ```json
 {
-  "observations": null,
-  "actuationCommands": [
-    {
-      "actuationId": "15cba85b-b578-4f1a-a362-9265443d58ef",
-      "actuatorId": "5c32eb22-fb14-4322-b801-02f694129105",
-      "actuationInterfaceId": "e3598a4e-c808-41c5-a234-7449a14a904d",
-      "value": "22",
-      "actuationCommandTime": "2020-04-06T10:29:23.763658Z"
-    }
-  ],
-  "actuationResponses": [],
-  "exceptions": null,
-  "format": "rec 2.3.1",
-  "deviceId": "c16d5e09-ed5c-4297-b6b9-cc733b1b1065"
+	"format":"rec3.1.1",
+	"deviceId":"7387e678-b151-426e-a1c7-70f26f414859",
+	"observations":null,
+	"actuationCommands":[
+		{
+			"actuationCommandId":"3cf655ee-4d35-4f00-90f1-c2edd9495c42",
+			"actuatorId":"79190645-19ec-4c46-9f25-191639663730",
+			"value":"25",
+      "actuationCommandTime":"2020-05-14T12:53:32.356377Z"
+		}
+	],
+	"actuationResponses":[],
+	"exceptions":null,
+	"edgeStatus":null
 }
 ```
 
 Sending actuation response:
 ```json
 {
-  "format": "rec3.2",
-  "deviceId": "c16d5e09-ed5c-4297-b6b9-cc733b1b1065",
-  "observations": null,
-  "exceptions": null,
-  "actuationCommands": null,
-  "actuationResponses": [
-    {
-      "actuatorId": "5c32eb22-fb14-4322-b801-02f694129105",
-      "actuationCommandId": "15cba85b-b578-4f1a-a362-9265443d58ef",
-      "responseCode": "success",
-      "actuationResponseTime": "2020-04-06T10:29:22.2006666Z"
-    }
-  ]
+	"format":"rec3.1.1",
+	"deviceId":"7387e678-b151-426e-a1c7-70f26f414859",
+	"observations":[],
+	"exceptions":[],
+	"actuationCommands":[],
+	"actuationResponses":[
+		{
+			"actuatorId":"79190645-19ec-4c46-9f25-191639663730",
+			"actuationCommandId":"3cf655ee-4d35-4f00-90f1-c2edd9495c42",
+			"responseCode":"success",
+			"actuationResponseTime":"2020-05-14T12:53:31.5747577Z"}]
+		}
+	]
 }
 ```
 
