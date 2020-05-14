@@ -11,7 +11,7 @@ import model.message.modulestate.ModuleMessage;
 
 public class RecMessage {
 
-  private final String format = "rec3.2";
+  private final String format = "rec3.1.1";
   private String deviceId;
   private List<RecObservation> observations;
   private List<RecException> exceptions;
