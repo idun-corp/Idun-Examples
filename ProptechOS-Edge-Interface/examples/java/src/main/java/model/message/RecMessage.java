@@ -3,6 +3,7 @@ package model.message;
 import static java.util.Collections.emptyList;
 import static java.util.Objects.isNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import model.message.actuation.RecActuationCommand;
 import model.message.actuation.RecActuationResponse;
@@ -17,7 +18,8 @@ public class RecMessage {
   private List<RecException> exceptions;
   private List<RecActuationCommand> actuationCommands;
   private List<RecActuationResponse> actuationResponses;
-  private ModuleMessage edgeStatus;
+  @JsonIgnore
+  private Object edgeStatus;
 
   public String getFormat() {
     return format;
