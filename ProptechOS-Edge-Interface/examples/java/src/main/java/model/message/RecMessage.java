@@ -68,7 +68,7 @@ public class RecMessage {
     return this;
   }
 
-  public ModuleMessage getEdgeStatus() {
+  public Object getEdgeStatus() {
     return edgeStatus;
   }
 }
