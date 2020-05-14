@@ -90,7 +90,7 @@ We will need this connection string to create DeviceClient [Azure Docs - DeviceC
 1. Our telemetry will be RecMessage class with fields:
 
 ```java
-private final String format = "rec3.2";
+private final String format = "rec3.1.1";
 private String deviceId;
 private List<RecObservation> observations;
 private List<RecActuationCommand> actuationCommands;
@@ -198,11 +198,11 @@ To check what observation messages are sent to ProptechOS add `System.out. print
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 Press ENTER to exit.
-Sending message: {"format":"rec3.2","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
+Sending message: {"format":"rec3.1.1","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
 "observations":[{"observationTime":"2020-03-27T09:12:51.6874058Z","value":24.221417634196257,"quantityKind":"Temperature","sensorId":"7ee2dc9e-e9b0-417c-8c28-05cacb6f863e"}]}
-Sending message: {"format":"rec3.2","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
+Sending message: {"format":"rec3.1.1","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
 "observations":[{"observationTime":"2020-03-27T09:12:56.6899086Z","value":18.34789332490643,"quantityKind":"Temperature","sensorId":"7ee2dc9e-e9b0-417c-8c28-05cacb6f863e"}]}
-Sending message: {"format":"rec3.2","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
+Sending message: {"format":"rec3.1.1","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
 "observations":[{"observationTime":"2020-03-27T09:13:01.6943853Z","value":20.894724160375738,"quantityKind":"Temperature","sensorId":"7ee2dc9e-e9b0-417c-8c28-05cacb6f863e"}]}
 ```
 
@@ -292,10 +292,10 @@ The easier way to send actuation is again, to use the Open API Specification Doc
 ## Edge Connector receiving actuations
 Now we can check in our connector console logs if it receives any messages from ProptechOS. As we run sending and receiving messages in parallel, we will see outcoming and incoming messages in one list You should see next messages in console:
 
-Sending message:
+Sending observation message (like above):
 ```JSON
 {
-  "format": "rec3.2",
+  "format": "rec3.1.1",
   "deviceId": "c16d5e09-ed5c-4297-b6b9-cc733b1b1065",
   "observations": [
     {
@@ -311,7 +311,7 @@ Sending message:
 }
 ```
 
-Incoming message:
+Incoming ActuationCommand message:
 ```json
 {
 	"format":"rec3.1.1",
@@ -330,8 +330,9 @@ Incoming message:
 	"edgeStatus":null
 }
 ```
+("edgeStatus" is an ProptechOS-specific  property that can be ignored)
 
-Sending actuation response:
+Sending ActuationResponse message:
 ```json
 {
 	"format":"rec3.1.1",
@@ -344,13 +345,13 @@ Sending actuation response:
 			"actuatorId":"79190645-19ec-4c46-9f25-191639663730",
 			"actuationCommandId":"3cf655ee-4d35-4f00-90f1-c2edd9495c42",
 			"responseCode":"success",
-			"actuationResponseTime":"2020-05-14T12:53:31.5747577Z"}]
-		}
-	]
+			"actuationResponseTime":"2020-05-14T12:53:31.5747577Z"
+    }
+  ]
 }
 ```
 
-Incoming message is the RealEsateCore message that we have received from ProptechOS, and Sending actuation response is the message that goes back to ProptechOS to inform that actuation was successful.
+Incoming ActuationCommand message is the RealEsateCore cloud-to-edge message that we have received from ProptechOS, and Sending ActuationResponse is the edge-to-cloud message that goes back to ProptechOS informing that actuation was successful.
 
 The last check that can be done to verify that actuation flow is successful is to repeat the “ProptechOS receiving observations” step. You should see in the observations value the same as you have set in the actuation value field.
 
