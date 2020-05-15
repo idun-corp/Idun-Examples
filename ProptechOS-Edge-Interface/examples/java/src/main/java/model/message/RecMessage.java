@@ -8,7 +8,6 @@ import java.util.List;
 import model.message.actuation.RecActuationCommand;
 import model.message.actuation.RecActuationResponse;
 import model.message.exception.RecException;
-import model.message.modulestate.ModuleMessage;
 
 public class RecMessage {
 
