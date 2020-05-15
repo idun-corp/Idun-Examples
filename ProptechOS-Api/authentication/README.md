@@ -30,8 +30,8 @@ An example of how to use it can be found in examples folder.
 
 ```
 // Line breaks for legibility only
-GET  https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+GET  https://login.microsoftonline.com/{ tenant }/oauth2/v2.0/authorize?
+client_id={ client id}
 &response_type=id_token
 &redirect_uri=http%3A%2F%2{ myApp.com }%2F{ myRedirectEndpoint }%2F
 &scope=Api.Use
