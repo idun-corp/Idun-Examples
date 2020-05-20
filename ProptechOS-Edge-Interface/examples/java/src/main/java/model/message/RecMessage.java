@@ -3,11 +3,11 @@ package model.message;
 import static java.util.Collections.emptyList;
 import static java.util.Objects.isNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import model.message.actuation.RecActuationCommand;
 import model.message.actuation.RecActuationResponse;
 import model.message.exception.RecException;
-import model.message.modulestate.ModuleMessage;
 
 public class RecMessage {
 
@@ -17,7 +17,8 @@ public class RecMessage {
   private List<RecException> exceptions;
   private List<RecActuationCommand> actuationCommands;
   private List<RecActuationResponse> actuationResponses;
-  private ModuleMessage edgeStatus;
+  @JsonIgnore
+  private Object edgeStatus;
 
   public String getFormat() {
     return format;
@@ -66,7 +67,7 @@ public class RecMessage {
     return this;
   }
 
-  public ModuleMessage getEdgeStatus() {
+  public Object getEdgeStatus() {
     return edgeStatus;
   }
 }
