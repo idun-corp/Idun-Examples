@@ -1,9 +1,11 @@
+
 ﻿# Consuming Idun Streaming API using EventProcessorHost
+**(Deprecated since ProptechOS 0.0.4)** 
 This page will describe how to use this example of how to consume messages from Idun Streaming API.
 For further information about event hubs and how to consume messages, please refer to https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-programming-guide
 
 ## Prerequisites
-This example is based on C# and .NET CORE using Visual Studio 2017. 
+This example is based on C# and .NET CORE using Visual Studio 2017.
 Before you begin make sure you have got your event hub name and event hub connection string from your Idun representative.
 You will also need an Azure Storage Account and it's Account Name, Account Key and the name of the container to use.
 For information on setting up an Azure Storage Account, follow the section "Create an Azure Storage Accoint" from https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph#create-an-azure-storage-account
@@ -25,7 +27,7 @@ The appsettings.json contains of five configuratrion parameters.
  This means that several SimpleEventProcess instances will run in parallell, something to consider when you move on from this example and want to call your application.
  For deeper knowledge on the EventProcessorHost, refer to it's documentation at https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost?view=azure-dotnet
 
- ## The Idun message 
+ ## The Idun message
  What you will see in the console is all messages that is published to your event hub starting at your time of program startup.
  The data is a json formatted object and based on Real Estate Core (https://www.realestatecore.io)
 
@@ -63,7 +65,7 @@ Contains information about the sensor that made the observation.
 - id : The unique identifier of the sensor.
 - ispartofdevice : The unique idenfier of the device that the sensor is part of.
 - quantityKind : Specifies the kind of the observation values that the sensor produce.
-- locatedin : Refers to the buildingstructurecomponent of where this sensor is installed. 
+- locatedin : Refers to the buildingstructurecomponent of where this sensor is installed.
 
 ### Device
 Contains information about the device that the sensor is part of.
@@ -79,7 +81,7 @@ Contains information about the device that the sensor is part of.
     }
 
 - id : The unique identifier of the device.
-- locatedin : Refers to the buildingstructurecomponent of where this sensor is installed. 
+- locatedin : Refers to the buildingstructurecomponent of where this sensor is installed.
 
 ### Building Structure Component
 Contains information about the physical space where the device is installed, like OfficeRoom or an Atrium etc. Refer to Real Estate Core for more details.
@@ -94,7 +96,7 @@ Contains information about the physical space where the device is installed, lik
 
 - id : The unique identifier of the building structure component.
 - class : Defines what kind of building structure component this is, e.g. OfficeRoom.
-- locatedin : Refers to the buildingstructure this building structure component belong to / is part of. 
+- locatedin : Refers to the buildingstructure this building structure component belong to / is part of.
 
 ### Building Structure
 Contains information about the building. Refer to Real Estate Core for more details.
@@ -129,7 +131,7 @@ Contains information about the real estate the building belong to. Refer to Real
 
 ### Format
 Specifies the version of Real Estate Core used, e.g. rec2.2
-    
+
 	"format": "rec2.2"
 
 
