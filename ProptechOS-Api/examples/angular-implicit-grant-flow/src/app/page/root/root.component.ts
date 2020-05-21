@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MsalService} from '@azure/msal-angular';
 import {environment as env} from '../../../environments/environment';
+import { InDataService } from '../../services/in-data.service';
+import { ProptechosService } from '../../services/proptechos.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +13,30 @@ export class RootComponent implements OnInit {
 
   accessToken: string;
 
-  constructor( private _msalService: MsalService
+  actuator: Object;
+  sensor: Object;
+  observation: Object;
+
+  constructor(
+    private msalService: MsalService,
+    private inDataService: InDataService,
+    private apiService: ProptechosService
   ) { }
 
 
   ngOnInit(): void {
-    this._msalService.acquireTokenSilent(env.auth.consentScopes).then(token => {
+    this.msalService.acquireTokenSilent(env.auth.consentScopes).then(token => {
       this.accessToken = token;
+    });
+    console.log(this.inDataService.retrieveInData());
+    this.apiService.getActuator(this.inDataService.retrieveInData().actuatorId).subscribe((data) => {
+      this.actuator = data;
+    });
+    this.apiService.getSensor(this.inDataService.retrieveInData().sensorId).subscribe((data) => {
+      this.sensor = data;
+    });
+    this.apiService.getLatestObservation(this.inDataService.retrieveInData().sensorId).subscribe((data) => {
+      this.observation = data;
     });
   }
 

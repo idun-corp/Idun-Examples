@@ -10,11 +10,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './page/home/home.component';
 import { MsalModule } from '@azure/msal-angular';
 import { environment } from '../environments/environment';
+import { RootComponent } from './page/root/root.component';
+import { ProptechosService } from './services/proptechos.service';
+import { InDataService } from './services/in-data.service';
+import { AxiomInfoComponent } from './page/axiom-info/axiom-info.component';
+import { LatestObservationComponent } from './page/latest-observation/latest-observation.component';
+import { ActuationComponent } from './page/actuation/actuation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    RootComponent,
+    AxiomInfoComponent,
+    LatestObservationComponent,
+    ActuationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +34,10 @@ import { environment } from '../environments/environment';
     MatButtonModule,
     MsalModule.forRoot(environment.auth)
   ],
-  providers: [],
+  providers: [
+    ProptechosService,
+    InDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

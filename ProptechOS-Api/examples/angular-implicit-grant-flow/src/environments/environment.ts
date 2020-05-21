@@ -9,10 +9,10 @@ export const environment = {
   production: false,
 
   auth: {
-    clientID : '<CLIENT_ID>',
-    authority: '<AUTHORITY_HREF>',
+    clientID : '3f557e2a-3076-42d7-9c81-d403551c8cf7',
+    authority: 'https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/',
     redirectUri: 'http://localhost:5200/dashboard',
-    consentScopes: ['<SCOPE_NAME>'],
+    consentScopes: ['https://idundev.proptechos.com/api/Api.Use'],
     protectedResourceMap: protectedMap,
     unprotectedResources: []
   },
