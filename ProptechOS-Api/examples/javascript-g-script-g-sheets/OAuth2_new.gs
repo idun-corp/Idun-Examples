@@ -5,6 +5,11 @@
 // 2. In the "Find a Library" text box, enter the script ID 1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF and click the "Select" button.
 // 3. Choose a version in the dropdown box (usually best to pick the latest version).
 // 4. Click the "Save" button.
+
+// Instructions to register app
+// 1. redirect URI: https://script.google.com/macros/d/<< your script ID >>/usercallback
+// 2. Add "API permission" for ProptechOS API, scope .Api.
+
 function getAzureService() {
   var TENANT_ID = 'd4218456-670f-42ad-9f6a-885ae15b6645';
   var CLIENT_ID = '<< add your client id >>';
