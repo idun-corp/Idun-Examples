@@ -16,6 +16,8 @@ If the Alias for an object is not retrievable, either because the system or cont
 ## Use cases
 * [Find your object in ProptechOS via your Alias I](#find-your-object-in-proptechos-via-your-alias-i)
 * [Find your object in ProptechOS via your Alias II](#find-your-object-in-proptechos-via-your-alias-ii)
+
+
 Find a ProptechOS object in another system using Alias
 * [URI based system - Retrievable Alias](#uri-based-system---retrievable-alias)
 * [Non-Retrievable Alias](#non-retrievable-alias)
