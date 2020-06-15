@@ -26,8 +26,6 @@ _JSON_
 `type: application/json`  
 Using curl: `-H "accept: application/json"`
 
-# Using Aliases and AliasNamespaces
-
-
+# Aliases and AliasNamespaces
 
 See more in [the Alias and AliasNamespace section](alias-aliasnamespace)

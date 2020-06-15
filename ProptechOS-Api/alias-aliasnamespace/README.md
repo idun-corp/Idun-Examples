@@ -1,13 +1,25 @@
 ![ProptechOS logo](../../images/ProptechOS-logotype-ex.png)
-# Using Aliases and AliasNamespaces
+# Aliases and AliasNamespaces
+All objects in ProptechOS can have an Alias, a name or identifier by which it exists in another system or context. With Aliases, ProptechOS can be used as a knowledge graph that not only hold information about its nodes, but also links to where more information or affordances can be found.
 
 ## Namespaces
+ProptechOS aliases are namespaced, with each external system or context in a separate namespace. E.g. an environment certification agency which has an alias for all RealEstates and Buildings, or a utility company which has its own id for a set of energy meters. Namespaces ensure that external IDs (aliases) are unique, understandable and grouped. Aliases and therefore AliasNamespaces fall under two categories retrievable and non-retrievable.
 
 ### Retrievable
-URI based
+(URI based)  
+If the Alias for an object is retrievable over the internet, the Alias is the URI by which the object can be retrieved. ProptechOS is based on semantic and linked data. With a retrievable alias, ProptechOS can link to an object in an external system. Retrievable aliases  are understandable by querying the external system and by definition unique. (Note that a ProptechOS user does not necessarily have the access rights in the external system to view objects via their alias URIs.)
+
 ### Non-Retrievable
-Non URI based
+(Non URI based)
+If the Alias for an object is not retrievable, either because the system or context does not have an API (like an identifier for a Sensor in a Building Automation System), or that the alias is an general identifier like a LoRa DEV EUI, the alias will belong to a non-retrievable namespace. The namespace will in most cases rely on the https://ns.proptechos.com domain to remain globally unique. Generally a non-retrievable alias can be understood, by reading the description of its AliasNamespace.
+
 ## Use cases
+* [Find your object in ProptechOS via your Alias I](#find-your-object-in-proptechos-via-your-alias-i)
+* [Find your object in ProptechOS via your Alias II](#find-your-object-in-proptechos-via-your-alias-ii)
+Find a ProptechOS object in another system using Alias
+* [URI based system - Retrievable Alias](#uri-based-system---retrievable-alias)
+* [Non-Retrievable Alias](#non-retrievable-alias)
+
 ### Find your object in ProptechOS via your Alias I
 Let’s say you want to get observations from a sensor that you have represented in your system as `https://mysystem.com/sensor/63350079-9c76-4580-a3a2-97b586dae15a`, then you can get that sensor by querying based on Alias:
 
