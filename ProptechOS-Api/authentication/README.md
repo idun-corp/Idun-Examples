@@ -25,7 +25,7 @@ Depending on type of usage, the refreshing of the token is handled by MSAL libra
 
 The application that wants to use the ProptechOS API with Implicit flow authentication need to have its own identity in Idun's Active Directory, and the correct Redirect URI registered. Registering the application and redirect URI is done by Idun admin.
 
-An example of how to use it can be found in examples folder.
+An example of how to use it can be found in the **[authentication/examples folder](../examples)**.
 
 
 ```
