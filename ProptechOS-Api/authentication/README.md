@@ -2,8 +2,8 @@
 ![ProptechOS logo](../../images/ProptechOS-logotype-ex.png)  
 Authentication in ProptechOS uses OAuth 2.0 protocol.
 It can be separated into two categories:
-* interactive authentication (for applications accessing the API on behalf of user, like web apps and UIs)
-* application (daemon) authentication, for applications working without user interaction.
+* Interactive authentication (for applications accessing the API on behalf of user, like web apps and UIs)
+* Application (daemon) authentication, for applications working without user interaction.
 
 In both cases, the final goal is to obtain an Access Token, which is used in HTTP header for every call.
 
@@ -30,15 +30,20 @@ An example of how to use it can be found in examples folder.
 
 ```
 // Line breaks for legibility only
-GET  https://login.microsoftonline.com/{ tenant }/oauth2/v2.0/authorize?
+GET  https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/authorize?
 client_id={ client id}
 &response_type=id_token
-&redirect_uri=http%3A%2F%2{ myApp.com }%2F{ myRedirectEndpoint }%2F
+&redirect_uri=http%3A%2F%2myApp.com%2Fmyredirectendpoint%2F
 &scope=Api.Use
 &response_mode=fragment
 &state=12345
 &nonce=678910
 ```
+
+important to note:
+* tenant: this URL is for the Idun ProptechOS tenant (d4218456-670f-42ad-9f6a-885ae15b6645)
+* client_id: ID of the application, obtained after Application registration by Idun **Replace wiht your client id**
+* redirect_uri: upon Applicaiton registration for the implicit auth flow you will state your redirect uri. **Replace myapp.com/myredirectendpoint with your redirect endpoint**
 
 Read more: [Microsoft Docs - MSAL Authentication Flows Authorization Code](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#authorization-code)
 
@@ -53,21 +58,22 @@ is directly using HTTP POST method on Microsoft authentication endpoint.
 
 ```
 //Line breaks for clarity
-POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
-client_id={client ID}
-&client_secret={client secret}}
-&scope=https%3A%2F%2F{ myApp }%2F.default
+POST https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token?
+client_id={ client ID }
+&client_secret={ client secret }
+&scope=https%3A%2F%2Fmyinstance.proptechos.com%2Fapi%2F.default
 &grant_type=client_credentials
 ```
 
-important fields here are:
-* client_id: ID of the application, obtained after its creation in Idun AD;
-* client_secret: also generated after the application creation;
-* scope: **this has to be application name followed by '/.default';**
-* grant_type: indicates flow, must be 'client_credentials'.
+important to note:
+* tenant: this URL is for the Idun ProptechOS tenant (d4218456-670f-42ad-9f6a-885ae15b6645)
+* client_id: ID of the application, obtained after Application registration by Idun. **Replce with your client id**
+* client_secret: also generated after Application registration by Idun **Replace with your client secret**
+* scope: Stae the ProptechOS API as scope. **Replace _'myinstance'_ with your the instance of ProptechOS your application is calling**
+* grant_type: must be 'client_credentials' (indicates which auth flow).
 
 
-Another way is to use MSAL Library provided by Microsoft. An example of how to use it can be found in the **authentication/examples folder**.
+Another way is to use MSAL Library provided by Microsoft. An example of how to use it can be found in the **[authentication/examples folder](../examples)**.
 
 The token provided has an expiration time. Usually it is one hour, and it is up to an application to track this timeout
 and/or expiration errors, and to retrieve new access tokens in time.
