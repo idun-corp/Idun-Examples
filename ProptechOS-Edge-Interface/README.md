@@ -15,6 +15,7 @@ To get going you will need the following information at minimum:
 - Actuator ID (`actuatorId` in examples)
 
 When starting the ProptechOS Edge Connector development, Idun will set up acces, and a set of test devices. The device key and other secrets will be shared using [1Password](https://1password.com/) in a vault entry like below. Idun will invite you to 1Password. Accept the invitation, and after Idun has confimred your account and set up a shared vault, you can access your test device information.
+
 ![Test Devices Vault](images/1Pass_Test_Devices-ex.png)
 
 
