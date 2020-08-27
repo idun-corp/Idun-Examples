@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {Observation} from '../../common/rectypes';
 
 @Component({
   selector: 'app-latest-observation',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LatestObservationComponent implements OnInit {
 
-  @Input() observation: Object;
+  @Input() observation: Observation;
 
   constructor() { }
 

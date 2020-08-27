@@ -1,23 +1,35 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-export const protectedMap: [string, string[]][] = [
-  ['https://idundev.proptechos.com/api/', ['https://idundev.proptechos.com/api/Api.Use']]
-];
+import {Configuration} from 'msal';
 
-export const environment = {
-  production: false,
+const protectedMap: Map<string, Array<string>> = new Map<string, Array<string>>();
+protectedMap.set('<BASE_API_URL>', ['<RESOURCE_SCOPES>']);
 
+const msalConfiguration: Configuration = {
   auth: {
-    clientID : '3f557e2a-3076-42d7-9c81-d403551c8cf7',
-    authority: 'https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/',
-    redirectUri: 'http://localhost:5200/dashboard',
-    consentScopes: ['https://idundev.proptechos.com/api/Api.Use'],
+    clientId : '<CLIENT_APP_ID>',
+    authority: '<AUTHORITY_HREF>',
+    redirectUri: 'http://localhost:5200/dashboard'
+  },
+  framework: {
+    isAngular: true,
     protectedResourceMap: protectedMap,
     unprotectedResources: []
-  },
-  baseUrl: 'https://idundev.proptechos.com/api'
+  }
 };
+
+export const environment: IEnvironment = {
+  production: false,
+  baseUrl: '<BASE_API_URL>',
+  msalConfig: msalConfiguration
+};
+
+export interface IEnvironment {
+  production: boolean;
+  baseUrl: string;
+  msalConfig: Configuration;
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

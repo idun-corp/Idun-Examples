@@ -6,9 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Open `environment.ts` file and fill the properties:
 
+* _BASE_API_URL_ = base url or requested API
 * _AUTHORITY_HREF_ = 'https://login.microsoftonline.com/<TENANT_ID>/'
-* _CLIENT_ID_ = with your application client id
-* _SCOPE_NAME_ = with application granted scope
+* _CLIENT_APP_ID_ = with your application client id
+* _RESOURCE_SCOPES_ = with application granted scope list
 
 ## Installation 
   

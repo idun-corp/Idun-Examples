@@ -1,17 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-export interface Device {
-
-  id: string;
-  class: string;
-  littera: string;
-  popularName: string;
-  deviceMeasurementUnit: string;
-  deviceQuantityKind: string;
-  devicePlacementContext: string;
-  hasActuationInterface?: string;
-
-}
+import {Device} from '../../common/rectypes';
 
 @Component({
   selector: 'app-axiom-info',
@@ -28,7 +16,11 @@ export class AxiomInfoComponent implements OnInit {
   }
 
   getTitle(): string {
-    return this.device ? this.device.class + ': ' + this.device.popularName : '';
+    if (this.device !== null && this.device !== undefined) {
+      const name = this.device.littera ? ': ' + this.device.littera : '';
+      return this.device.class + name;
+    }
+    return 'Device';
   }
 
 }
