@@ -1,5 +1,4 @@
 <div class="container">
-  <app-axiom-info [device]="actuator"></app-axiom-info>
-  <app-axiom-info [device]="sensor"></app-axiom-info>
-  <app-latest-observation [observation]="observation"></app-latest-observation>
+  <app-initial-data *ngIf="!isFormSubmitted" (formSubmitted)="onFormSubmit($event)"></app-initial-data>
+  <app-action *ngIf="isFormSubmitted"></app-action>
 </div>

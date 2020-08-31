@@ -1,3 +1,7 @@
+export interface BaseResponse {
+  content: Array<ActuationInterface>;
+}
+
 export interface Device {
   id: string;
   class: string;
@@ -9,7 +13,26 @@ export interface Device {
   hasActuationInterface?: string;
 }
 
+export interface ActuationInterface {
+  id: string;
+  littera: string;
+  popularName: string;
+}
+
 export interface Observation {
   observationTime: Date;
   value: string;
+}
+
+export interface ActuationRequest {
+  targetInterface: string;
+  payload: string;
+  requestingAgent: string;
+}
+
+export interface ActuationRequestResponse {
+  id: string;
+  actuationObservedBy: string;
+  generatedCommandResponse: string;
+  requestAccepted: boolean;
 }

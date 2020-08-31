@@ -6,7 +6,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './page/home/home.component';
 import {MsalInterceptor, MsalModule} from '@azure/msal-angular';
 import { environment } from '../environments/environment';
@@ -17,6 +16,12 @@ import { AxiomInfoComponent } from './page/axiom-info/axiom-info.component';
 import { LatestObservationComponent } from './page/latest-observation/latest-observation.component';
 import { ActuationComponent } from './page/actuation/actuation.component';
 import {CommonModule} from '@angular/common';
+import { SensorInfoComponent } from './page/sensor-info/sensor-info.component';
+import { ActuatorInfoComponent } from './page/actuator-info/actuator-info.component';
+import { InterfaceDropdownComponent } from './page/interface-dropdown/interface-dropdown.component';
+import { InitialDataComponent } from './page/initial-data/initial-data.component';
+import { ActionComponent } from './page/action/action.component';
+import {MaterialModule} from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -25,16 +30,22 @@ import {CommonModule} from '@angular/common';
     RootComponent,
     AxiomInfoComponent,
     LatestObservationComponent,
-    ActuationComponent
+    ActuationComponent,
+    SensorInfoComponent,
+    ActuatorInfoComponent,
+    InterfaceDropdownComponent,
+    InitialDataComponent,
+    ActionComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
-    MatButtonModule,
-    MsalModule.forRoot(environment.msalConfig)
+    MsalModule.forRoot(
+      environment.msalConfig, environment.msalAngularConfig),
+    MaterialModule
   ],
   providers: [
     ProptechosService,

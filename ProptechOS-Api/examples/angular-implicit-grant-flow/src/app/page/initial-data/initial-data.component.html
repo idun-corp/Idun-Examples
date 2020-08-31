@@ -1,0 +1,30 @@
+<form [formGroup]="initialForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="initial-data-card">
+    <mat-card-header>
+      <mat-card-title>Please fill-in initial data:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Sensors id (uuid): " formControlName="sensorId">
+            <mat-error *ngIf="initialForm.controls['sensorId'].hasError('required')">
+              Sensor id is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Actuator id (uuid): " formControlName="actuatorId">
+            <mat-error *ngIf="initialForm.controls['actuatorId'].hasError('required')">
+              Actuator id is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

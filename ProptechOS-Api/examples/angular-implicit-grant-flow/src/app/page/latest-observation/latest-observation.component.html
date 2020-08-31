@@ -1,3 +1,13 @@
 <div class="action-box">
-  <pre>{{observation | json}}</pre>
+  <button mat-stroked-button color="primary" (click)="getObservation()">Get Latest Observation</button>
+  <div *ngIf="showObservation()">
+    <div>
+      <div>Observation time: </div>
+      <div>{{ observation.observationTime }}</div>
+    </div>
+    <div>
+      <div>Observation value: </div>
+      <div>{{ observation.value }}</div>
+    </div>
+  </div>
 </div>
