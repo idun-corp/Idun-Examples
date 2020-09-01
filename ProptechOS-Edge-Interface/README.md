@@ -15,6 +15,7 @@ To get going you will need the following information at minimum:
 - Actuator ID (`actuatorId` in examples)
 
 When starting the ProptechOS Edge Connector development, Idun will set up acces, and a set of test devices. The device key and other secrets will be shared using [1Password](https://1password.com/) in a vault entry like below. Idun will invite you to 1Password. Accept the invitation, and after Idun has confimred your account and set up a shared vault, you can access your test device information.
+
 ![Test Devices Vault](images/1Pass_Test_Devices-ex.png)
 
 
@@ -24,7 +25,7 @@ The intention of this guide is to help a developer to get started developing an 
 
 ProptechOS is built using the Microsoft suite of underlying IoT technologies. Hence, a RealEstateCore edge connector for ProptechOS sends RealEstateCore edge messages using a client compatible with the Microsoft IoT Hub. The easiest way to get started is to use the Microsoft IoT Hub Client, which is what this guide describes.
 
-As added illustrations for the guide, we have built a simple example Edge Connector, ProptechOS-REC-connector (see [the Edge Interface example folder](../exmamples)). Have a look and compare the example code with the description in this guide.
+As added illustrations for the guide, we have built a simple example Edge Connector, ProptechOS-REC-connector (see [the Edge Interface example folder](examples)). Have a look and compare the example code with the description in this guide.
 
 # Edge Connector development
 

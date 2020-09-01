@@ -17,8 +17,9 @@ public class RecMessage {
   private List<RecException> exceptions;
   private List<RecActuationCommand> actuationCommands;
   private List<RecActuationResponse> actuationResponses;
+
   @JsonIgnore
-  private Object edgeStatus;
+  private Object edgeStatuses;
 
   public String getFormat() {
     return format;
@@ -67,7 +68,7 @@ public class RecMessage {
     return this;
   }
 
-  public Object getEdgeStatus() {
-    return edgeStatus;
+  public Object getEdgeStatuses() {
+    return edgeStatuses;
   }
 }

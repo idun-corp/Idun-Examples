@@ -1,14 +1,23 @@
 # Streaming API
 ProptechOS Streaming API is delivered via Azure EventHub, and can be consumed via a Kafka Consumer .  
-See [Apache - Kafka clients](https://cwiki.apache.org/confluence/display/KAFKA/Clients) and [Apache - Kafka quickstart](https://kafka.apache.org/quickstart) for general information on Kafka and Kafka consumers, or the Quickstart tutorials at [Github - Azure eventhubs for kafka](https://github.com/Azure/azure-event-hubs-for-kafka/) for the specifics of consuming Azure Eventhub via the Kafka protocol. The Microsoft docs resource at [event hubs for kafka ecosystem overview](https://docs.microsoft.com/sv-se/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) will give an overview of translating Eventhub concepts to Kafka concepts.
+## Kafka Client
+See [Apache - Kafka clients](https://cwiki.apache.org/confluence/display/KAFKA/Clients) and [Apache - Kafka quickstart](https://kafka.apache.org/quickstart) for general information on Kafka and Kafka consumers.  
+See the Quickstart tutorials at [Github - Azure eventhubs for kafka](https://github.com/Azure/azure-event-hubs-for-kafka/) for the specifics of consuming Azure Eventhub via the Kafka protocol.
+
+The Microsoft docs resource at [event hubs for kafka ecosystem overview](https://docs.microsoft.com/sv-se/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) will give an overview of translating Eventhub concepts to Kafka concepts.
+
 In summary:
-* the kafka _'bootstrap.servers'_ property should be set to _'eventhub entity path:9093'_  
+* kafka topic translates to EventHub
+* the kafka _'bootstrap.servers'_ translates to EventHub namespace path (e.g. sb://idun-myproptechos-eventhubs-streamingapi.servicebus.windows.net/)
 * the kafka _'ssl.ca'_ property should be set to _'SASL_SSL'_  
 * the kafka _'sasl.username'_ property should be set to _'$ConnectionString'_ (literally)  
-* the kafka _'sasl.password'_ property should be set to _'\<the connection string\>'_  
+* the kafka _'sasl.password'_ property should be set to _'\<the connection string\>'_
+
+## Example
+See a full working example: [Java Spring ProptechOS Streaming API consumer](examples/java).
 
 
- ## The Idun ProptechOS Stream message:
+## The Idun ProptechOS Stream message:
 
 ```json
  ...
