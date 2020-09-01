@@ -1,4 +1,4 @@
-<form [formGroup]="actuationRequestForm" novalidate (ngSubmit)="sendActuation()">
+<form *ngIf="!actuationRequestResponse" [formGroup]="actuationRequestForm" (ngSubmit)="sendActuation()">
   <mat-card class="actuation-request-card">
     <mat-card-header>
       <mat-card-title>Please provide Actuation Request data:</mat-card-title>
@@ -21,7 +21,28 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Push</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!actuationRequestForm.valid">Push</button>
     </mat-card-actions>
   </mat-card>
 </form>
+<mat-card *ngIf="actuationRequestResponse" class="actuation-request-card">
+  <mat-card-header>
+    <mat-card-title>Actuation Request Response:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Request accepted: </span> {{ actuationRequestResponse.requestAccepted }}
+      </mat-list-item>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Id: </span> {{ actuationRequestResponse.id }}
+      </mat-list-item>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Generated command response: </span> {{ actuationRequestResponse.generatedCommandResponse }}
+      </mat-list-item>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Observed by: </span> {{ actuationRequestResponse.actuationObservedBy }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
