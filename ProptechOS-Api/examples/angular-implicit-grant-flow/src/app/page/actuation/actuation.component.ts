@@ -37,6 +37,10 @@ export class ActuationComponent {
     });
   }
 
+  newActuation(): void {
+    this.actuationRequestResponse = undefined;
+  }
+
   private buildRequest(): ActuationRequest {
     const payloadData =
       this.actuationRequestForm.getRawValue().payload;

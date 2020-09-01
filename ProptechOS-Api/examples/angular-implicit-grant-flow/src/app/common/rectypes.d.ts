@@ -20,8 +20,8 @@ export interface ActuationInterface {
 }
 
 export interface Observation {
-  observationTime: Date;
-  value: string;
+  observationTime: string;
+  value: any;
 }
 
 export interface ActuationRequest {
