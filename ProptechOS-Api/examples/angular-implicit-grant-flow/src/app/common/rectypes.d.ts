@@ -1,5 +1,6 @@
 export interface BaseResponse {
   content: Array<ActuationInterface>;
+  last: boolean;
 }
 
 export interface Device {

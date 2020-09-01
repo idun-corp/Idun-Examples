@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill" class="ai-dropdown">
   <mat-label>Select target Actuation Interface</mat-label>
-  <mat-select (valueChange)="chooseInterface($event)">
-    <mat-option *ngFor="let ai of interfaces" [value]="ai">{{ ai.popularName }} : {{ ai.id }}</mat-option>
+  <mat-select msInfiniteScroll (infiniteScroll)="getNextBatch()" (valueChange)="chooseInterface($event)">
+    <mat-option *ngFor="let ai of options$ | async" [value]="ai">{{ ai.popularName }} : {{ ai.id }}</mat-option>
   </mat-select>
 </mat-form-field>

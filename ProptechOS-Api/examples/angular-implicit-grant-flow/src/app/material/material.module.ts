@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSelectInfiniteScrollModule} from 'ng-mat-select-infinite-scroll';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -29,7 +30,8 @@ const MaterialComponents = [
   MatIconModule,
   MatToolbarModule,
   MatMenuModule,
-  MatDividerModule
+  MatDividerModule,
+  MatSelectInfiniteScrollModule
 ];
 
 @NgModule({
