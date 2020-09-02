@@ -22,5 +22,8 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "include": [
+    "src/app/common/rectypes.d.ts"
+  ]
 }

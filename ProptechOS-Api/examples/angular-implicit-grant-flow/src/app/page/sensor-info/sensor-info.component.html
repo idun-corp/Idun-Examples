@@ -1,0 +1,4 @@
+<div *ngIf="sensor">
+  <app-axiom-info [device]="sensor"></app-axiom-info>
+  <app-latest-observation [sensorId]="sensor.id"></app-latest-observation>
+</div>

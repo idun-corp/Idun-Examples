@@ -4,7 +4,8 @@ const helmet = require('helmet');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
-require('dotenv').config()
+require('dotenv').config();
+const upload = require('./upload');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname,'../../dist/angular-example/index.html'));
 });
 
+app.post('/upload', upload);
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
