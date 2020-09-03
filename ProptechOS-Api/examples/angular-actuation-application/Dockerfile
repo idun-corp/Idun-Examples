@@ -16,6 +16,7 @@ RUN \
     && eval "$(ssh-agent -s)" \
     && ssh-add -k ~/.ssh/id_rsa \
     && ssh-keyscan github.com >> $HOME/.ssh/known_hosts \
+    && mkdir -p ${WORKSPACE} \
     && mkdir -p ${APP_DIR} \
     && git clone -b master git@github.com:idun-corp/Idun-Examples.git  ${WORKSPACE} \
     && cp -r ${WORKSPACE}/ProptechOS-Api/examples/angular-actuation-application ${APP_DIR} \
