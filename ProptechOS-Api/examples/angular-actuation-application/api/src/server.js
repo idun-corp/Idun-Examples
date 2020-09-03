@@ -25,8 +25,6 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname,'../../dist/angular-example/index.html'));
 });
 
-app.post('/upload', upload);
-
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
   console.log('NODE_ENV', process.env.NODE_ENV);
