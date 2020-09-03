@@ -1,0 +1,37 @@
+.mat-toolbar {
+  background-color: white;
+}
+
+mat-toolbar-row {
+  height: auto;
+  // background-color: #E7E6EB;
+  // background-color: rgba(38, 38, 38, 0.79);
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.logo-wrapper {
+  height: 70px;
+}
+.logo {
+  display: inline-block;
+}
+.logo,
+.logo > img {
+  height: 49px;
+}
+.user-name {
+  font-size: 1.2rem;
+  mat-icon {
+    height: 28px;
+  }
+}
+
+::ng-deep .custom {
+  margin: 0 40px;
+  width: 150px;
+}
