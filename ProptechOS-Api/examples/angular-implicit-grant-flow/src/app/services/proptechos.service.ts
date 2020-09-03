@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
-import { MsalService } from '@azure/msal-angular';
-import { environment as env } from '../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {MsalService} from '@azure/msal-angular';
+import {environment as env} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ActuationInterface, ActuationRequest, ActuationRequestResponse, BaseResponse, Device, Observation} from '../common/rectypes';
+import {
+  ActuationRequest,
+  ActuationRequestResponse,
+  Actuator,
+  BaseResponse,
+  Observation, Sensor
+} from '../common/rectypes';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +23,12 @@ export class ProptechosService {
     console.log(this.msalService.getAccount());
   }
 
-  getActuator(id: string): Observable<Device> {
-    return this.http.get<Device>(`${env.baseUrl}/json/actuator/${id}`);
+  getActuator(id: string): Observable<Actuator> {
+    return this.http.get<Actuator>(`${env.baseUrl}/json/actuator/${id}`);
   }
 
-  getSensor(id: string): Observable<Device> {
-    return this.http.get<Device>(`${env.baseUrl}/json/sensor/${id}`);
+  getSensor(id: string): Observable<Sensor> {
+    return this.http.get<Sensor>(`${env.baseUrl}/json/sensor/${id}`);
   }
 
   getActuationInterfaces(page: number, size: number): Observable<BaseResponse> {

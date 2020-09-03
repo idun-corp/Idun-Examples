@@ -24,6 +24,7 @@
     "strictInjectionParameters": true
   },
   "include": [
-    "src/app/common/rectypes.d.ts"
+    "src/app/common/rectypes.d.ts",
+    "src/app/common/basetypes.d.ts"
   ]
 }
