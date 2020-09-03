@@ -6,3 +6,26 @@
   position: relative;
 }
 
+.description {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 1.5em;
+  line-height: 1.6;
+}
+
+.start-button {
+  margin-top: 50px;
+}
+.footer {
+  position:fixed;
+  z-index: 0;
+  bottom:0px;
+
+  img {
+
+    height: auto;
+    max-width: 100%;
+    margin-bottom: -5px;
+  }
+}
+
