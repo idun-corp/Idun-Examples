@@ -7,7 +7,14 @@ WORKDIR /opt/actuationui
 
 
 RUN \
-    mkdir -p ${APP_DIR} \
+    mkdir -p ~/.ssh \
+    && echo 'Host GitHub.com\n\tStrictHostKeyChecking no\n' > ~/.ssh/config \
+    && mv /tmp/key ~/.ssh/id_rsa \
+    && chmod -R 0600 ~/.ssh \
+    && eval "$(ssh-agent -s)" \
+    && ssh-add -k ~/.ssh/id_rsa \
+    && ssh-keyscan github.com >> $HOME/.ssh/known_hosts \
+    && mkdir -p ${APP_DIR} \
     && git clone -b master git@github.com:idun-corp/Idun-Examples.git  ${WORKSPACE} \
     && cp -r ${WORKSPACE}/ProptechOS-Api/examples/angular-actuation-application ${APP_DIR} \
     && cd ${APP_DIR} \
@@ -19,6 +26,7 @@ RUN \
     && rm -rf \
             /root/.git* \
             /opt/examples \
+            ~/.ssh \
             /tmp/*
 
 
