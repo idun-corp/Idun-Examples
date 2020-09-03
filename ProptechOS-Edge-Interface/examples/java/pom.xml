@@ -24,6 +24,58 @@
 
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>1.4.10</version>
+        <executions>
+          <execution>
+            <id>tag-latest</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>build</goal>
+              <goal>tag</goal>
+              <goal>push</goal>
+            </goals>
+            <configuration>
+              <tag>latest</tag>
+            </configuration>
+          </execution>
+          <execution>
+            <id>tag-version</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>build</goal>
+              <goal>tag</goal>
+              <goal>push</goal>
+            </goals>
+            <configuration>
+              <tag>${project.version}</tag>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <repository>iduncontainerregistry01.azurecr.io/${project.artifactId}</repository>
+          <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+          <pullNewerImage>false</pullNewerImage>
+          <skipDockerInfo>true</skipDockerInfo>
+          <buildArgs>
+            <jar_file>${project.build.finalName}.jar</jar_file>
+          </buildArgs>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
