@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {MsalService} from '@azure/msal-angular';
 import {InDataService} from '../../services/in-data.service';
 import {ProptechosService} from '../../services/proptechos.service';
-import {Device} from '../../common/rectypes';
+import {Actuator, Sensor} from '../../common/rectypes';
 
 @Component({
   selector: 'app-action',
@@ -12,8 +12,8 @@ import {Device} from '../../common/rectypes';
 })
 export class ActionComponent implements OnInit {
 
-  actuator: Device;
-  sensor: Device;
+  actuator: Actuator;
+  sensor: Sensor;
 
   constructor(private fb: FormBuilder,
               private msalService: MsalService,

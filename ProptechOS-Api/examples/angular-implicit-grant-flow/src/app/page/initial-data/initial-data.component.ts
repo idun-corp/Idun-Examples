@@ -9,8 +9,8 @@ import {InDataService} from '../../services/in-data.service';
 })
 export class InitialDataComponent {
   initialForm = this.fb.group({
-    sensorId: [null, Validators.required],
-    actuatorId: [null, Validators.required]
+    sensorId: ['fa8fbe5e-19f4-4ef2-b853-d6327f481954', Validators.required],
+    actuatorId: ['6f7f74df-18d7-4790-bf71-52be4dbf125e', Validators.required]
   });
 
   @Output() formSubmitted: EventEmitter<boolean> = new EventEmitter<boolean>();
