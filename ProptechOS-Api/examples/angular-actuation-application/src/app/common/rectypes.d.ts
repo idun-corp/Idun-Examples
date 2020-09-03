@@ -8,10 +8,22 @@ export interface Device {
   class: string;
   littera: string;
   popularName: string;
+}
+
+export interface Actuator extends Device {
   deviceMeasurementUnit: string;
   deviceQuantityKind: string;
   devicePlacementContext: string;
-  hasActuationInterface?: string;
+  hasDefaultActuationInterface: string;
+  hasActuationInterface?: Array<string>;
+  observedBy: string;
+}
+
+export interface Sensor extends Device {
+  deviceMeasurementUnit: string;
+  deviceQuantityKind: string;
+  devicePlacementContext: string;
+  observesActuator: string;
 }
 
 export interface ActuationInterface {

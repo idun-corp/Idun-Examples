@@ -24,6 +24,7 @@ import {ActionComponent} from './page/action/action.component';
 import {MaterialModule} from './material/material.module';
 import {HighchartsChartModule} from 'highcharts-angular';
 import {HeaderComponent} from './page/header/header.component';
+import { GeneralInfoComponent } from './page/general-info/general-info.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {HeaderComponent} from './page/header/header.component';
     InterfaceDropdownComponent,
     InitialDataComponent,
     ActionComponent,
-    HeaderComponent
+    HeaderComponent,
+    GeneralInfoComponent
   ],
   imports: [
     CommonModule,
