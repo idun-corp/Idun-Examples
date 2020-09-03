@@ -1,16 +1,16 @@
-package service.observations;
+package com.proptechos.service.observations;
 
 import static java.util.Objects.isNull;
-import static service.actuations.DeviceMessageCallback.actuationValue;
+import static com.proptechos.service.actuations.DeviceMessageCallback.actuationValue;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.Collections;
 import java.util.Random;
-import model.config.DeviceConfig;
-import model.config.Sensor;
-import model.message.RecMessage;
-import model.message.RecObservation;
+import com.proptechos.model.config.DeviceConfig;
+import com.proptechos.model.config.Sensor;
+import com.proptechos.model.message.RecMessage;
+import com.proptechos.model.message.RecObservation;
 
 public class TelemetryGenerator {
 

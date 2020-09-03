@@ -1,6 +1,6 @@
-package service.actuations;
+package com.proptechos.service.actuations;
 
-import static service.JsonParser.parseToString;
+import static com.proptechos.service.JsonParser.parseToString;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.microsoft.azure.sdk.iot.device.DeviceClient;
@@ -9,8 +9,8 @@ import com.microsoft.azure.sdk.iot.device.Message;
 import com.microsoft.azure.sdk.iot.device.MessageCallback;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import model.message.RecMessage;
-import service.JsonParser;
+import com.proptechos.model.message.RecMessage;
+import com.proptechos.service.JsonParser;
 
 public class DeviceMessageCallback implements MessageCallback {
 

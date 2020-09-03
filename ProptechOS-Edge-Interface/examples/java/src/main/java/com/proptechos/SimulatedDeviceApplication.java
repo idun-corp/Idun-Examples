@@ -1,3 +1,5 @@
+package com.proptechos;
+
 import static com.microsoft.azure.sdk.iot.device.IotHubClientProtocol.MQTT;
 import static java.lang.Thread.currentThread;
 
@@ -8,10 +10,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import model.config.DeviceConfig;
-import service.JsonParser;
-import service.actuations.DeviceMessageCallback;
-import service.observations.MessageSender;
+import com.proptechos.model.config.DeviceConfig;
+import com.proptechos.service.JsonParser;
+import com.proptechos.service.actuations.DeviceMessageCallback;
+import com.proptechos.service.observations.MessageSender;
 
 public class SimulatedDeviceApplication {
 

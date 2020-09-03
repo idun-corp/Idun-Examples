@@ -1,4 +1,4 @@
-package service;
+package com.proptechos.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.net.URL;
-import model.config.DeviceConfig;
-import model.message.RecMessage;
+import com.proptechos.model.config.DeviceConfig;
+import com.proptechos.model.message.RecMessage;
 
 public class JsonParser {
 

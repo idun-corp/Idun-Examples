@@ -1,14 +1,14 @@
-package service.actuations;
+package com.proptechos.service.actuations;
 
 import static java.util.stream.Collectors.toList;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.List;
-import model.message.RecMessage;
-import model.message.actuation.ActuationResponseCode;
-import model.message.actuation.RecActuationCommand;
-import model.message.actuation.RecActuationResponse;
+import com.proptechos.model.message.RecMessage;
+import com.proptechos.model.message.actuation.ActuationResponseCode;
+import com.proptechos.model.message.actuation.RecActuationCommand;
+import com.proptechos.model.message.actuation.RecActuationResponse;
 
 public class DeviceResponseGenerator {
 

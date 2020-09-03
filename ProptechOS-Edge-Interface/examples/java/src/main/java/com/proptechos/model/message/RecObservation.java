@@ -1,4 +1,4 @@
-package model.message;
+package com.proptechos.model.message;
 
 import java.time.ZonedDateTime;
 

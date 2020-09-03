@@ -1,4 +1,4 @@
-package model.config;
+package com.proptechos.model.config;
 
 import static java.lang.String.join;
 

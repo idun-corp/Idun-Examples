@@ -1,4 +1,4 @@
-package model.message.actuation;
+package com.proptechos.model.message.actuation;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

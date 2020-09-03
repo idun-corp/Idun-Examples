@@ -1,4 +1,4 @@
-package model.message.exception;
+package com.proptechos.model.message.exception;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

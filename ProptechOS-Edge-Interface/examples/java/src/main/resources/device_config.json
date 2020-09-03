@@ -1,16 +1,16 @@
 {
-  "iotHubAddress":"youriothub.azure-devices.net",
-  "deviceId":"deviceid_name_given_when_registering_the_device",
-  "deviceKey":"key_returned_when_registering_the_device",
+  "iotHubAddress":"idun-dev-iothub-01.azure-devices.net",
+  "deviceId":"be522321-ee6c-41f0-aeac-1d44cc66cd50",
+  "deviceKey":"5AyZxyVqFh1GzdW1zsJGCg==",
   "sensors": [
     {
       "quantityKind": "Temperature",
-      "sensorId": "id of temperature sensor"
+      "sensorId": "fa8fbe5e-19f4-4ef2-b853-d6327f481954"
     }
   ],
   "actuators": [
     {
-      "actuatorId": "id of actuator"
+      "actuatorId": "6f7f74df-18d7-4790-bf71-52be4dbf125e"
     }
   ]
 }

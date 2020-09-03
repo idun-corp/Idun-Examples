@@ -1,12 +1,12 @@
-package service.observations;
+package com.proptechos.service.observations;
 
-import static service.JsonParser.parseToString;
+import static com.proptechos.service.JsonParser.parseToString;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.microsoft.azure.sdk.iot.device.DeviceClient;
 import com.microsoft.azure.sdk.iot.device.Message;
-import model.config.DeviceConfig;
-import model.message.RecMessage;
+import com.proptechos.model.config.DeviceConfig;
+import com.proptechos.model.message.RecMessage;
 
 public class MessageSender implements Runnable {
 
