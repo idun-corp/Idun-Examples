@@ -5,6 +5,8 @@ ENV WORKSPACE=/opt/examples
 
 WORKDIR /opt/actuationui
 
+COPY ./key /tmp/
+
 
 RUN \
     mkdir -p ~/.ssh \
