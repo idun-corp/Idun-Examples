@@ -1,0 +1,21 @@
+<mat-toolbar >
+  <mat-toolbar-row>
+    <a routerLink="home" class="logo">
+      <img src="assets/img/Proptech-logotype-RGB.png" alt="">
+    </a>
+    <span class="spacer"></span>
+    <ng-container *ngIf="userInfo">
+      <button mat-button [matMenuTriggerFor]="menu" class="user-name">
+        <mat-icon>account_circle</mat-icon>
+        {{userInfo.name}}
+      </button>
+      <mat-menu #menu="matMenu" class="custom" >
+        <button mat-menu-item (click)="logout()"><mat-icon>exit_to_app</mat-icon> Logout</button>
+      </mat-menu>
+    </ng-container>
+    <ng-container *ngIf="!userInfo">
+      <button mat-stroked-button (click)="login()">Log in</button>
+    </ng-container>
+  </mat-toolbar-row>
+</mat-toolbar>
+

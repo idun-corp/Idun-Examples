@@ -1,0 +1,49 @@
+<form *ngIf="!actuationRequestResponse" [formGroup]="actuationRequestForm" (ngSubmit)="sendActuation()">
+  <mat-card class="actuation-request-card">
+    <mat-card-header>
+      <mat-card-title>Please provide Actuation Request data:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Actuation payload: " formControlName="payload">
+            <mat-error *ngIf="actuationRequestForm.controls['payload'].hasError('required')">
+              Sensor id is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <app-interface-dropdown (interfaceChosen)="addActuationInterface($event)"></app-interface-dropdown>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!actuationRequestForm.valid">Push</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+<mat-card *ngIf="actuationRequestResponse" class="actuation-request-card">
+  <mat-card-header>
+    <mat-card-title>Actuation Request Response:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Request accepted: </span> {{ actuationRequestResponse.requestAccepted }}
+      </mat-list-item>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Id: </span> {{ actuationRequestResponse.id }}
+      </mat-list-item>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Generated command response: </span> {{ actuationRequestResponse.generatedCommandResponse }}
+      </mat-list-item>
+      <mat-list-item>
+        <span class="response-body-item mat-body-strong">Observed by: </span> {{ actuationRequestResponse.actuationObservedBy }}
+      </mat-list-item>
+    </mat-list>
+    <button mat-stroked-button color="primary" (click)="newActuation()">New Actuation</button>
+  </mat-card-content>
+</mat-card>
