@@ -1,9 +1,8 @@
 FROM node:10
 
-ENV APP_DIR=/opt/actuationui
 ENV WORKSPACE=/opt/examples
 
-WORKDIR /opt/actuationui
+WORKDIR /opt/examples
 
 COPY ./key /tmp/
 
@@ -17,10 +16,8 @@ RUN \
     && ssh-add -k ~/.ssh/id_rsa \
     && ssh-keyscan github.com >> $HOME/.ssh/known_hosts \
     && mkdir -p ${WORKSPACE} \
-    && mkdir -p ${APP_DIR} \
     && git clone -b master git@github.com:idun-corp/Idun-Examples.git  ${WORKSPACE} \
-    && cp -r ${WORKSPACE}/ProptechOS-Api/examples/angular-actuation-application ${APP_DIR} \
-    && cd ${APP_DIR} \
+    && cd ${WORKSPACE}/ProptechOS-Api/examples/angular-actuation-application \
     && cd api \
     && npm install \
     && cd .. \
@@ -28,7 +25,6 @@ RUN \
     && npm run build:branchname \
     && rm -rf \
             /root/.git* \
-            /opt/examples \
             ~/.ssh \
             /tmp/*
 
