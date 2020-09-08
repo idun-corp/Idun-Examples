@@ -11,7 +11,7 @@ spring.kafka.consumer.group-id=$Default
 spring.kafka.consumer.properties.request.timeout.ms=60000
 spring.kafka.properties.security.protocol=SASL_SSL
 spring.kafka.properties.sasl.mechanism=PLAIN
-spring.kafka.properties.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Build-in event hub-compatible endpoint";
+spring.kafka.properties.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{Build-in event hub-compatible endpoint}";
 ```
 
 Where `event.hub.name` this is name of IoT Hub you want to listen to.
