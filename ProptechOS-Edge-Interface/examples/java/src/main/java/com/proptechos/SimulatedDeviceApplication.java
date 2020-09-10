@@ -1,7 +1,7 @@
 package com.proptechos;
 
 import static com.microsoft.azure.sdk.iot.device.IotHubClientProtocol.MQTT;
-import static java.lang.Thread.currentThread;
+import static java.util.stream.Collectors.joining;
 
 import com.microsoft.azure.sdk.iot.device.DeviceClient;
 import com.microsoft.azure.sdk.iot.device.MessageCallback;
@@ -11,7 +11,8 @@ import com.proptechos.service.actuations.DeviceMessageCallback;
 import com.proptechos.service.observations.MessageSender;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -19,8 +20,9 @@ public class SimulatedDeviceApplication {
 
   public static void main(String[] args) throws IOException, URISyntaxException {
 
-    URL resource = currentThread().getContextClassLoader().getResource("device_config.json");
-    DeviceConfig deviceConfig = JsonParser.parse(resource);
+    String pathToConfigFile = args[0];
+    String config = Files.lines(Paths.get(pathToConfigFile)).collect(joining());
+    DeviceConfig deviceConfig = JsonParser.parse(config);
 
     // Connect to the IoT hub.
     DeviceClient client = new DeviceClient(deviceConfig.createConnectionString(), MQTT);

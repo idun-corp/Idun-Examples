@@ -25,7 +25,7 @@ public class JsonParser {
     return MAPPER.readValue(bytes, RecMessage.class);
   }
 
-  public static DeviceConfig parse(URL source) {
+  public static DeviceConfig parse(String source) {
     try {
       return MAPPER.readValue(source, DeviceConfig.class);
     } catch (IOException e) {
