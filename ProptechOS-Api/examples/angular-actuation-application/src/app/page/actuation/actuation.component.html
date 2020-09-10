@@ -1,4 +1,4 @@
-<form *ngIf="!actuationRequestResponse" [formGroup]="actuationRequestForm" (ngSubmit)="sendActuation()">
+<form *ngIf="!actuationRequestResponse" [formGroup]="actuationRequestForm" (ngSubmit)="sendActuation(actuationReq)" #actuationReq="ngForm">
   <mat-card class="actuation-request-card">
     <mat-card-header>
       <mat-card-title>Initiate Actuation</mat-card-title>

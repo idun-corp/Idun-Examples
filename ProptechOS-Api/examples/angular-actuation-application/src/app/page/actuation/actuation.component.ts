@@ -32,17 +32,19 @@ export class ActuationComponent {
     this.actuationInterfaceId = aiId;
   }
 
-  sendActuation(): void {
+  sendActuation(actuationReq): void {
     const self = this;
     const request = this.buildRequest();
     this.proptechosService.sendActuation(this.actuatorId, request).subscribe((response) => {
       self.actuationRequest = request;
       this.actuationRequestResponse = response;
     });
+    actuationReq.resetForm();
   }
 
   newActuation(): void {
     this.actuationRequestResponse = undefined;
+    this.actuationRequest = undefined;
   }
 
   actuationRequestInfo(req: ActuationRequest): Array<AxiomInfo> {

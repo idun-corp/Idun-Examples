@@ -19,9 +19,7 @@ export class ProptechosService {
   constructor(
     private msalService: MsalService,
     private http: HttpClient
-  ) {
-    console.log(this.msalService.getAccount());
-  }
+  ) {}
 
   getActuator(id: string): Observable<Actuator> {
     return this.http.get<Actuator>(`${env.baseUrl}/json/actuator/${id}`);

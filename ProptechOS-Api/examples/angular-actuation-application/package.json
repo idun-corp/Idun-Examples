@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:local": "ng serve --proxy-config proxy.conf.json --base-href /",
-    "start:idundev": "node -r ./api/node_modules/dotenv/config ./api/src/server.js dotenv_config_path=./api/idundev-env",
+    "start:local": "ng serve --proxy-config proxy.conf.json",
     "start": "node -r ./api/node_modules/dotenv/config ./api/src/server.js dotenv_config_path=./api/prod-env",
-    "build:idundev": "ng build --configuration=idundev",
+    "build:prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
