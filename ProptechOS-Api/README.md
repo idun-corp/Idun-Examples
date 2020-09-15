@@ -29,3 +29,31 @@ Using curl: `-H "accept: application/json"`
 # Aliases and AliasNamespaces
 
 See more in [the Alias and AliasNamespace section](alias-aliasnamespace)
+
+# Using the Swagger docs
+Authentication step-by-step walkthrough
+## 1. Click the Authorize button.
+The padlock is unlocked, meaning you are not autorized.
+![Swagger authentication step 1](../images/swagger-auth-1.png)
+
+## 2. Click the checkbox
+Do **NOT** change the client_id - leave it as is.
+![Swagger authentication step 2](../images/swagger-auth-2.png)
+
+## 3. Click Authorize
+![Swagger authentication step 3](../images/swagger-auth-3.png)
+
+## 4. Log in with your ProptechOS account
+You will be taken to a Microsoft sign-in page.
+If you are already signed in, this will not be needed, and if you are signed in with another Microsoft user, you might need to log out of that account, before signing in with your ProptechOS user.
+If you do not have a ProptechOS user account, you will not be able to get authorized.
+![Swagger authentication step 4](../images/swagger-auth-4.png)
+
+## 5. Click close
+You will be returned to the ProptechOS swagger doc.
+You have now successfully autorized.
+![Swagger authentication step 5](../images/swagger-auth-5.png)
+
+## 6. Done.
+The padlock is now locked, indicating that you are authorized.
+![Swagger authentication step 6](../images/swagger-auth-6.png)
