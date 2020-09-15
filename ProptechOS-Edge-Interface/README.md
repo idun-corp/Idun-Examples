@@ -5,8 +5,13 @@
 ## Edge Messages
 ProptechOS use the RealEstateCore Edge message format for messages to and from edge Devices, like Sensors and Actuators. Use the [documentation from RealEstateCore](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages) to get more familiar with how the edge messages can be used.
 
-## Get started
-To get going you will need the following information at minimum:
+## Get started - Edge development Kit
+To get going you will need get the following:
+
+- user access to ProptechOS
+- a set of test devices and credentials for those devices
+
+### Test Device Credentials
 - IoT Hub Hostname (`iotHubAddress` in the examples)
 - Device ID (`deviceId` in examples)
 - Device Key (`deviceKey` in examples)
@@ -14,10 +19,11 @@ To get going you will need the following information at minimum:
 - Sensor QuantityKind (`QuantityKind` in examples)
 - Actuator ID (`actuatorId` in examples)
 
-When starting the ProptechOS Edge Connector development, Idun will set up acces, and a set of test devices. The device key and other secrets will be shared using [1Password](https://1password.com/) in a vault entry like below. Idun will invite you to 1Password. Accept the invitation, and after Idun has confimred your account and set up a shared vault, you can access your test device information.
+When starting the ProptechOS Edge Connector development, Idun will set up acces, and a set of test devices. The device key and other secrets will be shared using [1Password](https://1password.com/) in a vault like the image below. Idun will invite you to 1Password. Accept the invitation, and after Idun has confimred your account and set up a shared vault, you can access your test device information.
 
-![Test Devices Vault](images/1Pass_Test_Devices-ex.png)
 
+![Test Devices Vault](images/1Pass_Test_Devices-ex.png)  
+Edge Dev Kit credentials in 1Password vault
 
 # Edge Connector Module Development Guide
 
@@ -27,14 +33,14 @@ ProptechOS is built using the Microsoft suite of underlying IoT technologies. He
 
 As added illustrations for the guide, we have built a simple example Edge Connector, ProptechOS-REC-connector (see [the Edge Interface example folder](examples)). Have a look and compare the example code with the description in this guide.
 
-# Edge Connector development
+## Edge Connector development
 
 The Development guide is based on Microsoft’s IoT quickstart documentations:  
 [Quickstart: Send telemetry to an Azure IoT hub and read it with a Java application](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-java)  
 [Quickstart: Send cloud-to-device messages with IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-java-java-c2d)  
 Use those guides and other Microsoft documentation to find additional details about protocols, clients, gateways and details on a lower level.
 
-## Edge Connector implementation
+### Edge Connector implementation
 
 To implement connector we need to cover a couple of basic things:
 * **Parse configuration**  
@@ -50,7 +56,7 @@ This is similar to generation of telemetry from the device, but here we simulate
 * **Implement main() method that runs the DeviceClient.**  
 main() method is the starting point for our connector application. In scope of this method, we will use all the classes described above.
 
-## Prerequisite
+### Prerequisite
 
 * Have access to a ProptechOS instance
 * Have Device created and  registered in ProptechOS and have both Device Id and Key
@@ -60,7 +66,7 @@ main() method is the starting point for our connector application. In scope of t
 * Apache Maven 3
 * Port 8883 must be open in your firewall. We will use MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
 
-## Parse configuration
+### Parse configuration
 1. Add a json configuration file to the resources folder. Using this format:
 
 ```json
@@ -87,7 +93,7 @@ this method should return a connection string to the device which is registered 
 `“HostName=iotHubAdress;DeviceId=deviceId;SharedAccessKey=deviceKey”`  
 We will need this connection string to create DeviceClient [Azure Docs - DeviceClient class](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?view=azure-java-stable)
 
-## Generate (simulated) telemetry
+### Generate (simulated) telemetry
 1. Our telemetry will be RecMessage class with fields:
 
 ```java
@@ -121,7 +127,7 @@ private Sensor getRandomSensor();
 
 `generateTelemetry()` should create a `RecMessage` with randomly generated temperature for sensorId which is randomly chosen from config file.
 
-## Send the telemetry messages
+### Send the telemetry messages
 Create a new java class. Let this class implement a Runnable interface, since we want to send our messages in a separate thread, in order not to block the parent thread with infinite loop. This interface will require an overridden `run()` method.
 
 Implementation of run() method:
@@ -134,7 +140,7 @@ Implementation of run() method:
  * `callbackContext Object` - a context to be passed to the callback. Can be null
 * add `Thread.sleep(sendPeriod)` in order to send messages with the frequency every `sendPeriod` that you will specify
 
-## Implement message callback, to receive messages from ProptechOS
+### Implement message callback, to receive messages from ProptechOS
 The Actuation that we recreate with our simple connector,  is next:
 1. ActuationCommand created in ProptechOS (most commonly via the API)
 2. the Edge connector receives `RecMessage` with `RecActuationCommand`
@@ -169,7 +175,8 @@ In scope of  execute method we need to:
  * use `getSimulatedMessageFromDevice()` method (described in the next section) to create a new  `RecMessage`. Send this message to ProptechOS with help of `sendEventAsync` method of `DeviceClient` (the same method that we have used in Send the telemetry messages section)
  * change temperature values, which are generated randomly for sensors, to temperature value from actuation command.
 
- ### Generate (simulated) device actuation response
+
+ #### Generate (simulated) device actuation response
  To let ProptechOS understand if the message was processed correctly and the device has received the message, we need to create `RecActuationResponse` for every `RecActuationCommand`.
  Create a new java class with method  
  `public RecMessage getSimulatedMessageFromDevice(RecMessage  messageFromCloud)`  
@@ -178,7 +185,7 @@ In scope of  execute method we need to:
  * iterate through the list of `RecActuationCommand`’s in `messageFromCloud`. For every actuation command we need to create `RecActuationResponse` with `SUCCESS ActuationResponseCode`
  return newly created `RecMessage`
 
-## Implement main() method that run the DeviceClient
+### Implement main() method that run the DeviceClient
 Create a simple Java class, call it something that represents your connector This class should have the `main()` method implemented, that will be a starting point of our application.  
 `public static void main(String[] args);`
 
@@ -191,8 +198,8 @@ Implementation of `main(String[] args)` method:
 * Create an instance of class that implements `MessageCallback`. Use `DeviceClient setMessageCallback` [details](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.setmessagecallback?view=azure-java-stable#com_microsoft_azure_sdk_iot_device_DeviceClient_setMessageCallback_MessageCallback_Object_) method to set the callback that we have implemented earlier.
 * Create new Thread or use Executor in order to start `MessagesSender` thread send messages
 
-# Verify the Edge Connector
-## Sending observations
+## Verify the Edge Connector
+### Sending observations
 To check what observation messages are sent to ProptechOS add `System.out. println(“Sending message: ” + message)`or add some simple logging.  And you should see in application console something similar to this:
 
 ```
@@ -210,7 +217,7 @@ Sending message: {"format":"rec3.1.1","deviceId":"6329851e-878c-41e1-a980-04577c
 
 Those are RealEstateCore messages that are sent from the Edge Connector to ProptechOS
 
-## ProptechOS receiving observations
+### ProptechOS receiving observations
 Now we need to see if those simulated observations are actually received by ProptechOS.
 
 First authorize ProptechOS REST API, see [ProptechOS-Api Example](ProptechOS-Api) for directions on how to do that.  
@@ -263,7 +270,7 @@ An easy way to get authenticated and authorized, and to make the request for /ob
 
 ![GET observations via OAS UI](images/oas-get-observations.png)
 
-## ProptechOS sending actuations
+### ProptechOS sending actuations
 To send the actuation we need to use the PUT request method.
 
 ```
@@ -290,7 +297,7 @@ The easier way to send actuation is again, to use the Open API Specification Doc
 
 ![PUT actuation via OAS ui](images/oas-put-actuation.png)
 
-## Edge Connector receiving actuations
+### Edge Connector receiving actuations
 Now we can check in our connector console logs if it receives any messages from ProptechOS. As we run sending and receiving messages in parallel, we will see outcoming and incoming messages in one list You should see next messages in console:
 
 Sending observation message (like above):
@@ -356,8 +363,8 @@ Incoming ActuationCommand message is the RealEsateCore cloud-to-edge message tha
 
 The last check that can be done to verify that actuation flow is successful is to repeat the “ProptechOS receiving observations” step. You should see in the observations value the same as you have set in the actuation value field.
 
-# Appendix
-## Bootstrap new project
+## Appendix
+### Bootstrap new project
 1. Create simple, empty java project Using Apache Maven:
 
 ```
