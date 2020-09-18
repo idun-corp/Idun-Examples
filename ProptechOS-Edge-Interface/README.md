@@ -392,3 +392,32 @@ Import the project folder you just created with project files to your IDE as a M
 ```
 
 Note that versions of dependencies above are the last stable versions at the time of writing this documentation. You can check if there are newer versions of those libraries and use them.
+
+## Implemented Edge Connectors
+All of the connectors below consume data from underlying systems, transforms received data to RealEstateCore format messages,
+and sends them to ProptechOS. For some connectors reverted flow is possible,
+connector receives messages from ProptechOS and transforms it to s message that the underlying system can process(Actuations). See availability in table 
+
+``
+
+| Module name   | Description                                                                    | Status      | Observations | Actuations | 
+| ------------- | ------------------------------------------------------------------------------ | ----------- | ------------ | ---------- |
+| EMU           | Interacting with EMU Professional TCP/IP devices. Http client based            | Available   |     Yes      |     No     |
+| Eniga LoRaWAN | Module for interacting with Eniga Web API.                                     | Available   |     Yes      |     No     |
+|               | Http client based, establishes sessions using server URL and auth credentials  |             |              |            |
+| Kabona        | Communicate with Scada Kabona API.                                             | Available   |     Yes      |     Yes    |
+|               | Http client based, establishes sessions using server URL and auth credentials. |             |              |            |
+| LoRaWAN       | Interacting with LoRaWAN Event hub. Subscribes to Azure Event Hub messages.    | Available   |     Yes      |     No     |
+| Mestro        | Interacting with Mestro API(1.2.0). Http client based, establishes sessions    | In progress |     No       |     No     |
+|               | using server URL and auth credentials.                                         |             |              |            |
+| Metry         | Interacting with Metry API. Http client based, establishes sessions using      | Available   |     Yes      |     No     |
+|               | server URL and access token.                                                   |             |              |            |          
+| Modbus        | Interacting with Bastec devices by using Modbus TCP.                           | Available   |     Yes      |     Yes    |
+|               | Uses Modbus client from modbus-master-tcp java library                         |             |              |            | 
+| OPC UA        | Interacting with OPC UA Servers. Http client based, establishes sessions using | Available   |     Yes      |     Yes    |
+|               | server URL and auth credentials.                                               |             |              |            |
+| Schneider     | Mqtt client which is connected to Schneider system mqtt broker.                | Available   |     Yes      |     Yes    |
+| SMHI          | Interacting with SMHI API. Supported device types are FORECAST and ANALYSIS.   | Available   |     Yes      |     No     |
+|               | Http client based                                                              |             |              |            |
+| WebPort       | Communicate with Wep Port API. Http client based, establishes sessions using   | Available   |     Yes      |     Yes    |
+|               | server URL and auth credentials.                                               |             |              |            |
