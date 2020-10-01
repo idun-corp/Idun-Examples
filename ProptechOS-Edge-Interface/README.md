@@ -403,21 +403,28 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | Module name   | Description                                                                    | Status      | Observations | Actuations | 
 | ------------- | ------------------------------------------------------------------------------ | ----------- | ------------ | ---------- |
 | EMU           | Interacting with EMU Professional TCP/IP devices. Http client based            | Available   |     Yes      |     No     |
-| Eniga LoRaWAN | Module for interacting with Eniga Web API.                                     | Available   |     Yes      |     No     |
-|               | Http client based, establishes sessions using server URL and auth credentials  |             |              |            |
-| Kabona        | Communicate with Scada Kabona API.                                             | Available   |     Yes      |     Yes    |
-|               | Http client based, establishes sessions using server URL and auth credentials. |             |              |            |
+| Lummelunda | Module for interacting with Lummelunda Web API. Http client based, establishes sessions using server URL and auth credentials  | Available   |     Yes      |     No     |
+| Kabona        | Communicate with Scada Kabona API. Http client based, establishes sessions using server URL and auth credentials. | Available   |     Yes      |     Yes    |
 | LoRaWAN       | Interacting with LoRaWAN Event hub. Subscribes to Azure Event Hub messages.    | Available   |     Yes      |     No     |
-| Mestro        | Interacting with Mestro API(1.2.0). Http client based, establishes sessions    | In progress |     No       |     No     |
-|               | using server URL and auth credentials.                                         |             |              |            |
-| Metry         | Interacting with Metry API. Http client based, establishes sessions using      | Available   |     Yes      |     No     |
-|               | server URL and access token.                                                   |             |              |            |          
-| Modbus        | Interacting with Bastec devices by using Modbus TCP.                           | Available   |     Yes      |     Yes    |
-|               | Uses Modbus client from modbus-master-tcp java library                         |             |              |            | 
-| OPC UA        | Interacting with OPC UA Servers. Http client based, establishes sessions using | Available   |     Yes      |     Yes    |
-|               | server URL and auth credentials.                                               |             |              |            |
+| Mestro        | Interacting with Mestro API(1.2.0). Http client based, establishes sessions using server URL and auth credentials.    | In progress |     No       |     No     |
+| Metry         | Interacting with Metry API. Http client based, establishes sessions using server URL and access token.  | Available   |     Yes      |     No     |
+| Modbus        | Interacting with Bastec devices by using Modbus TCP. Uses Modbus client from modbus-master-tcp java library. | Available   |     Yes      |     Yes    |
+| OPC UA        | Interacting with OPC UA Servers. Http client based, establishes sessions using server URL and auth credentials. | Available   |     Yes      |     Yes    |
 | Schneider     | Mqtt client which is connected to Schneider system mqtt broker.                | Available   |     Yes      |     Yes    |
-| SMHI          | Interacting with SMHI API. Supported device types are FORECAST and ANALYSIS.   | Available   |     Yes      |     No     |
-|               | Http client based                                                              |             |              |            |
-| WebPort       | Communicate with Wep Port API. Http client based, establishes sessions using   | Available   |     Yes      |     Yes    |
-|               | server URL and auth credentials.                                               |             |              |            |
+| SMHI          | Interacting with SMHI API. Supported device types are FORECAST and ANALYSIS. Http client based  | Available   |     Yes      |     No     |
+| Web Port      | Communicate with Wep Port API. Http client based, establishes sessions using server URL and auth credentials.  | Available   |     Yes      |     Yes    |
+| Larmia        | Partner module.                                                                | Available   |     Yes      |      Yes   |
+| Nordomatic    | Partner module for styrportalen.                                               | In progress |     Yes      |    Yes     |
+| ERTEK         | Partner module for PLCs.                                                       | In progress |     Yes      |    Yes     |
+| eSys          | Partner module for meters (m-bus)                                              | In progress |     Yes      |    No      |
+| eSys          | Partner module for meters (m-bus)                                              | In progress |     Yes      |    No      |
+| Flowity       | Partner module for camera and ML-based presence analysis.                      | In progress |     Yes      |    No      |
+| Talkpool      | Partner module.                                                                | In progress |     Yes      |    No      |
+| Disruptive Technologies  |                                                                                | In progress |     Yes      |    No      |
+| Helvar        |                                                                                | In progress |     Yes      |    No      |
+| Freesi        |                                                                                | In progress |     Yes      |    No      |
+| Treon         |                                                                                | In progress |     Yes      |    No      |
+| Integral      |                                                                                | In progress |     Yes      |    No      |
+| Haltian       |                                                                                | In progress |     Yes      |    No      |
+| UbiqiSense    | Camera and ML based presence analysis.                                         | In progress |     Yes      |    No      |
+| Cisco         | Camera and ML based presence analysis.                                         | In progress |     Yes      |    No      |
