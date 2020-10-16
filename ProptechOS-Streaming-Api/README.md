@@ -8,10 +8,10 @@ The Microsoft docs resource at [event hubs for kafka ecosystem overview](https:/
 
 In summary:
 * kafka topic translates to EventHub
-* the kafka _'bootstrap.servers'_ translates to EventHub namespace path (e.g. sb://idun-myproptechos-eventhubs-streamingapi.servicebus.windows.net/)
-* the kafka _'ssl.ca'_ property should be set to _'SASL_SSL'_  
-* the kafka _'sasl.username'_ property should be set to _'$ConnectionString'_ (literally)  
-* the kafka _'sasl.password'_ property should be set to _'\<the connection string\>'_
+* the **kafka _'bootstrap.servers'_** translates to **EventHub namespace** path (e.g. sb://idun-myproptechos-eventhubs-streamingapi.servicebus.windows.net/)
+* the **kafka _'ssl.ca'_** property should be set to **_'SASL_SSL'_** 
+* the **kafka _'sasl.username'_** property should be set to **_'$ConnectionString'_** (literally)  
+* the **kafka _'sasl.password'_** property should be set to **_'\<the connection string\>'_**
 
 ## Example
 See a full working example: [Java Spring ProptechOS Streaming API consumer](examples/java).
