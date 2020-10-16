@@ -6,15 +6,14 @@
 
 
 ### Fix 'application.properties' config file:
-* `'event.hub.name'`
-  should be set to EventHub name (in the connection string, this is referred to as _EntityPath_) (corresponds to kafka topic);
-* `'spring.kafka.bootstrap-servers'`
-  property should be set to _'eventhub entity path:9093'_  
-  (in the connection string this is referred to as Endpoint and prefixed by _sb://_ which should be excluded from the bootstrap server property)
-* `'spring.kafka.properties.sasl.jaas.config'`  
-  property should be set to the string  
-  _'org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="\<the connection string\>";'_  
-  (Should be copied as it is and updated correctly)
+* `event.hub.name`
+  should be set to EventHub name (`EVENTHUB_NAME`) (corresponds to kafka topic)
+* `spring.kafka.bootstrap-servers`
+  should be set to _`<EVENTHUB_NAMESPACE>.servicebus.windows.net:9093`_ 
+* `spring.kafka.properties.sasl.jaas.config`  
+  should be set to the string  
+  _`org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="<EVENTHUB_CONNECTION_STRING>"`_  
+  (note that the username is litterally "€ConnectionString" while the password is replaced by the connection string you have received from Idun)
 
 
 ### Build and run Application:
