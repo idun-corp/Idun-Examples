@@ -1,16 +1,16 @@
 package com.proptechos.service.observations;
 
-import static java.util.Objects.isNull;
 import static com.proptechos.service.actuations.DeviceMessageCallback.actuationValue;
+import static java.util.Objects.isNull;
 
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.util.Collections;
-import java.util.Random;
 import com.proptechos.model.config.DeviceConfig;
 import com.proptechos.model.config.Sensor;
 import com.proptechos.model.message.RecMessage;
 import com.proptechos.model.message.RecObservation;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.util.Collections;
+import java.util.Random;
 
 public class TelemetryGenerator {
 
@@ -45,5 +45,9 @@ public class TelemetryGenerator {
   private Sensor getRandomSensor() {
     int randomIndex = rand.nextInt(deviceConfig.getSensors().size());
     return deviceConfig.getSensors().get(randomIndex);
+  }
+
+  public int getTelemetrySendPeriod() {
+    return deviceConfig.getTelemetrySendPeriod();
   }
 }
