@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>proptechos-rec-connector</artifactId>
+  <artifactId>proptechos-rec-connector-sallyR</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <dependencies>
