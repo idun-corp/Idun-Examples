@@ -25,7 +25,8 @@ public class MicrosoftADGraphClient {
 
         ConfidentialClientApplication app =
                 ConfidentialClientApplication.builder(
-                        clientId, ClientCredentialFactory.create(clientSecret))
+                            clientId, 
+                            ClientCredentialFactory.createFromSecret(clientSecret))
                         .authority("https://login.microsoftonline.com/" + tenantId + "/")
                         .build();
 
