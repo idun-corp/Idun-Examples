@@ -5,8 +5,8 @@ import com.proptechos.model.Point;
 import com.proptechos.model.common.Paged;
 import com.proptechos.service.RealEstateComponentService;
 import com.proptechos.service.ServiceFactory;
-import com.proptechos.service.filters.AliasFilter;
-import com.proptechos.service.filters.LitteraFilter;
+import com.proptechos.service.filters.common.AliasFilter;
+import com.proptechos.service.filters.common.LitteraFilter;
 import java.util.List;
 import org.springframework.stereotype.Component;
 

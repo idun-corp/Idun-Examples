@@ -4,7 +4,7 @@ import com.proptechos.model.AliasNamespace;
 import com.proptechos.model.common.Paged;
 import com.proptechos.service.AliasNamespaceService;
 import com.proptechos.service.ServiceFactory;
-import com.proptechos.service.filters.LitteraFilter;
+import com.proptechos.service.filters.common.LitteraFilter;
 import org.springframework.stereotype.Component;
 
 @Component
