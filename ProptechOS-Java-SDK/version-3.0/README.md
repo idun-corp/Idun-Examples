@@ -1,4 +1,4 @@
-#Application description:
+# Application description:
 The intention of this application is to demonstrate the most common usecases of ProptechOS Java SDK.
 By default the application calls all main sdk services to retrieve the data from ProptechOS API.
 In order to start streaming api client spring component `StreamingApiServiceClient` should be injected in main class in the following way:
@@ -18,7 +18,7 @@ In order to start streaming api client spring component `StreamingApiServiceClie
 
 
 ### Fix 'application.properties' config file:
-* `BASE_API_URL` - base ProptechOS api url "https://test.proptechos.com"
+* `BASE_API_URL` - base ProptechOS api url "https://test.proptechos.com/api"
 * `APP_CLIENT_ID` - your application id in ProptechOS (also the application ID registered in Azure Active Directory)
 * `APP_CLIENT_SECRET` - your application secret in ProptechOS (also the secret generated for your Azure Active Directory application)
 
