@@ -406,7 +406,7 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | Lummelunda | Module for interacting with Lummelunda Web API. Http client based, establishes sessions using server URL and auth credentials  | Available   |     Yes      |     No     |
 | Kabona        | Communicate with Scada Kabona API. Http client based, establishes sessions using server URL and auth credentials. | Available   |     Yes      |     Yes    |
 | LoRaWAN       | Interacting with LoRaWAN Event hub. Subscribes to Azure Event Hub messages.    | Available   |     Yes      |     No     |
-| Mestro        | Interacting with Mestro API(1.2.0). Http client based, establishes sessions using server URL and auth credentials.    | In progress |     No       |     No     |
+| Mestro        | Interacting with Mestro API(1.2.0). Http client based, establishes sessions using server URL and auth credentials.    | Available |     No       |     No     |
 | Metry         | Interacting with Metry API. Http client based, establishes sessions using server URL and access token.  | Available   |     Yes      |     No     |
 | Modbus        | Interacting with Bastec devices by using Modbus TCP. Uses Modbus client from modbus-master-tcp java library. | Available   |     Yes      |     Yes    |
 | OPC UA        | Interacting with OPC UA Servers. Http client based, establishes sessions using server URL and auth credentials. | Available   |     Yes      |     Yes    |
@@ -419,11 +419,11 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | eSys          | Partner module for meters (m-bus)                                              | In progress |     Yes      |    No      |
 | Flowity       | Partner module for camera and ML-based presence analysis.                      | In progress |     Yes      |    No      |
 | Talkpool      | Partner module.                                                                | In progress |     Yes      |    No      |
-| Disruptive Technologies  |                                                                                | In progress |     Yes      |    No      |
-| Helvar        |                                                                                | In progress |     Yes      |    No      |
+| Disruptive Technologies  |                                                                                | Available |     Yes      |    No      |
+| Helvar        |                                                                                | Available |     Yes      |    No      |
 | Freesi        |                                                                                | In progress |     Yes      |    No      |
 | Treon         |                                                                                | In progress |     Yes      |    No      |
 | Integral      |                                                                                | In progress |     Yes      |    No      |
 | Haltian       |                                                                                | In progress |     Yes      |    No      |
-| UbiqiSense    | Camera and ML based presence analysis.                                         | In progress |     Yes      |    No      |
+| UbiqiSense    | Camera and ML based presence analysis.                                         | Available |     Yes      |    No      |
 | Cisco         | Camera and ML based presence analysis.                                         | In progress |     Yes      |    No      |
