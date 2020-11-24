@@ -421,8 +421,8 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | Talkpool      | Partner module.                                                                | In progress |     Yes      |    No      |
 | Disruptive Technologies  |                                                                                | Available |     Yes      |    No      |
 | Helvar        |                                                                                | Available |     Yes      |    No      |
-| Freesi        |                                                                                | In progress |     Yes      |    No      |
-| Treon         |                                                                                | In progress |     Yes      |    No      |
+| Freesi        |                                                                                | Available |     Yes      |    No      |
+| Treon         |                                                                                | Available |     Yes      |    No      |
 | Integral      |                                                                                | Available |     Yes      |    No      |
 | Haltian       |                                                                                | Available |     Yes      |    No      |
 | UbiqiSense    | Camera and ML based presence analysis.                                         | Available |     Yes      |    No      |
