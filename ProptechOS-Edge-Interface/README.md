@@ -423,7 +423,7 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | Helvar        |                                                                                | Available |     Yes      |    No      |
 | Freesi        |                                                                                | In progress |     Yes      |    No      |
 | Treon         |                                                                                | In progress |     Yes      |    No      |
-| Integral      |                                                                                | In progress |     Yes      |    No      |
-| Haltian       |                                                                                | In progress |     Yes      |    No      |
+| Integral      |                                                                                | Available |     Yes      |    No      |
+| Haltian       |                                                                                | Available |     Yes      |    No      |
 | UbiqiSense    | Camera and ML based presence analysis.                                         | Available |     Yes      |    No      |
 | Cisco         | Camera and ML based presence analysis.                                         | In progress |     Yes      |    No      |
