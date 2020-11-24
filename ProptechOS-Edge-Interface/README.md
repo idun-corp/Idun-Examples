@@ -417,7 +417,6 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | Nordomatic    | Partner module for styrportalen.                                               | In progress |     Yes      |    Yes     |
 | ERTEK         | Partner module for PLCs.                                                       | In progress |     Yes      |    Yes     |
 | eSys          | Partner module for meters (m-bus)                                              | In progress |     Yes      |    No      |
-| eSys          | Partner module for meters (m-bus)                                              | In progress |     Yes      |    No      |
 | Flowity       | Partner module for camera and ML-based presence analysis.                      | In progress |     Yes      |    No      |
 | Talkpool      | Partner module.                                                                | In progress |     Yes      |    No      |
 | Disruptive Technologies  |                                                                                | In progress |     Yes      |    No      |
