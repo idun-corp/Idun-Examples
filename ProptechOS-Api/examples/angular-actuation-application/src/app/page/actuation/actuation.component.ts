@@ -50,7 +50,6 @@ export class ActuationComponent {
   actuationRequestInfo(req: ActuationRequest): Array<AxiomInfo> {
     return [
       { property: 'Payload: ', value: req.payload },
-      { property: 'Requesting agent: ', value: req.requestingAgent },
       { property: 'Target interface: ', value: req.targetInterface }
     ];
   }
@@ -67,10 +66,8 @@ export class ActuationComponent {
   private buildRequest(): ActuationRequest {
     const payloadData =
       this.actuationRequestForm.getRawValue().payload;
-    const agent = this.msalService.getAccount().userName;
     return {
       payload: payloadData,
-      requestingAgent: agent,
       targetInterface: this.actuationInterfaceId
     };
   }

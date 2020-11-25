@@ -40,7 +40,6 @@ export interface Observation {
 export interface ActuationRequest {
   targetInterface: string;
   payload: string;
-  requestingAgent: string;
 }
 
 export interface ActuationRequestResponse {
