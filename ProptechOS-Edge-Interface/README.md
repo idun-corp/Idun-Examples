@@ -419,11 +419,11 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | eSys          | Partner module for meters (m-bus)                                              | In progress |     Yes      |    No      |
 | Flowity       | Partner module for camera and ML-based presence analysis.                      | In progress |     Yes      |    No      |
 | Talkpool      | Partner module.                                                                | In progress |     Yes      |    No      |
-| Disruptive Technologies  |                                                                                | Available |     Yes      |    No      |
-| Helvar        |                                                                                | Available |     Yes      |    No      |
-| Freesi        |                                                                                | Available |     Yes      |    No      |
-| Treon         |                                                                                | Available |     Yes      |    No      |
-| Integral      |                                                                                | Available |     Yes      |    No      |
-| Haltian       |                                                                                | Available |     Yes      |    No      |
-| UbiqiSense    | Camera and ML based presence analysis.                                         | Available |     Yes      |    No      |
+| Disruptive Technologies  | Generates JWT access token and subscribes to disruptive API Server Sent Events, SSE, for all devices in config file(api limit is 50 active :stream connections per user or service-account)  | Available |     Yes      |    No      |
+| Helvar        | Interacting with Helvar API. Http client based, establishes sessions using server URL and api key.                                                                               | Available |     Yes      |    No      |
+| Freesi        | Interacting with Freesi REST API. Http client based, establishes sessions using server URL and cookie provided by API.                                                                             | Available |     Yes      |    No      |
+| Treon         | Interacting with YIT Event hub. Subscribes to Azure Event Hub messages using kafka client                                                                               | Available |     Yes      |    No      |
+| Integral      | Interacting with YIT Event hub. Subscribes to Azure Event Hub messages using kafka client                                                                              | Available |     Yes      |    No      |
+| Haltian       | Mqtt client which is connected to Haltian system mqtt broker.                                                                                | Available |     Yes      |    No      |
+| UbiqiSense    | Camera and ML based presence analysis. Interacting with UbiqiSense API. Http client based, establishes sessions using server URL and access token.                                        | Available |     Yes      |    No      |
 | Cisco         | Camera and ML based presence analysis.                                         | In progress |     Yes      |    No      |
