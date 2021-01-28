@@ -5,7 +5,7 @@
 
 
 ## API
-The streaming API lets you explore and edit the knowledge graph, query telemetry and execute actuations.  
+The API lets you explore and edit the knowledge graph, query telemetry, execute actuations and provision devices.  
 [Consuming Idun ProptechOS REST API](ProptechOS-Api)
 
 ## Streaming API
