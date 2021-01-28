@@ -417,9 +417,9 @@ connector receives messages from ProptechOS and transforms it to s message that 
 | Larmia        | Partner module.                                                                | Available   |     Yes      |      Yes   |
 | Nordomatic    | Partner module for styrportalen.                                               | In progress |     Yes      |    Yes     |
 | ERTEK         | Partner module for PLCs.                                                       | In progress |     Yes      |    Yes     |
-| eSys          | Partner module for meters (m-bus)                                              | In progress |     Yes      |    No      |
-| Flowity       | Partner module for camera and ML-based presence analysis.                      | In progress |     Yes      |    No      |
-| Talkpool      | Partner module.                                                                | In progress |     Yes      |    No      |
+| eSys          | Partner module for meters (m-bus)                                              | Available |     Yes      |    No      |
+| Flowity       | Partner module for camera and ML-based presence analysis.                      | Available |     Yes      |    No      |
+| Talkpool      | Partner module.                                                                | Available |     Yes      |    No      |
 | Disruptive Technologies  | Generates JWT access token and subscribes to disruptive API Server Sent Events, SSE, for all devices in config file(api limit is 50 active :stream connections per user or service-account)  | Available |     Yes      |    No      |
 | Helvar        | Interacting with Helvar API. Http client based, establishes sessions using server URL and api key.                                                                               | Available |     Yes      |    No      |
 | Freesi        | Interacting with Freesi REST API. Http client based, establishes sessions using server URL and cookie provided by API.                                                                             | Available |     Yes      |    No      |
