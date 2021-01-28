@@ -8,21 +8,18 @@ ProptechOS use the RealEstateCore Edge message format for messages to and from e
 
 ## Get started - Edge development Kit
 To get going you will need get the following:
-
-### User access to ProptechOS
-You can create your test Devices and fetch their Device Key, either via the API or the user interface.
+* **User access to ProptechOS**  
+You can create your test Devices and fetch their Device Key, either via the API or the user interface.  
 [ProptechOS user interface](https://proptechos.com/ui)
-
-### The ProptechOS Edge URL
-It is `idun-iothub-02-prod.azure-devices.net`
+* **The ProptechOS Edge URL**  
+It is `idun-iothub-02-prod.azure-devices.net`  
 There you go.
 
-With the URL, Device ID and Device Key, you can construct your edge connection string: `HostName=<<ProptechOS edge url;DeviceId=<<Device ID>>;SharedAccessKey=<<Device Key>>`
+With the URL, Device ID and Device Key, you can construct your edge connection string: `HostName=<<ProptechOS edge url;DeviceId=<<Device ID>>;SharedAccessKey=<<Device Key>>`  
 Idun can also help you get going by [setting up access](dev-kit-via-1password)
 
-
 ## Sample Connector
-Here is a full working ProptechOS edge connector, [with code and a step-by-step guide](examples]).
+Here is a full working ProptechOS edge connector, [with code and a step-by-step guide](examples).
 
 ## Implemented and Available Connectors
 Perhaps you don't need to build a new connector. Here is a [list of all Idun certified connectors](List-of-Available-Connectors).
