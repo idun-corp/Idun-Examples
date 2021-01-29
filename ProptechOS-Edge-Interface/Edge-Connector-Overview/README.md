@@ -121,7 +121,8 @@ ProptechOS supports all RealEstateCore edge message format versions since v2.3
 ## 3. Logic and buffering
 
 Implementing Sensor observations for an edge connector is quite straight forward. Messages can just be forwarded to ProptechOS after ID and format translation. With Actuator actuations, there is a little bit of logic that also needs to be covered. See a sequence diagram of the full Actuation logic (including the origin and follow-up via the API) below.
-![Actuation logic](../images/Actuation-Sequence-Diagram_ -_RealEstateCore.png)
+
+![Actuation logic](../images/Actuation-Sequence-Diagram_-_RealEstateCore.png)
 
 
 
