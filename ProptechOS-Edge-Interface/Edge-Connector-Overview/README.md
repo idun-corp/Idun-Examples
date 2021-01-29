@@ -2,6 +2,7 @@
 
 # Edge Connector Overview
 The job of the Edge Connector can be split up into:
+
 0. Auth and connection
 1. ID translation
 2. Format translation
