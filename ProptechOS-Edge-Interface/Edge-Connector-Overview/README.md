@@ -25,7 +25,7 @@ The ProptechOS ID of the Device sending the message and the sub-device it refers
 
 The edge connector must keep a map between the edge system ID and the ProptechOS ID.
 
-An alternative possibility is to rely on ProptechOS, and for the edge connector use the ProptehcOS API to look up the IDs. For instance, a BMS connector for the edge system `My BMS` could query `proptechos.com/api/sensor?aliases=ns.proptechos.com/my-bms-system/my-tag-1-a` to get the ID of the ProptechOS sensor representing tag `my-tag-1-a` and its parent Device ID. (see more in the [Alias and Alias namespace section](../../ProptechOS-API/alias-alias-namespace))
+An alternative possibility is to rely on ProptechOS, and for the edge connector use the ProptehcOS API to look up the IDs. For instance, a BMS connector for the edge system `My BMS System` (sic) could query `proptechos.com/api/sensor?aliases=ns.proptechos.com/my-bms-system/my-tag-1-a` to get the ID of the ProptechOS sensor representing tag `my-tag-1-a` and its parent Device ID. (see more in the [Alias and Alias namespace section](../../ProptechOS-API/alias-alias-namespace))
 
 ## 2. Format translation
 In ProptechOS (as in all RealEstateCore platforms) only messages with valid [RealEstateCore edge message format](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages) are allowed. Hence, the Edge Connector must be able to translate the data from the edge system into the RealEstateCore format. See additional specification details at the `api/edge_messages`section of [the RealEstateCore docs](https://github.com/RealEstateCore/rec).
@@ -121,7 +121,7 @@ ProptechOS supports all RealEstateCore edge message format versions since v2.3
 ## 3. Logic and buffering
 
 Implementing Sensor observations for an edge connector is quite straight forward. Messages can just be forwarded to ProptechOS after ID and format translation. With Actuator actuations, there is a little bit of logic that also needs to be covered. See a sequence diagram of the full Actuation logic (including the origin and follow-up via the API) below.
-![Actuation logic](../images/Actuation-Sequence-Diagram_-_RealEstateCore.png)
+![Actuation logic](../images/Actuation-Sequence-Diagram_ -_RealEstateCore.png)
 
 
 
