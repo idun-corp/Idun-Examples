@@ -120,11 +120,24 @@ ProptechOS supports all RealEstateCore edge message format versions since v2.3
 
 ## 3. Logic and buffering
 
-Implementing Sensor observations for an edge connector is quite straight forward. Messages can just be forwarded to ProptechOS after ID and format translation. With Actuator actuations, there is a little bit of logic that also needs to be covered. See a sequence diagram of the full Actuation logic (including the origin and follow-up via the API) below.
+Implementing Sensor observations for an edge connector is quite straight forward. Messages can just be forwarded to ProptechOS after ID and format translation.
 
-![Actuation logic](../images/Actuation-Sequence-Diagram_-_RealEstateCore.png)
+### Actuation
+With Actuator actuations, there is a little bit of logic that also needs to be covered. See a sequence diagram of the full Actuation logic (including the origin and follow-up via the API) and the Actuator highlighted below.
 
+![Actuation logic](../images/ProptechOS-Actuation-Sequence-Diagram-highlighted.png)
 
+The Actuator should:
+1. Receive the Actuation Command
+2. Translate the actuation to a control signal with the Edge system.
+3. Verify if the control signal is correct, and the Actuation is started to be enacted in the edge system. In cases where the edge system can acknowledge the control signal.
+4. Respond to ProptechOS (`Actuation Response`) with a response code indicating if the edge system received and acknowledged the Actuation. Response code could be
+  * `success` (comparable to HTTP status 200): the Actuation Command has been successfully received and the actuation in the underlying edge system has been attempted.
+  * `rejected` (comparable to HTTP status 462): the Actuation Command was rejected by the Actuator before the actuation was attempted in the underlying system, or rejected by the underlying system. More details could possibly be expressed via an "Exception" message, see below (the Exception could be included in the same edge message, or sent in a separate message). The reason for a rejected Actuation Command could be that the format is incorrect, or that the edge system is offline.
+  * `none` (comparable to HTTP status 460): The actuation has failed to be received or forwarded to the underlying system by some other possibly unknown reason. As with "rejected", more details could be sent in an Exception.)
+
+### Buffering and aggregation
+In case of connectivity interruptions, the edge connector could buffer the messages and send them when connection is restored. Similarly, observation messages could be buffered so that they can be combined like described in (2. Format translation), or in cases with high frequency sensors it could desired that the connector buffers individual observations and aggregate them over a reasonable time period (e.g. a sensor measuring Voltage every 20 milliseconds could be aggregated to observations sent to ProptechOS every 15 seconds.).
 
 ## 4. Exception handling and meta-telemetry
 
