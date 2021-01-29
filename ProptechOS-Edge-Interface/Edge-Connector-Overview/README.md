@@ -6,9 +6,10 @@ The job of the Edge Connector can be split up into:
 0. Auth and connection
 1. ID translation
 2. Format translation
-3. Logic and buffering (perhaps)
-4. Exception handling and meta-telemetry (perhaps)
-5. Self-provisioning (a little more advanced than "basics" but much cheaper to maintain over time)
+3. Logic and buffering
+4. Exception handling and meta-telemetry
+5. Self-provisioning  
+(the last three are not strictly needed for a basic edge connector)
 
 ## 0. Auth and connection
 Since ProptechOS is built using Azure IoT technologies, connecting to the ProptechOS edge interface is really connection to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/). You can use the [IoT Hub SDK](https://github.com/Azure/azure-iot-sdks) and a Device Client or connect using a vanilla [MQTT client](https://mqtt.org/software/) or AMQP client. (Our [sample connector uses the Java Device Client](../examples)
@@ -128,7 +129,7 @@ With Actuator actuations, there is a little bit of logic that also needs to be c
 ![Actuation logic](../images/ProptechOS-Actuation-Sequence-Diagram-highlighted.png)
 
 The Actuator should:
-1. Receive the Actuation Command
+1. Receive the `Actuation Command`
 2. Translate the actuation to a control signal with the Edge system.
 3. Verify if the control signal is correct, and the Actuation is started to be enacted in the edge system. In cases where the edge system can acknowledge the control signal.
 4. Respond to ProptechOS (`Actuation Response`) with a response code indicating if the edge system received and acknowledged the Actuation. Response code could be
@@ -141,5 +142,29 @@ In case of connectivity interruptions, the edge connector could buffer the messa
 
 ## 4. Exception handling and meta-telemetry
 
+### Exceptions
+There is a simple standardised way for Devices to let their exceptions bubble up to ProptechOS. An array of exceptions can be added to any edge message from a Device to ProptechOS.
+
+```json
+{
+  "format": "rec3.2",
+  "deviceId": "ac0d1c27-01fc-471e-87a3-f8bb7275cd65",
+  "exceptions":[
+    {
+      "exceptionTime": "2020-06-27T20:10:45Z",
+      "origin": "sensor",
+      "id": "6b858eb6-ed37-43af-80dd-c4f8a4744625",
+      "exception": "Sensor timed out",
+      "retry": 2
+    }
+  ]
+}
+```
+
+As other edge messages, exceptions are sent from a Device, but can refer to not only the Device but also anyone of its sub-devices. This information is encoded in the `id` and `origin` properties. The exception example above is from the Temperature sensor from the observation example above in the *Format translation* section at the top. To describe the exception there is a string `exception` that can contain the error or exception message,  and a `retry` property that is 1 by default, and can increment the same exception has occured after retry(-ies).
+
+### Edge Status
+-- To be added. --
+
 ## 5. Self-provisioning
-(a little more advanced than "basics" but much cheaper to maintain over time)
+Edge connectors can use the ProptechOS API to self-provision its devices, or to self-discover devices that have already been provisioned.
