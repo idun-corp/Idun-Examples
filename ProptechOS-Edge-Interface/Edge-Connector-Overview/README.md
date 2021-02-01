@@ -20,7 +20,7 @@ When developing your client, you can either test against ProptechOS, or if you n
 When you have successfully connected, you can use our [IoT Hub Listener tool](examples/ProptechOS-iothub-listener) to see if your messages are successfully sent to IoT Hub (more on this under Format translation). If your messages are correct RealEstateCore format (see 2. Format translation, below), you can use ProptechOS straight away, and see your messages in the Stream or in your sensor's `/sensor/{id}/observation/latest` endpoint of the API.
 
 ## 1. ID translation
-In ProptechOS (as in all RealEstateCore platforms) edge messages are sent by Devices on behalf of Sensors or Actuators ("sub-devices"). The ProptechOS Device ID and Device Key is used to authorize each message. And similarly, messages are sent from ProptechOS to Devices on behalf of their sub-devices (e.g. an Actuation Command to an Actuator).
+In ProptechOS (as in all RealEstateCore platforms) edge messages are sent by Devices on behalf of Sensors or Actuators ("sub-devices"). The ProptechOS Device ID and Device Key is used to authorize each message. And similarly, messages are sent from ProptechOS to Devices on behalf of their sub-devices (e.g. an Actuation Command to an Actuator). 
 
 The ProptechOS ID of the Device sending the message and the sub-device it refers to is needed. Hence, the Edge Connector must be able to translate the IDs from the edge system (e.g. the BMS tag, the LoRa Dev-EUI or BACnet Device ID) to the equivalent ProptechOS IDs.
 
