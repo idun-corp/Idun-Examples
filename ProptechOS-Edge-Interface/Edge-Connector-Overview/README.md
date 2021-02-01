@@ -56,6 +56,8 @@ A Sensor message (from a Device to ProptechOS) with two observations can look li
 ```
 Note that multiple Sensors can make observations (at different times) that are sent together in the same message. Also note that it is the Device that sends the message, and that the intended schema is stated explicitly.
 
+Also note that times must always be sent in ISO-8601 and *in UTC* (2020-06-27T20:07:44**Z**).
+
 An Actuation message (from ProptechOS to a Device) can look like the following:
 ```json
 {
