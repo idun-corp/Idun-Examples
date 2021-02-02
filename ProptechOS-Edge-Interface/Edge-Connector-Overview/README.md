@@ -20,7 +20,7 @@ When developing your client, you can either test against ProptechOS, or if you n
 When you have successfully connected, you can use our [IoT Hub Listener tool](examples/ProptechOS-iothub-listener) to see if your messages are successfully sent to IoT Hub (more on this under Format translation). If your messages are correct RealEstateCore format (see 2. Format translation, below), you can use ProptechOS straight away, and see your messages in the Stream or in your sensor's `/sensor/{id}/observation/latest` endpoint of the API.
 
 ## 1. ID translation
-In ProptechOS (as in all RealEstateCore platforms) edge messages are sent by Devices on behalf of Sensors or Actuators ("sub-devices"). The ProptechOS Device ID and Device Key is used to authorize each message. And similarly, messages are sent from ProptechOS to Devices on behalf of their sub-devices (e.g. an Actuation Command to an Actuator). 
+In ProptechOS (as in all RealEstateCore platforms) edge messages are sent by Devices on behalf of Sensors or Actuators ("sub-devices"). The ProptechOS Device ID and Device Key is used to authorize each message. And similarly, messages are sent from ProptechOS to Devices on behalf of their sub-devices (e.g. an Actuation Command to an Actuator).
 
 The ProptechOS ID of the Device sending the message and the sub-device it refers to is needed. Hence, the Edge Connector must be able to translate the IDs from the edge system (e.g. the BMS tag, the LoRa Dev-EUI or BACnet Device ID) to the equivalent ProptechOS IDs.
 
@@ -31,6 +31,7 @@ An alternative possibility is to rely on ProptechOS, and for the edge connector 
 ## 2. Format translation
 In ProptechOS (as in all RealEstateCore platforms) only messages with valid [RealEstateCore edge message format](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages) are allowed. Hence, the Edge Connector must be able to translate the data from the edge system into the RealEstateCore format. See additional specification details at the `api/edge_messages`section of [the RealEstateCore docs](https://github.com/RealEstateCore/rec).
 
+### Message translation
 For brevity, ProptechOS uses UUIDs instead of the full IRI for Device, Sensor and Actuator ID, and QuantityKind label instead of the full IRI.
 
 A Sensor message (from a Device to ProptechOS) with two observations can look like the following:
@@ -85,7 +86,7 @@ to which the Actuator (via the Device) could respond (from Device to ProptechOS)
       "responseCode": "success",
       "actuationResponseTime": "2020-06-27T20:11:45Z"
     }
-  ],
+  ]
 }
 ```
 
@@ -121,6 +122,9 @@ Edge messages are meant to be easy to consolidate, so that e.g. the ActuationRes
 
 ProptechOS supports all RealEstateCore edge message format versions since v2.3
 
+### Data translation
+RealEstateCore have modelled and standardised quantity kinds and measurement units, following [QUDT](http://www.qudt.org/) and is using SI units. Hence telemetry values will need to be translated, e.g. MegaWatt to Watt or Inches to Meter.
+
 ## 3. Logic and buffering
 
 Implementing Sensor observations for an edge connector is quite straight forward. Messages can just be forwarded to ProptechOS after ID and format translation.
@@ -138,6 +142,8 @@ The Actuator should:
    * `success` (comparable to HTTP status 200): the Actuation Command has been successfully received and the actuation in the underlying edge system has been attempted.
    * `rejected` (comparable to HTTP status 462): the Actuation Command was rejected by the Actuator before the actuation was attempted in the underlying system, or rejected by the underlying system. More details could possibly be expressed via an "Exception" message, see below (the Exception could be included in the same edge message, or sent in a separate message). The reason for a rejected Actuation Command could be that the format is incorrect, or that the edge system is offline.
    * `none` (comparable to HTTP status 460): The actuation has failed to be received or forwarded to the underlying system by some other possibly unknown reason. As with "rejected", more details could be sent in an Exception.)
+
+The [sample Connector](../examples) implements the full actuation logic, so have a look at how this works in practice.
 
 ### Buffering and aggregation
 In case of connectivity interruptions, the edge connector could buffer the messages and send them when connection is restored. Similarly, observation messages could be buffered so that they can be combined like described in (2. Format translation), or in cases with high frequency sensors it could desired that the connector buffers individual observations and aggregate them over a reasonable time period (e.g. a sensor measuring Voltage every 20 milliseconds could be aggregated to observations sent to ProptechOS every 15 seconds.).
