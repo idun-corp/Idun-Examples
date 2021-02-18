@@ -6,6 +6,7 @@ import com.proptechos.clients.ActuationInterfaceServiceClient;
 import com.proptechos.clients.AliasNamespaceServiceClient;
 import com.proptechos.clients.BuildingComponentServiceClient;
 import com.proptechos.clients.BuildingServiceClient;
+import com.proptechos.clients.CollectionServiceClient;
 import com.proptechos.clients.DeviceServiceClient;
 import com.proptechos.clients.RealEstateServiceClient;
 import com.proptechos.clients.RecIndividualsServiceClient;
@@ -28,6 +29,7 @@ public class JavaSdkExampleApplication {
 	private final DeviceServiceClient deviceServiceClient;
 	private final ActuationInterfaceServiceClient actuationInterfaceServiceClient;
 	private final AliasNamespaceServiceClient namespaceServiceClient;
+	private final CollectionServiceClient collectionServiceClient;
 	private final RecIndividualsServiceClient recIndividualsServiceClient;
 
 	@Autowired
@@ -38,6 +40,7 @@ public class JavaSdkExampleApplication {
 			DeviceServiceClient deviceServiceClient,
 			ActuationInterfaceServiceClient actuationInterfaceServiceClient,
 			AliasNamespaceServiceClient namespaceServiceClient,
+			CollectionServiceClient collectionServiceClient,
 			RecIndividualsServiceClient recIndividualsServiceClient) {
 		this.realEstateServiceClient = realEstateServiceClient;
 		this.buildingServiceClient = buildingServiceClient;
@@ -45,6 +48,7 @@ public class JavaSdkExampleApplication {
 		this.deviceServiceClient = deviceServiceClient;
 		this.actuationInterfaceServiceClient = actuationInterfaceServiceClient;
 		this.namespaceServiceClient = namespaceServiceClient;
+		this.collectionServiceClient = collectionServiceClient;
 		this.recIndividualsServiceClient = recIndividualsServiceClient;
 	}
 
@@ -72,6 +76,12 @@ public class JavaSdkExampleApplication {
 
 			log.info("Return AliasNamespace: ");
 			printJson(namespaceServiceClient.getAxiomById());
+
+			log.info("Return Collection: ");
+			printJson(collectionServiceClient.getAxiomById());
+
+			log.info("Return axioms included in Collection: ");
+			printJson(collectionServiceClient.listFirstTenIncludedAxioms());
 
 			log.info("Return RecIndividuals: ");
 			printJson(recIndividualsServiceClient.firstBuildingComponentClass());
