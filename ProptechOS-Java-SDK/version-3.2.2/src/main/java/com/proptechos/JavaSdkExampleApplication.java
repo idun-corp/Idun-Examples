@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proptechos.clients.ActuationInterfaceServiceClient;
 import com.proptechos.clients.AliasNamespaceServiceClient;
+import com.proptechos.clients.AssetServiceClient;
 import com.proptechos.clients.BuildingComponentServiceClient;
 import com.proptechos.clients.BuildingServiceClient;
 import com.proptechos.clients.CollectionServiceClient;
@@ -26,6 +27,7 @@ public class JavaSdkExampleApplication {
 	private final RealEstateServiceClient realEstateServiceClient;
 	private final BuildingServiceClient buildingServiceClient;
 	private final BuildingComponentServiceClient buildingComponentServiceClient;
+	private final AssetServiceClient assetServiceClient;
 	private final DeviceServiceClient deviceServiceClient;
 	private final ActuationInterfaceServiceClient actuationInterfaceServiceClient;
 	private final AliasNamespaceServiceClient namespaceServiceClient;
@@ -37,6 +39,7 @@ public class JavaSdkExampleApplication {
 			RealEstateServiceClient realEstateServiceClient,
 			BuildingServiceClient buildingServiceClient,
 			BuildingComponentServiceClient buildingComponentServiceClient,
+			AssetServiceClient assetServiceClient,
 			DeviceServiceClient deviceServiceClient,
 			ActuationInterfaceServiceClient actuationInterfaceServiceClient,
 			AliasNamespaceServiceClient namespaceServiceClient,
@@ -45,6 +48,7 @@ public class JavaSdkExampleApplication {
 		this.realEstateServiceClient = realEstateServiceClient;
 		this.buildingServiceClient = buildingServiceClient;
 		this.buildingComponentServiceClient = buildingComponentServiceClient;
+		this.assetServiceClient = assetServiceClient;
 		this.deviceServiceClient = deviceServiceClient;
 		this.actuationInterfaceServiceClient = actuationInterfaceServiceClient;
 		this.namespaceServiceClient = namespaceServiceClient;
@@ -67,6 +71,9 @@ public class JavaSdkExampleApplication {
 
 			log.info("Return BuildingComponent: ");
 			printJson(buildingComponentServiceClient.getAxiomById());
+
+			log.info("Return Asset: ");
+			printJson(assetServiceClient.getAxiomById());
 
 			log.info("Return Device: ");
 			printJson(deviceServiceClient.getAxiomById());
