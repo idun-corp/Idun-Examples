@@ -176,3 +176,67 @@ As other edge messages, exceptions are sent from a Device, but can refer to not 
 
 ## 5. Self-provisioning
 Edge connectors can use the ProptechOS API to self-provision its devices, or to self-discover devices that have already been provisioned.
+
+**Overview:**
+1. Get room/location
+2. Create Device with Sensor(s)
+3. Get Device Key
+
+Let's use an example with a system (Acme IoT) self-provisioning presence sensors into a building ("Plaza 1", with littera "14111").
+
+### 1. Get Room by littera ("room number")
+`https://proptechos.com/api/json/room?littera=07-061&page=0&size=50`
+(returns an array of length 0,...,* and the room we want)
+
+
+Note that *room number* might not be unique across all buildings, so that the returned array is longer than 1, and that the room you are after is not the first entry.  
+In that case we would first need the building in question.
+
+Either by the building littera, if that is known  
+  `https://proptechos.com/api/json/realestatecomponent?littera=14111-001&page=0&size=50`  
+or building coordinates  
+  `https://proptechos.com/api/json/realestatecomponent/inrange?lat=59.3328&lon=18.0665&dist=0.05`  
+(search within 50 meter radius)
+
+and then, knowing the building, get the room by littera  
+  `https://proptechos.com/api/json/room?building_ids=8cc3f507-5ae1-4322-8f2d-756e1eea8dfa&littera=07-061&page=0&size=50`
+
+### 2. Create Device with Sensor
+First create Device:
+`(POST) https://proptechos.com/api/json/device`
+with body:
+```json
+{
+  "class": "Device",
+  "comment": {},
+  "littera": "Acme-07-4061",
+  "popularName": "Acme IoT Room Sensor 07-4061 ",
+  "hasDeviceFunctionType": "https://w3id.org/rec/device/DataAcquisition",
+  "isMountedInBuildingComponent": "df9429eb-6e71-493f-99cb-565c697935be",
+}
+```
+
+get the created object, with ID in return. (called "returnDeviceId" below)
+
+Then add the sensor:  
+`(POST) https://proptechos.com/api/json/device`  
+with body:
+```json
+{
+  "class": "Sensor",
+  "isMountedInBuildingComponent": "df9429eb-6e71-493f-99cb-565c697935be",
+  "servesBuildingComponent": "df9429eb-6e71-493f-99cb-565c697935be",
+  "hasSuperDevice": "<< returnDeviceId >>",
+  "deviceMeasurementUnit": "http://proptechos.com/ontology/extension/Index",
+  "deviceQuantityKind": "https://w3id.org/rec/core/Presence",
+  "devicePlacementContext": "https://w3id.org/rec/device/IndoorAir",
+}
+```
+
+(it is also possible to do this using the /api/json/sensor endpoint)
+
+
+### 3. Get Device Key
+`https://proptechos.com/api/json/device/<< returnDeviceId >>/key`  
+
+All Provisioned and good to go.
