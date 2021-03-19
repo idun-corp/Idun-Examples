@@ -24,8 +24,8 @@ and sends them to ProptechOS. Some connectors also handle Actuations, so that Pr
 | Disruptive Technologies  | Generates JWT access token and subscribes to disruptive API Server Sent Events, SSE, for all devices in config file(api limit is 50 active :stream connections per user or service-account)  | Bronze | Available |     Yes      |    No      |
 | Helvar        | Interacting with Helvar API. Http client based, establishes sessions using server URL and api key. | Bronze | Available |     Yes      |    No      |
 | Freesi        | Interacting with Freesi REST API. Http client based, establishes sessions using server URL and cookie provided by API. | Bronze | Available |     Yes      |    No      |
-| Treon         | Interacting with YIT Event hub. Subscribes to Azure Event Hub messages using kafka client | Bronze | Available |     Yes      |    No      |
-| Integral      | Interacting with YIT Event hub. Subscribes to Azure Event Hub messages using kafka client | Bronze | Available |     Yes      |    No      |
+| Treon         | Subscribes to Azure Event Hub messages using kafka client and tranlates IDs and format. | Bronze | Available |     Yes      |    No      |
+| Integral      | Subscribes to Azure Event Hub messages using kafka client and tranlates IDs and format. | Bronze | Available |     Yes      |    No      |
 | Haltian       | Mqtt client which is connected to Haltian system mqtt broker.                  | Bronze | Available |     Yes      |    No      |
 | UbiqiSense    | Camera and ML based presence analysis. Interacting with UbiqiSense API. Http client based, establishes sessions using server URL and access token. | Bronze | Available |     Yes      |    No      |
 | Cisco         | Camera and ML based presence analysis.                                         | Bronze | In progress |     Yes      |    No      |
