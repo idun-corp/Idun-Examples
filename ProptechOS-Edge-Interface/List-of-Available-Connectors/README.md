@@ -22,8 +22,8 @@ and sends them to ProptechOS. Some connectors also handle Actuations, so that Pr
 | Flowity       | Partner module for camera and ML-based presence analysis with AFRY Flowity.    | Gold   | Available |     Yes      |    No      |
 | Talkpool      | Partner module for Talkpool IoT devices.                                       | Gold   | Available |     Yes      |    No      |
 | Disruptive Technologies  | Generates JWT access token and subscribes to disruptive API Server Sent Events, SSE, for all devices in config file(api limit is 50 active :stream connections per user or service-account)  | Bronze | Available |     Yes      |    No      |
-| Helvar        | Interacting with Helvar API. Http client based, establishes sessions using server URL and api key. | Bronze | Available |     Yes      |    No      |
-| Freesi        | Interacting with Freesi REST API. Http client based, establishes sessions using server URL and cookie provided by API. | Bronze | Available |     Yes      |    No      |
+| Helvar        | Http client based for the Helvar API, establishes sessions using server URL and api key. | Bronze | Available |     Yes      |    No      |
+| Freesi        | Http client based for the Freesi REST API, establishes sessions using server URL and cookie. | Bronze | Available |     Yes      |    No      |
 | Treon         | Subscribes to Azure Event Hub messages using kafka client and tranlates IDs and format. | Bronze | Available |     Yes      |    No      |
 | Integral      | Subscribes to Azure Event Hub messages using kafka client and tranlates IDs and format. | Bronze | Available |     Yes      |    No      |
 | Haltian       | Mqtt client which is connected to Haltian system mqtt broker.                  | Bronze | Available |     Yes      |    No      |
