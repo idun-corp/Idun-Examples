@@ -57,3 +57,22 @@ You have now successfully autorized.
 ## 6. Done.
 The padlock is now locked, indicating that you are authorized.
 ![Swagger authentication step 6](../images/swagger-auth-6.png)
+
+# Choosing the Property Owner for Swagger operations
+## 1. Get the list of available Property Owners
+![image](https://user-images.githubusercontent.com/16049329/112029331-cccc2c80-8b41-11eb-8db7-8dab3338e5dc.png)
+![image](https://user-images.githubusercontent.com/16049329/112029456-eff6dc00-8b41-11eb-9d23-73dc9c9e307d.png)
+
+## 2. Choose the Property Owner to use for requests
+![image](https://user-images.githubusercontent.com/16049329/112029896-5ed43500-8b42-11eb-88b6-22c7e05c48a6.png)
+
+## 3. Click Authorize.
+![image](https://user-images.githubusercontent.com/16049329/112030128-9a6eff00-8b42-11eb-99d7-1afc117e7fac.png)
+
+## 4. Insert Property Owner ID and click Authorize.
+![image](https://user-images.githubusercontent.com/16049329/112030369-e0c45e00-8b42-11eb-98c7-a8e7ab0eedd7.png)
+
+## 5. Click close.
+![image](https://user-images.githubusercontent.com/16049329/112030579-15381a00-8b43-11eb-81e7-30aa56936c4a.png)
+
+## 6. Done.
