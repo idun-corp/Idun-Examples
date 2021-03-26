@@ -16,6 +16,7 @@ public class MessageSender implements Runnable {
   public MessageSender(DeviceClient client, DeviceConfig deviceConfig) {
     this.client = client;
     telemetryGenerator = new TelemetryGenerator(deviceConfig);
+    QuantityKind.setDeviceConfig(deviceConfig);
   }
 
   public void run() {
