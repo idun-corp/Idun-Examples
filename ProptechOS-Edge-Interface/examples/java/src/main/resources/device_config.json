@@ -2,10 +2,19 @@
   "iotHubAddress":"youriothub.azure-devices.net",
   "deviceId":"deviceid_name_given_when_registering_the_device",
   "deviceKey":"key_returned_when_registering_the_device",
+  "telemetrySendPeriod": "frequency_of_observations",
   "sensors": [
     {
       "quantityKind": "Temperature",
       "sensorId": "id of temperature sensor"
+    },
+    {
+      "quantityKind": "Humidity",
+      "sensorId": "id of humidity sensor"
+    },
+    {
+      "quantityKind": "CO2",
+      "sensorId": "id of CO2 sensor"
     }
   ],
   "actuators": [
