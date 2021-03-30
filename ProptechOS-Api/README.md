@@ -2,7 +2,7 @@
 # API
 
 
-The resources and state of them are exposed via an endpoint each per top level class, with GET and POST methods for reading and creating/changing them. Please see Open API Specification (Swagger) docs for up-to-date details.
+The resources and state of them are exposed via an endpoint each per top level class, with GET and POST methods for reading and creating/changing them. Please see [Open API Specification (Swagger) docs](https://proptechos.com/api/swagger-ui.html) for details and to try it out. (Note that if you are running a dedicated instance of ProptechOS, your api and your OAS will have a separate proptechos.com subdomain).
 
 # Authentication
 
