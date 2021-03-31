@@ -49,15 +49,24 @@ main() method is the starting point for our connector application. In scope of t
 	“iotHubAdress”: "youriothub.azure-devices.net",
 	“deviceId”: "device_id_from_ProptechOS",
 	“deviceKey”: "device_key_from_ProptechOS",
+	"telemetrySendPeriod": "frequency_of_observations",
 	“sensors”: [
 		{
 			“quantityKind”: "Temperature",
 			“sensorId”: "sensor_id_from_ProptechOS"
-		}
+		},
+		{
+                        "quantityKind": "Humidity",
+                        "sensorId": "sensor_id_from_ProptechOS"
+                },
+		{
+                        "quantityKind": "CO2",
+                        "sensorId": "sensor_id_from_ProptechOS"
+                }
 	],
 	“actuators”: [
 		{
-			“actuatorId”: "actuator_id_from_ProptechOS"
+		         “actuatorId”: "actuator_id_from_ProptechOS"
 		}
 	]
 }
@@ -96,11 +105,10 @@ We will talk about `RecActuationCommand` and `RecActuationResponse` in more deta
 
 ```java
 public RecMessage generateTelemetry();
-private double generateRandomTemperature();
-private Sensor getRandomSensor();
+public int getTelemetrySendPeriod();
 ```
 
-`generateTelemetry()` should create a `RecMessage` with randomly generated temperature for sensorId which is randomly chosen from config file.
+`generateTelemetry()` should create a `RecMessage` with randomly generated temperature, humidity and CO2 for the correspondent sensors which are chosen from the config file.
 
 ### Send the telemetry messages
 Create a new java class. Let this class implement a Runnable interface, since we want to send our messages in a separate thread, in order not to block the parent thread with infinite loop. This interface will require an overridden `run()` method.
@@ -113,9 +121,9 @@ Implementation of run() method:
  * `message Message` - the message to be sent.
  * `callback IotHubEventCallback` - the callback to be invoked when a response is received. Can be null.
  * `callbackContext Object` - a context to be passed to the callback. Can be null
-* add `Thread.sleep(sendPeriod)` in order to send messages with the frequency every `sendPeriod` that you will specify
+* add `Thread.sleep(sendPeriod)` in order to send messages with the frequency every `sendPeriod` that you will specify in the config file
 
-### Implement message callback, to receive messages from ProptechOS
+### Implement message callback, to receive messages from ProptechOS (this part is applicable only for the Temperature value)
 The Actuation that we recreate with our simple connector,  is next:
 1. ActuationCommand created in ProptechOS (most commonly via the API)
 2. the Edge connector receives `RecMessage` with `RecActuationCommand`
@@ -180,13 +188,8 @@ To check what observation messages are sent to ProptechOS add `System.out. print
 ```
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Press ENTER to exit.
-Sending message: {"format":"rec3.1.1","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
-"observations":[{"observationTime":"2020-03-27T09:12:51.6874058Z","value":24.221417634196257,"quantityKind":"Temperature","sensorId":"7ee2dc9e-e9b0-417c-8c28-05cacb6f863e"}]}
-Sending message: {"format":"rec3.1.1","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
-"observations":[{"observationTime":"2020-03-27T09:12:56.6899086Z","value":18.34789332490643,"quantityKind":"Temperature","sensorId":"7ee2dc9e-e9b0-417c-8c28-05cacb6f863e"}]}
-Sending message: {"format":"rec3.1.1","deviceId":"6329851e-878c-41e1-a980-04577c72290f",
-"observations":[{"observationTime":"2020-03-27T09:13:01.6943853Z","value":20.894724160375738,"quantityKind":"Temperature","sensorId":"7ee2dc9e-e9b0-417c-8c28-05cacb6f863e"}]}
+Sending message: {"format":"rec3.1.1","deviceId":"40890e8d-2112-4ea2-b9d0-9cb21ecb462d","observations":[{"observationTime":"2021-03-31T09:22:19.1840353Z","value":29.879427014069805,"quantityKind":"Temperature","sensorId":"8c4585c6-f9ed-4bdf-b197-6ea3afa44003"},{"observationTime":"2021-03-31T09:22:19.1850349Z","value":45.79829461178331,"quantityKind":"Humidity","sensorId":"95d1a394-8178-4be5-94c7-43bde0dfca1a"},{"observationTime":"2021-03-31T09:22:19.1850349Z","value":707.8385799347906,"quantityKind":"CO2","sensorId":"f46e8f3a-f319-4118-9ed3-74d4ec7007a1"}],"exceptions":[],"actuationCommands":[],"actuationResponses":[]}
+
 ```
 
 
@@ -225,16 +228,16 @@ You should see your Observations in the response:
 ```JSON
 [
   {
-    "observationTime": "2020-03-27T09:12:51.687405800Z",
-    "value": 24.221417634196257
+    "observationTime": "2021-03-31T09:22:19.184035300Z",
+    "value": 29.879427014069805
+  }, 
+  {
+    "observationTime": "2021-03-31T09:22:19.185034900Z",
+    "value": 45.79829461178331
   },
   {
-    "observationTime": "2020-03-27T09:12:56.689908600Z",
-    "value": 18.34789332490643
-  },
-  {
-    "observationTime": "2020-03-27T09:13:01.694385300Z",
-    "value": 20.894724160375738
+    "observationTime": "2021-03-31T09:22:19.185034900Z",
+    "value": 707.8385799347906
   }
 ]
 ```
@@ -245,7 +248,7 @@ An easy way to get authenticated and authorized, and to make the request for /ob
 
 ![GET observations via OAS UI](../images/oas-get-observations.png)
 
-### ProptechOS sending actuations
+### ProptechOS sending actuations (this part is applicable only for the Temperature value)
 To send the actuation we need to use the PUT request method.
 
 ```
@@ -272,7 +275,7 @@ The easier way to send actuation is again, to use the Open API Specification Doc
 
 ![PUT actuation via OAS ui](../images/oas-put-actuation.png)
 
-### Edge Connector receiving actuations
+### Edge Connector receiving actuations (this part is applicable only for the Temperature value)
 Now we can check in our connector console logs if it receives any messages from ProptechOS. As we run sending and receiving messages in parallel, we will see outcoming and incoming messages in one list You should see next messages in console:
 
 Sending observation message (like above):
