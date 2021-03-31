@@ -16,8 +16,8 @@ and sends them to ProptechOS. Some connectors also handle Actuations, so that Pr
 | SMHI          | Interacting with SMHI API. Supported device types are FORECAST and ANALYSIS. Http client based  | Bronze | Available   |     Yes      |     No     |
 | Web Port      | Communicate with Wep Port API. Http client based, establishes sessions using server URL and auth credentials.  | Bronze | Available   |     Yes      |     Yes    |
 | Larmia        | Partner module for interfacing with Larmia Control Building Management System. | Gold   | Available   |     Yes      |      Yes   |
-| Nordomatic    | Partner module for Nordomatic Styrportalen.                                    | Gold   | In progress |     Yes      |    Yes     |
-| ERTEK         | Partner module for PLCs via ERTEK's product.                                   | Gold   | In progress |     Yes      |    Yes     |
+| Nordomatic    | Partner module for Nordomatic Styrportalen.                                    | Gold   | Available |     Yes      |    Yes     |
+| ERTEK         | Partner module for PLCs via ERTEK's product.                                   | Gold   | Available |     Yes      |    Yes     |
 | eSys          | Partner module for meters (m-bus) via eSys product ePort.                      | Gold   | Available |     Yes      |    No      |
 | Flowity       | Partner module for camera and ML-based presence analysis with AFRY Flowity.    | Gold   | Available |     Yes      |    No      |
 | Talkpool      | Partner module for Talkpool IoT devices.                                       | Gold   | Available |     Yes      |    No      |
@@ -29,4 +29,6 @@ and sends them to ProptechOS. Some connectors also handle Actuations, so that Pr
 | Haltian       | Mqtt client which is connected to Haltian system mqtt broker.                  | Bronze | Available |     Yes      |    No      |
 | UbiqiSense    | Camera and ML based presence analysis. Interacting with UbiqiSense API. Http client based, establishes sessions using server URL and access token. | Bronze | Available |     Yes      |    No      |
 | Cisco         | Camera and ML based presence analysis.                                         | Bronze | In progress |     Yes      |    No      |
-| Crestron      | Partner module for getting telemetry out of JML Crestron processor.            | Gold   | In progress |     Yes      | No         |
+| Crestron      | Partner module for getting telemetry out of JML Crestron processor.            | Gold   | In progress |     Yes      |    No      |
+| KeyLogic      | Partner module for sensor telemetry from KeyLogic SCADA                        | Gold   | Available   |     Yes      |    No      |
+| Siemens Desigo | Module for sensors and actuators.                                             | Bronze | In progress |     Yes      |    No      |
