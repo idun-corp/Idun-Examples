@@ -59,6 +59,10 @@ The padlock is now locked, indicating that you are authorized.
 ![Swagger authentication step 6](../images/swagger-auth-6.png)
 
 # Choosing the Property Owner for Swagger operations
+Any user is making requests on behalf of his default Property Owner. For the most of the users this is enough.<br>
+But, sometimes users work with several Property Owners, thus they need to select a non-default one.
+For this, the user needs to authorize with the chosen Property Owner using the next steps:
+
 ## 1. Get the list of available Property Owners
 ![image](https://user-images.githubusercontent.com/16049329/112029331-cccc2c80-8b41-11eb-8db7-8dab3338e5dc.png)
 ![image](https://user-images.githubusercontent.com/16049329/112029456-eff6dc00-8b41-11eb-9d23-73dc9c9e307d.png)
