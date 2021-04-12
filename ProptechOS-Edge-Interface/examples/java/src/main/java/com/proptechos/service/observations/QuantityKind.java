@@ -1,6 +1,7 @@
 package com.proptechos.service.observations;
 
 import com.proptechos.model.message.RecObservation;
+
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
@@ -13,21 +14,21 @@ public enum QuantityKind {
         @Override
         public RecObservation createObservation(String sensorId) {
             return new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-                    temperatureValue, getQuantityKind(), sensorId);
+                    generateRandomTemperature(), getQuantityKind(), sensorId);
         }
     },
     HUMIDITY("Humidity") {
         @Override
         public RecObservation createObservation(String sensorId) {
             return new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-                    humidityValue, getQuantityKind(), sensorId);
+                    generateRandomHumidity(), getQuantityKind(), sensorId);
         }
     },
     CO2("CO2") {
         @Override
         public RecObservation createObservation(String sensorId) {
             return new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-                    co2Value, getQuantityKind(), sensorId);
+                    generateRandomCO2(), getQuantityKind(), sensorId);
         }
     };
 
@@ -47,15 +48,17 @@ public enum QuantityKind {
     private static final int MIN_HUMIDITY = 40;
     private static final int MIN_CO2 = 700;
 
-    Object temperatureValue = isNull(actuationValue) ? generateRandomTemperature() : actuationValue;
-    Object humidityValue = generateRandomHumidity();
-    Object co2Value = generateRandomCO2();
+    private static Object generateRandomTemperature() {
+        return isNull(actuationValue)
+                ? MIN_TEMPERATURE + Math.random() * 15
+                : actuationValue;
+    }
 
-    private double generateRandomTemperature() { return MIN_TEMPERATURE +  Math.random() * 15; }
-    private double generateRandomHumidity() {
+    private static double generateRandomHumidity() {
         return MIN_HUMIDITY + Math.random() * 30;
     }
-    private double generateRandomCO2() {
+
+    private static double generateRandomCO2() {
         return MIN_CO2 + Math.random() * 500;
     }
 
