@@ -5,12 +5,12 @@ import {Configuration} from 'msal';
 import {MsalAngularConfiguration} from '@azure/msal-angular';
 
 const protectedMap: Map<string, Array<string>> = new Map<string, Array<string>>();
-protectedMap.set('https://idundev.proptechos.com/api/', ['https://idundev.proptechos.com/api/Api.Use']);
+protectedMap.set('<BASE_API_URL>', ['<RESOURCE_SCOPES>']);
 
 const msalConfiguration: Configuration = {
   auth: {
-    clientId : 'e917fc79-e227-4658-9632-56fa5a1bcfa1',
-    authority: 'https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/',
+    clientId : '<CLIENT_APP_ID>',
+    authority: '<AUTHORITY_HREF>',
     redirectUri: 'http://localhost:5200/dashboard'
   },
   framework: {
@@ -21,14 +21,14 @@ const msalConfiguration: Configuration = {
 };
 
 const msalAngularConfiguration: MsalAngularConfiguration = {
-  consentScopes: ['https://idundev.proptechos.com/api/Api.Use'],
+  consentScopes: ['<RESOURCE_SCOPES>'],
   protectedResourceMap: protectedMap,
   unprotectedResources: []
 };
 
 export const environment: IEnvironment = {
   production: false,
-  baseUrl: 'https://idundev.proptechos.com/api',
+  baseUrl: '<BASE_API_URL>',
   msalConfig: msalConfiguration,
   msalAngularConfig: msalAngularConfiguration
 };
