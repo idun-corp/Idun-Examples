@@ -18,3 +18,5 @@
 | Event serialization format:  | JSON | n/a |
 | Encoding | UTF-8 | n/a |
 | Event compression type | None | n/a |
+
+  ![Stream as ASA input](../images/stream-asa-input.png)
