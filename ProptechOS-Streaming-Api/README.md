@@ -16,6 +16,8 @@ In summary:
 ## Example
 See a full working example: [Java Spring ProptechOS Streaming API consumer](examples/java).
 
+See example using [Azure StreamAnalytics to consume ProptechOS Streaming API](Consume-with-Azure-StreamAnalytics.md)
+
 
 ## The Idun ProptechOS Stream message:
 
