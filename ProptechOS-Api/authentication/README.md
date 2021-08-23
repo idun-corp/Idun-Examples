@@ -34,7 +34,7 @@ GET  https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oaut
 client_id={ client id}
 &response_type=id_token
 &redirect_uri={ http%3A%2F%2myApp.com%2Fmyredirectendpoint%2F }
-&scope={ https%3A%2F%2Fmyinstance.proptechos.com%2Fapi%2FApi.Use }
+&scope=https%3A%2F%2Fproptechos.com%2Fapi%2FApi.Use
 &response_mode=fragment
 &state=12345
 &nonce=678910
@@ -44,6 +44,7 @@ important to note:
 * tenant: this URL is for the Idun ProptechOS tenant (d4218456-670f-42ad-9f6a-885ae15b6645)
 * client_id: ID of the application, obtained after Application registration by Idun **Replace wiht your client id**
 * redirect_uri: upon Applicaiton registration for the implicit auth flow you will state your redirect uri. **Replace myapp.com/myredirectendpoint with your redirect endpoint**
+* scope: If you are using a dedicated instance of ProptechOS **add the subdomain of your instance to the scope e.g._'https%3A%2F%2Fmydedicatedinstance.proptechos.com%2Fapi%2FAPI.use'_**
 
 Read more: [Microsoft Docs - MSAL Authentication Flows Authorization Code](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#authorization-code)
 
@@ -61,7 +62,7 @@ is directly using HTTP POST method on Microsoft authentication endpoint.
 POST https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token?
 client_id={ client ID }
 &client_secret={ client secret }
-&scope={ https%3A%2F%2Fmyinstance.proptechos.com%2Fapi%2F.default }
+&scope=https%3A%2F%2Fproptechos.com%2Fapi%2F.default
 &grant_type=client_credentials
 ```
 
@@ -69,7 +70,7 @@ important to note:
 * tenant: this URL is for the Idun ProptechOS tenant (d4218456-670f-42ad-9f6a-885ae15b6645)
 * client_id: ID of the application, obtained after Application registration by Idun. **Replce with your client id**
 * client_secret: also generated after Application registration by Idun **Replace with your client secret**
-* scope: Stae the ProptechOS API as scope. **Replace _'myinstance'_ with your the instance of ProptechOS your application is calling**
+* scope: If you are using a dedicated instance of ProptechOS **add the subdomain of your instance to the scope e.g._'https%3A%2F%2Fmydedicatedinstance.proptechos.com%2Fapi%2F.default'_**
 * grant_type: must be 'client_credentials' (indicates which auth flow).
 
 
