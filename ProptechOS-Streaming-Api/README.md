@@ -22,11 +22,9 @@ See example using [Azure StreamAnalytics to consume ProptechOS Streaming API](Co
 ## The Idun ProptechOS Stream message:
 
 ```json
- ...
- "observations":
 {
 "sensor" : "https://proptechos.com/api/sensor/0234c884-f8dc-48d6-b627-2f0d8f8705d6",
-{
+"observation": {
    "value": "21.5",
    "quantityKind": "Temperature",
    "sensorId": "0234c884-f8dc-48d6-b627-2f0d8f8705d6",
