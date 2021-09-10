@@ -24,14 +24,15 @@ See example using [Azure StreamAnalytics to consume ProptechOS Streaming API](Co
 ```json
  ...
  "observations":
-[
-  {
+{
+"sensor" : "https://proptechos.com/api/sensor/0234c884-f8dc-48d6-b627-2f0d8f8705d6",
+{
    "value": "21.5",
    "quantityKind": "Temperature",
    "sensorId": "0234c884-f8dc-48d6-b627-2f0d8f8705d6",
    "observationTime": "2019-06-06T13:37:32.379Z"
   }
-]
+}
 ```
 
 The Idun Streaming message contains a json formatted RealEstateCore (https://www.realestatecore.io) Observation and the URI of the sensor that produced the observation. To get additional information on the message and the sensor, follow the sensor URI (e.g. the device, the BuildingStrcutureComponent, the RealEstate or related Actuators).
