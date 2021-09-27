@@ -19,16 +19,16 @@ Perhaps you don't need to build a new connector. Here is a [list of all Idun cer
 ## Get started
 To get going you will need get the following:
 * **User access to ProptechOS**  
-You can create your test Devices either via the API or the user interface, and fetch the Device keys currently only via API.  
-[ProptechOS user interface](https://proptechos.com/ui)
-* **(Optionally) Application access to ProptechOS**  
-With an application access you can fetch Device keys via API programmatically.
-* **The ProptechOS Edge URL**  
-For trial or professional use of ProptechOS it is `idun-multi-iothub-01.azure-devices.net`. 
-For dedicated cloud instances of ProptechOS the Edge URL will be shared in 1Password.  
-There you go.
+**To create devices, get Device IDs and get Device Key**  
+You can create your test Devices either via the API or [user interface](https://proptechos.com/ui).  
+To get the Device keys, you can currently only use the API. By writing an application, by using the Swagger docs or e.g. using Postman.  
+(Optionally) Application access to ProptechOS: With application access you can fetch Device keys via API programmatically.
+* **ProptechOS Edge URL**  
+**To construct the Edge connection string**  
+For *Trial* or *Professional* tiers of ProptechOS it is `idun-multi-iothub-01.azure-devices.net`.  
+For the *Dedicated* tier of ProptechOS you will have a dedicated Edge URL, which will be shared in 1Password.  
 
-With the URL, Device ID and Device Key, you can construct your edge connection string:
+With the URL, Device ID and Device Key, you can construct your edge connection string, and start sending RealEstateCore edge messages to ProptechOS:
 ```
 HostName=<<ProptechOS edge url>>;DeviceId=<<Device ID>>;SharedAccessKey=<<Device Key>>
 ```
