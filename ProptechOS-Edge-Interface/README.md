@@ -18,7 +18,7 @@ Perhaps you don't need to build a new connector. Here is a [list of all Idun cer
 
 ## Get started
 To get going you will need get the following:
-* **User access to ProptechOS**  
+* **User access to ProptechOS and the ProptechOS API**  
 **To create devices, get Device IDs and get Device Key**  
 You can create your test Devices either via the API or [user interface](https://proptechos.com/ui).  
 To get the Device keys, you can currently only use the API. By writing an application, by using the Swagger docs or e.g. using Postman.  
