@@ -21,7 +21,7 @@ To get going you will need get the following:
 * **User access to ProptechOS and the ProptechOS API**  
 **To create devices, get Device IDs and get Device Key**  
 You can create your test Devices either via the API or [user interface](https://proptechos.com/ui).  
-To get the Device keys, you can currently only use the API. By writing an application, by using the Swagger docs or e.g. using Postman.  
+To get the Device keys, you can currently only use the API (`GET /json/device/{id}/key`). By writing an application, by using the Swagger docs or e.g. using Postman.  
 (Optionally) Application access to ProptechOS: With application access you can fetch Device keys via API programmatically.
 * **ProptechOS Edge URL**  
 **To construct the Edge connection string**  
