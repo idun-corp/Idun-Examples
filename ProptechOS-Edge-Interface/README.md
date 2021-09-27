@@ -28,5 +28,8 @@ For trial or professional use of ProptechOS it is `idun-multi-iothub-01.azure-de
 For dedicated cloud instances of ProptechOS the Edge URL will be shared in 1Password.  
 There you go.
 
-With the URL, Device ID and Device Key, you can construct your edge connection string: `HostName=<<ProptechOS edge url;DeviceId=<<Device ID>>;SharedAccessKey=<<Device Key>>`  
+With the URL, Device ID and Device Key, you can construct your edge connection string:
+```
+HostName=<<ProptechOS edge url>>;DeviceId=<<Device ID>>;SharedAccessKey=<<Device Key>>
+```
 Idun can also help you get going by [setting up access](dev-kit-via-1password)
