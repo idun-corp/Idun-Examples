@@ -84,8 +84,26 @@ Details how to use the lib in the project can be found here:
 https://github.com/AzureAD/microsoft-authentication-library-for-java
 
 
+## Property Owner
 
-### Migration from old Authentication method.
+Each request to ProptechOS is scoped to a single Property Owner. The Property Owner scope is specified using the `X-Property-Owner` header. If no Property Owner header is specified, the request will be scoped to the user's default Property Owner.
+
+A request for the top 1 Real Estate, scoped to the Property Owner `43ea1afe-3412-4a65-987e-a615e2172cd4`.
+```
+// Line breaks for clarify
+curl -X GET "https://proptechos.com/api/json/realestate?page=0&size=1" 
+-H  "accept: application/json" 
+-H  "Authorization: Bearer fjY0(...)kjMx-FdJX" 
+-H  "X-Property-Owner: 43ea1afe-3412-4a65-987e-a615e2172cd4"
+```
+The only endpoints which is not scoped to a Property Owner, are
+* `GET /propertyowner/{id}` Get a specific Proptery Owner
+* `GET /propertyowner/default` Get the default Property Owner for the user making the request.
+* `GET /propertyowner/` Get the Property Owners that the user making the request has access to.
+
+
+## Obsolete
+### Migration from pre-2019 Authentication method.
 
 In previous version, Idun authentication was done by putting predefined Authorization code into Authorization header.
 In a new version, the procedure is basically the same, the only difference is that the token is not statically defined,
