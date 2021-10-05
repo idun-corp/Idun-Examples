@@ -11,7 +11,7 @@ and sends them to ProptechOS. Some connectors also handle Actuations, so that Pr
 | Metry         | Connector for [Metry](https://metry.io/) API. Using server URL and access token.  | Bronze | Available   |     Yes, No     |      No      | Cloud |
 | Modbus        | Bastec or general Modbus devices. Uses Modbus client from modbus-master-tcp java library. | Bronze | Available   |     Yes, Yes    |      No      | Local Hardware / Local VM |
 | OPC UA        | Connector for OPC UA Servers. Using server URL and auth credentials. | Bronze | Available   |     Yes, Yes    |      No      | Local VM |
-| Schneider     | Mqtt client which is connected to Schneider [Ecostruxure via Smart Connector](https://github.com/BuildingsLabs/EboIoTEdgeConnector) system mqtt broker. | Bronze | Available   |     Yes, Yes    |      No      | Local VM |
+| Schneider     | Mqtt client which is connected to Schneider [Ecostruxure via Smart Connector](https://github.com/BuildingsLabs/EboIoTEdgeConnector) system mqtt broker. | Silver | Available   |     Yes, Yes    |      No      | Local VM |
 | Schneider     | Partner conenctor using the native feature MQTT of [EcoStruxure v4.0](https://ecostruxure.schneider-electric.com/) and later.  |  Gold  | Available  | Yes, Yes  | No  | Partner hosted  |
 | SMHI          | Connector for [SMHI API](https://opendata.smhi.se/apidocs/). Supported device types are FORECAST and ANALYSIS. Http client based  | Bronze | Available   |     Yes, No     |      No      | Cloud |
 | Web Port      | Communicate with [Wep Port](https://webport.se/) API. Using server URL and auth credentials.  | Bronze | Available   |     Yes, Yes    |      No      | Cloud |
