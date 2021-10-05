@@ -36,6 +36,6 @@ and sends them to ProptechOS. Some connectors also handle Actuations, so that Pr
 | Crestron      | Partner connector for getting telemetry out of [JML](https://jml.se/) Crestron processor.            | Gold   | Available |     Yes, No      |      No      | Partner hosted |
 | KeyLogic      | Partner connector for sensor telemetry from [KeyLogic](https://www.keylogic.se/) SCADA                        | Gold   | Available   |     Yes, No      |      No      | Partner hosted |
 | Siemens Desigo | Connector for [Siemens Desigo CC](https://new.siemens.com/global/en/products/buildings.html) for sensors and actuators. | Bronze | Available |     Yes, No      |      No      | HTTP TCP/IP Local |
-| EpSpot  | Connector for EpSpot EV chargers   | Bronze  | In Progress  | Yes, Yes  | Yes  | Cloud |
-| Fortum  | Connector for Fortum energy data.  | Bronze  | In Progress  | Yes, No  | No  | Cloud |
-| Axians   | Conenctor to the general IoT data of Axians  | Gold | Available  | Yes, No  | Yes  |  Partner hosted  |
+| EpSpot        | Connector for [EpSpot](https://www.epspot.com/) EV chargers   | Bronze  | In Progress  | Yes, Yes  | Yes  | Cloud |
+| Fortum        | Connector for [Fortum](https://www.fortum.se/foretag) energy data.  | Bronze  | In Progress  | Yes, No  | No  | Cloud |
+| Axians        | Conenctor to the general IoT data of [Axians](https://www.axians.se/)  | Gold | Available  | Yes, No  | Yes  |  Partner hosted  |
