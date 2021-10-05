@@ -38,4 +38,4 @@ and sends them to ProptechOS. Some connectors also handle Actuations, so that Pr
 | Siemens Desigo | Connector for [Siemens Desigo CC](https://new.siemens.com/global/en/products/buildings.html) for sensors and actuators. | Bronze | Available |     Yes, No      |      No      | HTTP TCP/IP Local |
 | EpSpot        | Connector for [EpSpot](https://www.epspot.com/) EV chargers   | Bronze  | In Progress  | Yes, Yes  | Yes  | Cloud |
 | Fortum        | Connector for [Fortum](https://www.fortum.se/foretag) energy data.  | Bronze  | In Progress  | Yes, No  | No  | Cloud |
-| Axians        | Conenctor to the general IoT data of [Axians](https://www.axians.se/)  | Gold | Available  | Yes, No  | Yes  |  Partner hosted  |
+| Axians        | Conenctor to the general IoT data of [Axians](https://www.axians.se/)  | Gold | In Progress  | Yes, No  | Yes  |  Partner hosted  |
