@@ -57,6 +57,7 @@ The connectors below use the ProptechOS edge interface and translate the data of
 | EMU           | Connector for [EMU Professional](https://www.emu-metering.de/) TCP/IP devices. Http client based            | Bronze | Available   |     :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_minus_sign:     | Cloud |
 | eSys          | Partner connector for meters (m-bus) via [eSys product ePort](http://eport.esysab.se/). | Gold   | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_check_mark:     | Partner hosted |
 | Fortum        | Connector for [Fortum](https://www.fortum.se/foretag) energy data.  | Bronze  | In Progress  | :heavy_check_mark:, :heavy_minus_sign:  |:heavy_minus_sign: | Cloud |
+| Greenview     | Connector for [Greenview](https://greencon.se/greenview/)  | Gold  | Available  | :heavy_check_mark:, :heavy_minus_sign:  |:heavy_check_mark | Partner hosted |
 | Mestro        | Connector for [Mestro](https://mestro.com/en/) API(1.2.0). Using server URL and auth credentials.    | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_minus_sign:     | Cloud |
 | Metry         | Connector for [Metry](https://metry.io/) API. Using server URL and access token.  | Bronze | Available   |     :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_minus_sign:     | Cloud |
 
