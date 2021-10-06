@@ -1,4 +1,5 @@
-## Available ProptechOS Edge Connectors
+![ProptechOS logo](../../images/ProptechOS-logotype-ex.png)
+# Available Connectors
 The connectors below use the ProptechOS edge interface and translate the data of the underlying edge system to RealEstateCore Edge Message standard.
 
 * **Partner level** What level of partnership that is behind the connector.
