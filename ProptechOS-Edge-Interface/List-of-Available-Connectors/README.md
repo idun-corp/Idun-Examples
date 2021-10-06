@@ -20,6 +20,7 @@ The connectors below use the ProptechOS edge interface and translate the data of
 | Name          | Description                                                                    | Partner level  | Availability    | Observation, Actuation | Self-Provisioning | Hosting |
 | ------------- | ------------------------------------------------------------------------------ | ------ | --------- | ----------- | ------------ | ------------ |
 | ERTEK         | Partner connector for KNX PLCs via [ERTEK's](https://www.ertek.se/) product. | Gold   | Available |     :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_minus_sign:     | KNX |
+| Iconics       | Connector for [Iconics](https://iconics.com/). | Bronze  | Avaiable  |  :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_minus_sign:     | Cloud / Local VM |
 | Larmia        | Partner connector for interfacing with [Larmia](https://larmia.se/) Control Building Management System. | Gold   | Available   |     :heavy_check_mark:, :heavy_check_mark:   |     :heavy_check_mark:     | Partner hosted |
 | Lindinvent    | Connector for [Lindinvent](https://www.lindinvent.se/) BMS.  |  Bronze  | Available  | :heavy_check_mark:, :heavy_check_mark:  |:heavy_minus_sign: | Local VM |
 | Kabona        | Communicate with Kabona SCADA API. Using server URL and auth credentials. | Bronze | Available   |     :heavy_check_mark:, :heavy_check_mark:    |     :heavy_minus_sign:     | Local VM |
