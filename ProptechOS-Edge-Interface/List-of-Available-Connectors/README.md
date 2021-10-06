@@ -2,7 +2,7 @@
 # Available Connectors
 The connectors below use the ProptechOS edge interface and translate the data of the underlying edge system to RealEstateCore Edge Message standard.
 
-* **Partner level** What level of partnership that is behind the connector. ![ProptechOS Partner](../../images/proptechos-partner-logo.png)
+* **Partner level** What level of partnership that is behind the connector.
   * Gold: The partner has developed and maintains the connector
   * Silver: The partner and Idun share ownership and responsibility for the connector IP
   * Bronze: Idun developed and maintains the connector with help from the partner
