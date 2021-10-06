@@ -2,7 +2,7 @@
 # Available Connectors
 The connectors below use the ProptechOS edge interface and translate the data of the underlying edge system to RealEstateCore Edge Message standard.
 
-* **Partner level** What level of partnership that is behind the connector.
+* **Partner level** What level of partnership that is behind the connector. ![ProptechOS Partner](../../images/proptechos-partner-logo.png)
   * Gold: The partner has developed and maintains the connector
   * Silver: The partner and Idun share ownership and responsibility for the connector IP
   * Bronze: Idun developed and maintains the connector with help from the partner
@@ -42,12 +42,12 @@ The connectors below use the ProptechOS edge interface and translate the data of
 | Freesi        | Connector to the [Freesi](https://iisy.fi/?lang=en) REST API, establishes sessions using server URL and cookie. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Cloud |
 | Haltian       | Connector to the [Haltian](https://haltian.com/) system mqtt broker.                  | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Partner hosted |
 | Helvar        | Connector to the [Helvar](https://helvar.com/) API, establishes sessions using server URL and api key. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_check_mark:     | Cloud |
-| Integral (obsolete)      | Tranlates IDs and format. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Azure EventHub |
+| Integral (obsolete)      | Tranlates IDs and format. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Cloud |
 | Integral   | Connector for Integrals API.  | Bronze  | In progress | :heavy_check_mark:, :heavy_minus_sign:  |:heavy_check_mark: | Cloud |
 | Lummelunda    | Partner connector for [Lummelunda](https://lummelunda.tech/) IoT devices. | Gold   | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_check_mark:     | Partner hosted |
 | Lummelunda (obsolete) | Connector for interacting with [Lummelunda](https://lummelunda.tech/) Web API. Http client based, establishes sessions using server URL and auth credentials  | Bronze | Available   |     :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_check_mark:     | Partner hosted |
 | Talkpool      | Partner connector for [Talkpool](https://talkpool.com/) IoT devices. | Gold   | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Partner hosted |
-| Treon         | Tranlates IDs and format. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Azure EventHub |
+| Treon         | Conenctor translating IDs and format to RealEstateCore Edge Message. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Cloud |
 | UbiqiSense    | Connector for [UbiqiSense](https://www.ubiqisense.com/) API, camera and ML based presence analysis. Establishes sessions using server URL and access token. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Cloud |
 
 ### Metering, Media and Utility
