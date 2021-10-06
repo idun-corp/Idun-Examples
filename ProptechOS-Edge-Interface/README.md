@@ -7,14 +7,15 @@ ProptechOS uses [RealEstateCore Edge messages](https://github.com/RealEstateCore
 ProptechOS follow the **RealEstateCore Edge message format** for messages to and from edge Devices, Sensors and Actuators.  
 Read the *[documentation from RealEstateCore](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages)* to get familiar with edge messages and how they are used and see the [json schema specifying their format](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages/edge_message.schema.json).
 
-## ProptechOS Edge Connector overview
+## Connector overview
 Here is a [summary that goes through the logic of a ProptechOS Edge Connectors](Edge-Connector-Overview).
 
 ## Sample Connector
 Here is a full working ProptechOS edge connector, [with working code and a step-by-step guide](examples).
 
-## Implemented and Available Connectors
-Perhaps you don't need to build a new connector. Here is a [list of all Idun certified connectors](List-of-Available-Connectors).
+## Available Connectors
+Perhaps you don't need to build a new connector.  
+Here is a [list of all Idun certified connectors](List-of-Available-Connectors).
 
 ## Get started
 To get going you will need get the following:
