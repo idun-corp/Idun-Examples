@@ -42,7 +42,7 @@ The connectors below use the ProptechOS edge interface and translate the data of
 | Flowity       | Partner connector for camera and ML-based presence analysis with AFRY Flowity.    | Gold   | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Partner hosted |
 | Freesi        | Connector to the [Freesi](https://iisy.fi/?lang=en) REST API, establishes sessions using server URL and cookie. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Cloud |
 | Haltian       | Connector to the [Haltian](https://haltian.com/) system mqtt broker.                  | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Partner hosted |
-| Helvar        | Connector to the [Helvar](https://helvar.com/) API, establishes sessions using server URL and api key. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_check_mark:     | Cloud |
+| Helvar        | Connector to the [Helvar](https://helvar.com/) API, establishes sessions using server URL and api key. | Gold | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_check_mark:     | Cloud |
 | Integral (obsolete)      | Tranlates IDs and format. | Bronze | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | Cloud |
 | Integral   | Connector for Integrals API.  | Bronze  | In progress | :heavy_check_mark:, :heavy_minus_sign:  |:heavy_check_mark: | Cloud |
 | Lummelunda    | Partner connector for [Lummelunda](https://lummelunda.tech/) IoT devices. | Gold   | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_check_mark:     | Partner hosted |
