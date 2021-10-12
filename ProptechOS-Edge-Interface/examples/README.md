@@ -46,14 +46,14 @@ main() method is the starting point for our connector application. In scope of t
 
 ```json
 {
-	“iotHubAdress”: "youriothub.azure-devices.net",
-	“deviceId”: "device_id_from_ProptechOS",
-	“deviceKey”: "device_key_from_ProptechOS",
+	"iotHubAdress": "youriothub.azure-devices.net",
+	"deviceId": "device_id_from_ProptechOS",
+	"deviceKey": "device_key_from_ProptechOS",
 	"telemetrySendPeriod": "frequency_of_observations",
-	“sensors”: [
+	"sensors": [
 		{
-			“quantityKind”: "Temperature",
-			“sensorId”: "sensor_id_from_ProptechOS"
+			"quantityKind": "Temperature",
+			"sensorId": "sensor_id_from_ProptechOS"
 		},
 		{
                         "quantityKind": "Humidity",
@@ -64,9 +64,9 @@ main() method is the starting point for our connector application. In scope of t
                         "sensorId": "sensor_id_from_ProptechOS"
                 }
 	],
-	“actuators”: [
+	"actuators": [
 		{
-		         “actuatorId”: "actuator_id_from_ProptechOS"
+		         "actuatorId": "actuator_id_from_ProptechOS"
 		}
 	]
 }
