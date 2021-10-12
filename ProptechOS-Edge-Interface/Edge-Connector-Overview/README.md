@@ -24,9 +24,10 @@ In ProptechOS (as in all RealEstateCore platforms) edge messages are sent by Dev
 
 The ProptechOS ID of the Device sending the message and the sub-device it refers to is needed. Hence, the Edge Connector must be able to translate the IDs from the edge system (e.g. the BMS tag, the LoRa Dev-EUI or BACnet Device ID) to the equivalent ProptechOS IDs.
 
-The edge connector must keep a map between the edge system ID and the ProptechOS ID.
+The edge connector can keep a map between the edge system ID and the ProptechOS ID, or rely on ProptechOS alias mapping. When using alias mapping, the edge connector will use the ProptehcOS API to look up the IDs. For instance, a BMS connector for the edge system `My BMS System` (sic) could query `proptechos.com/api/sensor?aliases=ns.proptechos.com/my-bms-system/my-tag-1-a` to get the ID of the ProptechOS sensor representing tag `my-tag-1-a` and its parent Device ID. (see more in the [Alias and Alias namespace section](../../ProptechOS-API/alias-alias-namespace))
 
-An alternative possibility is to rely on ProptechOS, and for the edge connector use the ProptehcOS API to look up the IDs. For instance, a BMS connector for the edge system `My BMS System` (sic) could query `proptechos.com/api/sensor?aliases=ns.proptechos.com/my-bms-system/my-tag-1-a` to get the ID of the ProptechOS sensor representing tag `my-tag-1-a` and its parent Device ID. (see more in the [Alias and Alias namespace section](../../ProptechOS-API/alias-alias-namespace))
+### Sensor Alias
+ProptechOS can receive edge messages with aliases as the `sensorId` value. So the Connector does not need to keep a map of all sensorIDs.
 
 ## 2. Format translation
 In ProptechOS (as in all RealEstateCore platforms) only messages with valid [RealEstateCore edge message format](https://github.com/RealEstateCore/rec/tree/master/api/edge_messages) are allowed. Hence, the Edge Connector must be able to translate the data from the edge system into the RealEstateCore format. See additional specification details at the `api/edge_messages`section of [the RealEstateCore docs](https://github.com/RealEstateCore/rec).
