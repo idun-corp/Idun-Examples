@@ -258,17 +258,13 @@ foo.proptechos.com/api/actuator/{id}/actuation
 ```
 
 exchange
-* `{json object}` using next json format
+* `{json object}` with the an json object like e.g.
 ```JSON
 {
-    "actuatorId": "string",
-    "actuationInterface": "string",
-    "agent": "string",
-    "value": "string"
+    "value": 23
 }
 ```
 
-as actuationInterface use any interface that suits your actuation.
 * `{id}` with id of actuator that you about to use
 
 The easier way to send actuation is again, to use the Open API Specification Docs, provided by ProptechOS
