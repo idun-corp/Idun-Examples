@@ -22,7 +22,6 @@ namespace Idun.StreamingApi.Examples.FunctionApp
             {
                 try
                 {
-                    var json = eventData.EventBody.ToObjectFromJson<JsonElement>(JsonSerializerOptions);
                     var sensorObservation = eventData.EventBody.ToObjectFromJson<SensorObservation>(JsonSerializerOptions);
 
                     log.LogInformation($"Processed a sensor observation:\n" +
