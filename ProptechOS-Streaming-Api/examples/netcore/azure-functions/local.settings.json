@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+
+    "EventHubConsumerGroup": "<eventhub-consumer-group>",
+    "EventHubConnectionString": "Endpoint=sb://<eventhub-namespace>.servicebus.windows.net/;SharedAccessKeyName=<access-key-name>;SharedAccessKey=<access-key>;EntityPath=<eventhub-name>"
+  }
+}
