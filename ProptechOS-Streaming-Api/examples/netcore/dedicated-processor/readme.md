@@ -6,7 +6,6 @@
   `Endpoint=sb://<eventhub-namespace>.servicebus.windows.net/;SharedAccessKeyName=<access-key-name>;SharedAccessKey=<access-key>`
 * EventHub Name
 * Consumer Group name
-* EventHub Name
 * Blob Storage Connection String in format
   `DefaultEndpointsProtocol=https;AccountName=<storage-account-name>;AccountKey=<storage-account-key>;EndpointSuffix=core.windows.net`
 * Blob Container Name
