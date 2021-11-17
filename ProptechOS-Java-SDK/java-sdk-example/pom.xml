@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.6.RELEASE</version>
+		<version>2.5.6</version>
 	</parent>
 
 	<groupId>com.proptechos</groupId>
 	<artifactId>java-sdk-example</artifactId>
-	<version>3.3-SNAPSHOT</version>
+	<version>3.3.12-SNAPSHOT</version>
 	<name>java-sdk-example</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -31,12 +31,12 @@
 		<dependency>
 			<groupId>com.proptechos</groupId>
 			<artifactId>proptechos-rest-api-java-client</artifactId>
-			<version>3.3-SNAPSHOT</version>
+			<version>3.3.12-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.16</version>
+			<version>1.18.22</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
