@@ -1,6 +1,6 @@
 const clientId = "<CLIENT_ID>";
 const proptechOsApiUrl = "<PROPTECHOS_API_URL>";
-const proptechOpApiIdUri = "<PROPTECHOS_API_ID_URI>";
+const proptechOsApiIdUri = "<PROPTECHOS_API_ID_URI>";
 
 export const environment = {
   production: false,
@@ -12,9 +12,9 @@ export const environment = {
       authority: `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`,
       knownAuthorities: ["proptechos.b2clogin.com"],
     },
-    consentScopes: [`${proptechOpApiIdUri}/api.use`],
+    consentScopes: [`${proptechOsApiIdUri}/api.use`],
     protectedResourceMap: [
-      [`${proptechOsApiUrl}/*`, [`${proptechOpApiIdUri}/api.use`]],
+      [`${proptechOsApiUrl}/*`, [`${proptechOsApiIdUri}/api.use`]],
     ] as [string, string[]][],
   }
 };
