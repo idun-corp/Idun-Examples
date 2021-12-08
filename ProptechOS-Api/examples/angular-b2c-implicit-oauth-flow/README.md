@@ -1,6 +1,6 @@
 # Angular B2C implicit OAuth2 flow example
 
-This project illustrates how to implement authentication and authorization in the ProptechOS API using [Microsoft Authentication Library for Angular](https://www.npmjs.com/package/@azure/msal-angular) 
+This example illustrates how to implement authentication and authorization in the ProptechOS API using [Microsoft Authentication Library for Angular](https://www.npmjs.com/package/@azure/msal-angular) 
 
 ## Configuration
 
