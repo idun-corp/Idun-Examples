@@ -113,6 +113,6 @@ public ngOnInit() {
 
 ## Run example
 
-* PORT = with a port specified in redirect uri. ex. `http://localhost:4200/`.
+* PORT = with a port specified in redirect uri. Ex. `http://localhost:4200/`.
 
 Run `ng serve --port <PORT>` for a dev server. Navigate to `http://localhost:<PORT>/`. The app will automatically reload if you change any of the source files.
