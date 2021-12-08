@@ -1,14 +1,14 @@
 # Angular B2C implicit OAuth2 flow example
 
-This project illustrates how to implement authentication and authorization in the ProptechOS API using [Microsoft Authentication Library for Angular](https://www.npmjs.com/package/@azure/msal-angular) 
+This example illustrates how to implement authentication and authorization in the ProptechOS API using [Microsoft Authentication Library for Angular](https://www.npmjs.com/package/@azure/msal-angular) 
 
 ## Configuration
 
-Open `environment.ts` file and fill the properties:
+Open [environment.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/environments/environment.ts) file and fill the properties:
 
 * CLIENT_ID = with your application client id
-* PROPTECHOS_API_URL = 'https://....proptechos.com/api/...'
-* PROPTECHOS_APPLICATION_ID_URI = 'https://...proptechos.onmicrosoft.com/...'
+* PROPTECHOS_API_URL = 'https://(your_environment)proptechos.com/api/...'
+* PROPTECHOS_APPLICATION_ID_URI = 'https://proptechos.onmicrosoft.com/(application)'
 
 ```javascript
 const clientId = "<CLIENT_ID>";
@@ -33,9 +33,83 @@ export const environment = {
 };
 ```
 
-AppModule
+
+### Check out configurations for the MsalModule in the [app.module.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/app/app.module.ts).
+
+```javascript
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MsalModule.forRoot(
+      new PublicClientApplication({
+        auth: environment.msalConfig.auth,
+        cache: {
+          cacheLocation: BrowserCacheLocation.LocalStorage,
+          storeAuthStateInCookie: false,
+        }
+      }),
+      {
+        interactionType: InteractionType.Redirect,
+        authRequest: { scopes: environment.msalConfig.consentScopes }
+      },
+      {
+        interactionType: InteractionType.Redirect,
+        protectedResourceMap: new Map(environment.msalConfig.protectedResourceMap)
+      }),
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
+    },
+    HttpClient,
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
 
+### Check out configuration in the [app-routing.module.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/app/app-routing.module.ts)
+
+```javascript
+const routes: Routes = [{
+  path: "",
+  canActivate: [MsalGuard],
+  component: AppComponent,
+}];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+### API call to ProptechOS is executed in the [app.component.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/app/app.component.ts)
+
+```javascript
+public ngOnInit() {
+    this.msalService.handleRedirectObservable()
+      .subscribe(() => {
+        this.http.get<any>(`${environment.proptechOsApiUrl}/person/me`, {
+          headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          observe: "response",
+          responseType: "json"
+        })
+        .subscribe(response => this.response = response.body)
+      })
+  }
+```
 
 ## Run example
 
