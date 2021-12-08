@@ -7,8 +7,8 @@ This example illustrates how to implement authentication and authorization in th
 Open [environment.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/environments/environment.ts) file and fill the properties:
 
 * CLIENT_ID = with your application client id
-* PROPTECHOS_API_URL = 'https://(your_environment)proptechos.com/api/...'
-* PROPTECHOS_APPLICATION_ID_URI = 'https://proptechos.onmicrosoft.com/(application)'
+* PROPTECHOS_API_URL = 'https://(your_environment)proptechos.com/api/...' - without trailing slash
+* PROPTECHOS_APPLICATION_ID_URI = 'https://proptechos.onmicrosoft.com/(application)' - without trailing slash
 
 ```javascript
 const clientId = "<CLIENT_ID>";
@@ -113,4 +113,6 @@ public ngOnInit() {
 
 ## Run example
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* PORT = with a port specified in redirect uri. Ex. `http://localhost:4200/`.
+
+Run `ng serve --port <PORT>` for a dev server. Navigate to `http://localhost:<PORT>/`. The app will automatically reload if you change any of the source files.
