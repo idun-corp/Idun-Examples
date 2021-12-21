@@ -115,6 +115,8 @@ changed from:
 to:  
 `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
 
+See the `b2c` auth examples in the [examples folder](../examples). There are examples in both angular js and dotnet, and for both client and implicit flows.
+
 ## Obsolete
 ### Migration from pre-2019 Authentication method.
 
