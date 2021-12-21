@@ -16,8 +16,8 @@ namespace B2cClientCredentialFlow
         {
             var clientId = "<CLIENT_ID>";
             var clientSecret = "<CLIENT_SECRET>";
-            var proptechOsApiUrl = "<PROPTECHOS_API_URL>";
-            var proptechOsApplicationIdUri = "<PROPTECHOS_APPLICATION_ID_URI>";
+            var scopeName = "<SCOPE_NAME>";
+            var baseUrl = "<BASE_URL>";
 
             using (var httpClient = new HttpClient())
             {
@@ -27,7 +27,7 @@ namespace B2cClientCredentialFlow
                     {
                         { "client_id", clientId },
                         { "client_secret", clientSecret },
-                        { "scope", $"{proptechOsApplicationIdUri}/.default" },
+                        { "scope", scopeName },
                         { "grant_type", "client_credentials" },
                     }.AsEnumerable()),
                 };
@@ -35,7 +35,7 @@ namespace B2cClientCredentialFlow
                 var loginResponseJson = await HandleResponse(loginResponse);
                 PrintLoginResponse(loginResponseJson);
 
-                var proptechOsRequest = new HttpRequestMessage(HttpMethod.Get, $"{proptechOsApiUrl}/realestate")
+                var proptechOsRequest = new HttpRequestMessage(HttpMethod.Get, $"{baseUrl}/realestate")
                 {
                     Headers =
                     {

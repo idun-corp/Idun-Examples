@@ -1,20 +1,21 @@
+const authorityHref = "<AUTHORITY_HREF>";
+const baseUrl = "<BASE_URL>";
 const clientId = "<CLIENT_ID>";
-const proptechOsApiUrl = "<PROPTECHOS_API_URL>";
-const proptechOsApplicationIdUri = "<PROPTECHOS_APPLICATION_ID_URI>";
+const scopeName = "<SCOPE_NAME>";
 
 export const environment = {
   production: false,
-  proptechOsApiUrl: proptechOsApiUrl,
+  baseUrl: baseUrl,
   msalConfig: {
     auth: {
       clientId: clientId,
       redirectUri: location.origin,
-      authority: `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`,
+      authority: authorityHref,
       knownAuthorities: ["proptechos.b2clogin.com"],
     },
-    consentScopes: [`${proptechOsApplicationIdUri}/api.use`],
+    consentScopes: [scopeName],
     protectedResourceMap: [
-      [`${proptechOsApiUrl}/*`, [`${proptechOsApplicationIdUri}/api.use`]],
+      [`${baseUrl}/*`, [scopeName]],
     ] as [string, string[]][],
   }
 };

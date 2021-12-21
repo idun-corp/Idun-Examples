@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     this.msalService.handleRedirectObservable()
       .subscribe(() => {
-        this.http.get<any>(`${environment.proptechOsApiUrl}/person/me`, {
+        this.http.get<any>(`${environment.baseUrl}/person/me`, {
           headers: {
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest"
