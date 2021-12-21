@@ -5,7 +5,7 @@ import {Configuration} from 'msal';
 import {MsalAngularConfiguration} from '@azure/msal-angular';
 
 const protectedMap: Map<string, Array<string>> = new Map<string, Array<string>>();
-protectedMap.set('<BASE_API_URL>', ['<RESOURCE_SCOPES>']);
+protectedMap.set('<BASE_URL>', ['<SCOPES>']);
 
 const msalConfiguration: Configuration = {
   auth: {
@@ -21,7 +21,7 @@ const msalConfiguration: Configuration = {
 };
 
 const msalAngularConfiguration: MsalAngularConfiguration = {
-  consentScopes: ['<_SCOPES>'],
+  consentScopes: ['<SCOPES>'],
   protectedResourceMap: protectedMap,
   unprotectedResources: []
 };
