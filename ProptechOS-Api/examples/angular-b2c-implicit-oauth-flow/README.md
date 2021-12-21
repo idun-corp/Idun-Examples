@@ -6,37 +6,34 @@ This example illustrates how to implement authentication and authorization in th
 
 Open [environment.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/environments/environment.ts) file and fill the properties:
 
-* CLIENT_ID = with your application client id
-* PROPTECHOS_API_URL = 'https://(your_environment)proptechos.com/api/...' - without trailing slash
-* PROPTECHOS_APPLICATION_ID_URI = 'https://proptechos.onmicrosoft.com/(application)' - without trailing slash
-
-* _AUTHORITY_HREF_ = `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
+* _AUTHORITY_HREF_ = `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1a_signup_signin/`
+* _BASE_URL_ = ProptechOS api base url (e.g. `https://proptechos.com/api`)
 * _CLIENT_ID_ = your application client id
-* _SCOPE_NAME_ = `proptechos.com/api/api.use` (or `myenvironment.proptechos.com/api/api.use`)
+* _SCOPE_NAME_ = `https://proptechos.onmicrosoft.com/{myenvironment}/api.use`
 
 ```javascript
+const authorityHref = "<AUTHORITY_HREF>";
+const baseUrl = "<BASE_URL>";
 const clientId = "<CLIENT_ID>";
-const proptechOsApiUrl = "<PROPTECHOS_API_URL>";
-const proptechOsApplicationIdUri = "<PROPTECHOS_APPLICATION_ID_URI>";
+const scopeName = "<SCOPE_NAME>";
 
 export const environment = {
   production: false,
-  proptechOsApiUrl: proptechOsApiUrl,
+  baseUrl: baseUrl,
   msalConfig: {
     auth: {
       clientId: clientId,
       redirectUri: location.origin,
-      authority: `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`,
+      authority: authorityHref,
       knownAuthorities: ["proptechos.b2clogin.com"],
     },
-    consentScopes: [`${proptechOsApplicationIdUri}/api.use`],
+    consentScopes: [scopeName],
     protectedResourceMap: [
-      [`${proptechOsApiUrl}/*`, [`${proptechOsApplicationIdUri}/api.use`]],
+      [`${baseUrl}/*`, [scopeName]],
     ] as [string, string[]][],
   }
 };
 ```
-
 
 ### Check out configurations for the MsalModule in the [app.module.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/app/app.module.ts).
 
