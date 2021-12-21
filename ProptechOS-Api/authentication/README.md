@@ -30,7 +30,7 @@ An example of how to use it can be found in the **[authentication/examples folde
 
 ```
 // Line breaks for legibility only
-GET  https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/authorize?
+GET  https://login.microsoftonline.com/proptechos.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id={ client id}
 &response_type=id_token
 &redirect_uri={ http%3A%2F%2myApp.com%2Fmyredirectendpoint%2F }
