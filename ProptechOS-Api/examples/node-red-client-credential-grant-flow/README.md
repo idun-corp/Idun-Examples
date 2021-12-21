@@ -8,8 +8,8 @@ Open `client-credential.json` file and fill the properties:
 
 * _<TENANT_ID>_ = `d4218456-670f-42ad-9f6a-885ae15b6645`
 * _<CLIENT_ID>_ = your application client id
-* _CLIENT_SECRET_ = your application client secret
-* _SCOPE_NAME_ = application scope (e.g. `https://proptechos.com/api/api.use`)
+* _<CLIENT_SECRET>_ = your application client secret
+* _<SCOPE_NAME>_ = application scope (e.g. `https://proptechos.com/api/api.use`)
 
 ## Installation 
 
