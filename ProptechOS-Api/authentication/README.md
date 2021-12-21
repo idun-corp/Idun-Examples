@@ -41,14 +41,13 @@ client_id={ client id}
 ```
 
 important to note:
-* tenant: this URL is for the Idun ProptechOS tenant (d4218456-670f-42ad-9f6a-885ae15b6645)
 * client_id: ID of the application, obtained after Application registration by Idun **Replace wiht your client id**
 * redirect_uri: upon Applicaiton registration for the implicit auth flow you will state your redirect uri. **Replace myapp.com/myredirectendpoint with your redirect endpoint**
 * scope: If you are using a dedicated instance of ProptechOS **add the subdomain of your instance to the scope e.g._'https%3A%2F%2Fmydedicatedinstance.proptechos.com%2Fapi%2FAPI.use'_**
 
 Read more: [Microsoft Docs - MSAL Authentication Flows Authorization Code](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#authorization-code)
 
-## 2. Application Authentication.
+## 2. Application Authentication (client credential flow).
 
 In case of this type of authorization, a 'Client Credentials' OAuth flow is used. The application has its own id _and password_ ("secret"), and uses it to obtain a token.
 
@@ -59,7 +58,7 @@ is directly using HTTP POST method on Microsoft authentication endpoint.
 
 ```
 //Line breaks for clarity
-POST https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token?
+POST https://login.microsoftonline.com/proptechos.onmicrosoft.com/oauth2/v2.0/token?
 client_id={ client ID }
 &client_secret={ client secret }
 &scope=https%3A%2F%2Fproptechos.com%2Fapi%2F.default
@@ -103,7 +102,18 @@ The only endpoints which is not scoped to a Property Owner, are
 
 ## Migrating from b2b to b2c based auth
 **(December 2021 - January 2022)**  
-TBA
+With ProptechOS v4.1 the login authority changes for both the authentication flows.
+
+* Client credential flow  
+changed from:  
+`https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token`  
+to:  
+`https://login.microsoftonline.com/proptechos.onmicrosoft.com/oauth2/v2.0/token`
+* Implicit flow  
+changed from:  
+`https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/`  
+to:  
+`https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
 
 ## Obsolete
 ### Migration from pre-2019 Authentication method.
