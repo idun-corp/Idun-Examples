@@ -6,7 +6,7 @@ The intention of this simple application is to show the usage of Microsoft ident
 
 Open `server.js` file and fill the properties:
 
-* _AUTHORITY_HREF_ = 'https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/token'
+* _AUTHORITY_HREF_ = 'https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token'
 * _CLIENT_ID_ = with your application client id
 * _CLIENT_SECRET_ = with your application client secret
 * _SCOPE_NAME_ = with application granted scope
