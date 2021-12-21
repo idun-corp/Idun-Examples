@@ -10,6 +10,7 @@ Open `client-credential.json` file and fill the properties:
 * _<CLIENT_ID>_ = your application client id
 * _<CLIENT_SECRET>_ = your application client secret
 * _<SCOPE_NAME>_ = application scope (e.g. `https://proptechos.com/api/api.use`)
+* _<BASE_URL>_ = ProptechOS API base url (e.g. `https://proptechos.com/api`)
 
 ## Installation 
 
