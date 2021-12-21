@@ -9,7 +9,7 @@ protectedMap.set('<BASE_API_URL>', ['<RESOURCE_SCOPES>']);
 
 const msalConfiguration: Configuration = {
   auth: {
-    clientId : '<CLIENT_APP_ID>',
+    clientId : '<CLIENT_ID>',
     authority: '<AUTHORITY_HREF>',
     redirectUri: 'http://localhost:5200/dashboard'
   },
@@ -21,7 +21,7 @@ const msalConfiguration: Configuration = {
 };
 
 const msalAngularConfiguration: MsalAngularConfiguration = {
-  consentScopes: ['<RESOURCE_SCOPES>'],
+  consentScopes: ['<_SCOPES>'],
   protectedResourceMap: protectedMap,
   unprotectedResources: []
 };
