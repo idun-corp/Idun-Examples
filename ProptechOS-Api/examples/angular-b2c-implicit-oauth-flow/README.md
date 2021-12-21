@@ -9,10 +9,11 @@ Open [environment.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-
 * CLIENT_ID = with your application client id
 * PROPTECHOS_API_URL = 'https://(your_environment)proptechos.com/api/...' - without trailing slash
 * PROPTECHOS_APPLICATION_ID_URI = 'https://proptechos.onmicrosoft.com/(application)' - without trailing slash
-
+ - - - - 
 * _AUTHORITY_HREF_ = `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
 * _CLIENT_ID_ = your application client id
 * _SCOPE_NAME_ = `proptechos.com/api/api.use` (or `myenvironment.proptechos.com/api/api.use`)
+ - - - -
 
 ```javascript
 const clientId = "<CLIENT_ID>";
