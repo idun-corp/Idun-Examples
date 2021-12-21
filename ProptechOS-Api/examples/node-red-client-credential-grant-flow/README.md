@@ -6,7 +6,6 @@ The intention of this simple application is to show the usage of Microsoft ident
 
 Open `client-credential.json` file and fill the properties:
 
-* _<TENANT_ID>_ = `d4218456-670f-42ad-9f6a-885ae15b6645`
 * _<CLIENT_ID>_ = your application client id
 * _<CLIENT_SECRET>_ = your application client secret
 * _<SCOPE_NAME>_ = application scope (e.g. `https://proptechos.com/api/api.use`)
