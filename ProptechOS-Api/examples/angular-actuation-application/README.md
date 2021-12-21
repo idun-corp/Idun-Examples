@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Configuration
 
-Open `environment.ts` file and fill the properties:
+Open `src/environments/environment.ts` file and fill the properties:
 
 * _BASE_API_URL_ = base url or requested API
 * _AUTHORITY_HREF_ = 'https://login.microsoftonline.com/<TENANT_ID>/'
