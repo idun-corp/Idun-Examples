@@ -25,7 +25,7 @@ Depending on type of usage, the refreshing of the token is handled by MSAL libra
 
 The application that wants to use the ProptechOS API with Implicit flow authentication need to have its own identity in Idun's Active Directory, and the correct Redirect URI registered. Registering the application and redirect URI is done by Idun admin.
 
-An example of how to use it can be found in the **[authentication/examples folder](../examples)**.
+Examples of how to use it can be found in the **[examples folder](../examples)**.
 
 
 ```
@@ -72,8 +72,9 @@ important to note:
 * scope: If you are using a dedicated instance of ProptechOS **add the subdomain of your instance to the scope e.g._'https%3A%2F%2Fmydedicatedinstance.proptechos.com%2Fapi%2F.default'_**
 * grant_type: must be 'client_credentials' (indicates which auth flow).
 
+Examples of how to use it can be found in the **[examples folder](../examples)**.
 
-Another way is to use MSAL Library provided by Microsoft. An example of how to use it can be found in the **[authentication/examples folder](../examples)**.
+Another way is to use MSAL Library provided by Microsoft. An example of that can also be found in the **[examples folder](../examples)**.
 
 The token provided has an expiration time. Usually it is one hour, and it is up to an application to track this timeout
 and/or expiration errors, and to retrieve new access tokens in time.
