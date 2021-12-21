@@ -12,9 +12,10 @@ import java.util.concurrent.Future;
 
 /**
  * this is an example of Access Token retrieval using MSAL Library and Client Credentials Flow
- * using Client Id, Client secret, and Tenant Id
+ * using CLIENT_ID, CLIENT_SECRTET, and Tenant Id
  * clientId - your application client id. Obtained from Idun administrator.
  * clientSecret - your application client secret. Obtained from Idun administrator.
+ * authority - ProptechOS at Microsoft Azure: https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/
  */
 
 public class MicrosoftADGraphClient {
