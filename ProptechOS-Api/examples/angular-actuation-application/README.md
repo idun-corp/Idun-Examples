@@ -6,10 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Open `src/environments/environment.ts` file and fill the properties:
 
-* _BASE_API_URL_ = base url or requested API
-* _AUTHORITY_HREF_ = 'https://login.microsoftonline.com/<TENANT_ID>/'
+* _BASE_API_URL_ = ProptechOS api base url (e.g. `https://proptechos.com/api/`)
+* _AUTHORITY_HREF_ = 'https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/'
 * _CLIENT_APP_ID_ = with your application client id
-* _RESOURCE_SCOPES_ = with application granted scope list
+* _RESOURCE_SCOPES_ = with application scope (e.g. `https://proptechos.com/api/Api.Use`)
 
 ## Installation 
   
