@@ -102,7 +102,7 @@ The only endpoints which is not scoped to a Property Owner, are
 * `GET /propertyowner/` Get the Property Owners that the user making the request has access to.
 
 ## Migrating from b2b to b2c based auth
-**(December 2021 - January 2022)**
+**(December 2021 - January 2022)**  
 TBA
 
 ## Obsolete
