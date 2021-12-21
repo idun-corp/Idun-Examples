@@ -12,10 +12,9 @@ import java.util.concurrent.Future;
 
 /**
  * this is an example of Access Token retrieval using MSAL Library and Client Credentials Flow
- * using Client Id, Password, and Tenant Id
- * tenantId - id of Idun in AAD
- * clientId - id of the application (NOT a user) in Idun AD. Obtained from Idun administrator.
- * clientSecret - secret of the application in Idun AD
+ * using Client Id, Client secret, and Tenant Id
+ * clientId - your application client id. Obtained from Idun administrator.
+ * clientSecret - your application client secret. Obtained from Idun administrator.
  */
 
 public class MicrosoftADGraphClient {
@@ -27,7 +26,7 @@ public class MicrosoftADGraphClient {
                 ConfidentialClientApplication.builder(
                             clientId, 
                             ClientCredentialFactory.createFromSecret(clientSecret))
-                        .authority("https://login.microsoftonline.com/" + tenantId + "/")
+                        .authority("https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/")
                         .build();
 
         ClientCredentialParameters clientCredentialParameters =
