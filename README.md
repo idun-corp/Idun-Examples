@@ -6,8 +6,8 @@
 
 ## API
 The API lets you explore and edit the knowledge graph, query telemetry, execute actuations and provision devices.  
-[Consuming Idun ProptechOS REST API](ProptechOS-Api)  
-[ProptechOS REST API Swagger Docs](https://proptechos.com/api/swagger-ui.html)
+[Using the ProptechOS API](ProptechOS-Api)  
+[ProptechOS API Swagger Docs](https://proptechos.com/api/swagger-ui.html)
 
 ## Streaming API
 The streaming API lets you consume telemetry.  
