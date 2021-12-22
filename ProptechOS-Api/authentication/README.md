@@ -101,10 +101,8 @@ The only endpoints which is not scoped to a Property Owner, are
 * `GET /propertyowner/default` Get the default Property Owner for the user making the request.
 * `GET /propertyowner/` Get the Property Owners that the user making the request has access to.
 
-## Migrating from b2b to b2c based auth
-**(December 2021 - January 2022)**  
-
-In v4.1 all apps will get new client id and client secret.
+## Migrating to ProptechOS v4.1 auth
+**(From b2b to b2c based auth, January 2022)**  
 
 With ProptechOS v4.1 the login authority changes for both the authentication flows.
 
@@ -123,6 +121,7 @@ See the `b2c` auth examples:
 
 * [.NET Core Console application](../examples/netcore-b2c-client-credential-flow-console-app) (client credential flow)
 * [Angular application](../examples/angular-b2c-implicit-oauth-flow) (implicit flow)
+*
 
 ## Obsolete
 ### Migration from pre-2019 Authentication method.
