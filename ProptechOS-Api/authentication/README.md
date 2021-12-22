@@ -7,7 +7,7 @@ It can be separated into two categories:
 
 In both cases, the final goal is to obtain an Access Token, which is used in HTTP header for every subsequent call.
 
-Authentication is performed in Microsoft Identity Platform (former Active Directory (AD)), so the user need to have a ProptechOS account. In case of application authentication, the application need to be registered in ProptechOS and have it's own client id and client secret. After the user and/or application has authenticated itself, it obtains a token in JWT format, which is then put into the Authorization header for subsequent calls to the ProptechOS REST API.  
+Authentication is performed in Microsoft Identity Platform (former Active Directory, AD), so the user need to have a ProptechOS account. In case of application authentication, the application need to be registered in ProptechOS and have it's own client id and client secret. After the user and/or application has authenticated itself, it obtains a token in JWT format, which is then put into the Authorization header for subsequent calls to the ProptechOS REST API.  
 It has to be prepended by Bearer clause:
 ```
 --header 'Authorization: Bearer XXXXXX_TOKEN_BODY_XXXXXXXXXX'  
