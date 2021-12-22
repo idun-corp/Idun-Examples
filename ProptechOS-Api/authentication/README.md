@@ -49,7 +49,7 @@ important to note:
 Read more: [Microsoft Docs - MSAL Authentication Flows Authorization Code](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#authorization-code)
 
 ## 2. Client Credential flow
-**Application Authentication**
+**Application Authentication using OAuth 2.0**
 
 In case of this type of authorization, a 'Client Credentials' OAuth flow is used. The application has its own id _and password_ ("secret"), and uses it to obtain a token.
 
