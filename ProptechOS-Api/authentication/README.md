@@ -121,7 +121,6 @@ See the `b2c` auth examples:
 
 * [.NET Core Console application](../examples/netcore-b2c-client-credential-flow-console-app) (client credential flow)
 * [Angular application](../examples/angular-b2c-implicit-oauth-flow) (implicit flow)
-*
 
 ## Obsolete
 ### Migration from pre-2019 Authentication method.
