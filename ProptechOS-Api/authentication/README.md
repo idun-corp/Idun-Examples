@@ -42,7 +42,7 @@ client_id={ client id}
 ```
 
 important to note:
-* client_id: ID of the application, obtained after Application registration by Idun **Replace wiht your client id**
+* client_id: ID of the application, obtained after Application registration by Idun **Replace with your client id**
 * redirect_uri: upon Applicaiton registration for the implicit auth flow you will state your redirect uri. **Replace myapp.com/myredirectendpoint with your redirect endpoint**
 * scope: If you are using a dedicated instance of ProptechOS **add the subdomain of your instance to the scope e.g._'https%3A%2F%2Fmydedicatedinstance.proptechos.com%2Fapi%2FAPI.use'_**
 
