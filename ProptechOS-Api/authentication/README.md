@@ -103,6 +103,9 @@ The only endpoints which is not scoped to a Property Owner, are
 
 ## Migrating from b2b to b2c based auth
 **(December 2021 - January 2022)**  
+
+In v4.1 all apps will get new client id and client secret.
+
 With ProptechOS v4.1 the login authority changes for both the authentication flows.
 
 * Client credential flow  
