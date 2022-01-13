@@ -87,19 +87,26 @@ https://github.com/AzureAD/microsoft-authentication-library-for-java
 ## Migrating to ProptechOS v4.1 auth
 **(From b2b to b2c based auth, January 2022)**  
 
-With ProptechOS v4.1 the login authority changes for both the authentication flows.
+With ProptechOS v4.1 the scope and login authority changes for both the authentication flows.
 
-* Client credential flow  
-changed from:  
-`https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token`  
-to:  
-`https://login.microsoftonline.com/proptechos.onmicrosoft.com/oauth2/v2.0/token`
-* Implicit flow  
-changed from:  
-`https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/`  
-to:  
-`https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
+### Implicit flow
 
+* scope  
+changed from `https://proptechos.com/api/Api.Use` to:  
+**`https://proptechos.onmicrosoft.com/multi/api/Api.Use`**
+* login authority  
+changed from: `https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/` to:  
+**`https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`**
+
+### Client credential flow 
+* scope  
+changed from `https://proptechos.com/api/.default` to:  
+**`https://proptechos.onmicrosoft.com/multi/api/.default`**  
+* login authority  
+changed from: `https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token` to:  
+**`https://login.microsoftonline.com/proptechos.onmicrosoft.com/oauth2/v2.0/token`**
+
+Also, your application's client id and client secret will be reset, so use the new credentials you will find in 1Password.
 See the `b2c` auth examples:
 
 * [.NET Core Console application](../examples/netcore-b2c-client-credential-flow-console-app) (client credential flow)
