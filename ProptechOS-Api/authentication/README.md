@@ -97,7 +97,7 @@ changed from `https://proptechos.com/api/Api.Use` to:
 or `https://proptechos.onmicrosoft.com/<< instance >>/api/Api.Use` if your are integrating to a dedicated instance.
 * login authority  
 changed from: `https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/` to:  
-**`https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`**
+**`https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1a_signup_signin/`**
 * client id  
 use new client id found in 1Password
 
@@ -121,7 +121,7 @@ Here is the configs you would use to test auth with the preview instance:
 
 #### Implicit flow
 * scope `https://proptechos.onmicrosoft.com/preview/api/Api.Use`
-* login authority: `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
+* login authority: `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1a_signup_signin/`
 * client id: use new client id found in 1Password (same that will later work in v4.1 prod)
  
 #### Client credential flow
