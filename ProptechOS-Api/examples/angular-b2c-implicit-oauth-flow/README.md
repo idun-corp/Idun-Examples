@@ -6,7 +6,7 @@ This is a simple application that just illustrates how to configure authenticati
 
 Open [environment.ts](https://github.com/idun-corp/Idun-Examples/blob/apps-team-b2c-examples/ProptechOS-Api/examples/angular-b2c-implicit-oauth-flow/src/environments/environment.ts) file and fill the properties:
 
-* _AUTHORITY_HREF_ = `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1a_signup_signin/`
+* _AUTHORITY_HREF_ = `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
 * _BASE_URL_ = ProptechOS api base url (e.g. `https://proptechos.com/api`)
 * _CLIENT_ID_ = your application client id
 * _SCOPE_NAME_ = `https://proptechos.onmicrosoft.com/{myenvironment}/api.use`
