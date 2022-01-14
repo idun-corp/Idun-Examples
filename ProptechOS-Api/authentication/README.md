@@ -44,7 +44,7 @@ client_id={ client id}
 important to note:
 * client_id: ID of the application, obtained after Application registration by Idun **Replace with your client id**
 * redirect_uri: upon Applicaiton registration for the implicit auth flow you will state your redirect uri. **Replace myapp.com/myredirectendpoint with your redirect endpoint**
-* scope: If you are using a dedicated instance of ProptechOS **add the subdomain of your instance to the scope e.g._'https%3A%2F%2Fmydedicatedinstance.proptechos.com%2Fapi%2FAPI.use'_**
+* scope: **If you are using a dedicated instance** of ProptechOS add the subdomain of your instance to the scope e.g._'https%3A%2F%2F**mydedicatedinstance**.proptechos.com%2Fapi%2FAPI.use'_
 
 Read more: [Microsoft Docs - MSAL Authentication Flows Authorization Code](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#authorization-code)
 
@@ -70,7 +70,7 @@ client_id={ client ID }
 important to note:
 * client_id: ID of the application, obtained after Application registration by Idun. **Replce with your client id**
 * client_secret: also generated after Application registration by Idun **Replace with your client secret**
-* scope: If you are using a dedicated instance of ProptechOS **add the subdomain of your instance to the scope e.g._'https%3A%2F%2Fmydedicatedinstance.proptechos.com%2Fapi%2F.default'_**
+* scope: **If you are using a dedicated instance** of ProptechOS add the subdomain of your instance to the scope e.g._'https%3A%2F%2F**mydedicatedinstance**.proptechos.com%2Fapi%2F.default'_
 * grant_type: must be 'client_credentials' (indicates which auth flow).
 
 Examples of how to use it can be found in the **[examples folder](../examples)**.
@@ -88,25 +88,48 @@ https://github.com/AzureAD/microsoft-authentication-library-for-java
 **(From b2b to b2c based auth, January 2022)**  
 
 With ProptechOS v4.1 the scope and login authority changes for both the authentication flows.
+Also, your application's client id and client secret will be reset, so use the new credentials you will find in 1Password.
 
 ### Implicit flow
-
 * scope  
 changed from `https://proptechos.com/api/Api.Use` to:  
-**`https://proptechos.onmicrosoft.com/multi/api/Api.Use`**
+**`https://proptechos.onmicrosoft.com/multi/api/Api.Use`**  
+or `https://proptechos.onmicrosoft.com/<< instance >>/api/Api.Use` if your are integrating to a dedicated instance.
 * login authority  
 changed from: `https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/` to:  
 **`https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`**
+* client id  
+use new client id found in 1Password
 
 ### Client credential flow 
 * scope  
 changed from `https://proptechos.com/api/.default` to:  
 **`https://proptechos.onmicrosoft.com/multi/api/.default`**  
+or `https://proptechos.onmicrosoft.com/<< instance >>/api/.default` if you are integrating to a dedicated instance.  
 * login authority  
 changed from: `https://login.microsoftonline.com/d4218456-670f-42ad-9f6a-885ae15b6645/oauth2/v2.0/token` to:  
 **`https://login.microsoftonline.com/proptechos.onmicrosoft.com/oauth2/v2.0/token`**
+* client id  
+use new client id found in 1Password
+* client secret  
+use new client secret found in 1Password
 
-Also, your application's client id and client secret will be reset, so use the new credentials you will find in 1Password.
+### Testing with preview instance
+A dedicated instance "preview" which runs v4.1 has been setup where you test the new auth configs.
+
+Here is the configs you would use to test auth with the preview instance:
+
+#### Implicit flow
+* scope `https://proptechos.onmicrosoft.com/preview/api/Api.Use`
+* login authority: `https://proptechos.b2clogin.com/proptechos.onmicrosoft.com/b2c_1_sign_in/`
+* client id: use new client id found in 1Password (same that will later work in v4.1 prod)
+ 
+#### Client credential flow
+* scope: `https://proptechos.onmicrosoft.com/preview/api/.default`
+* login authority: `https://login.microsoftonline.com/proptechos.onmicrosoft.com/oauth2/v2.0/token`
+* client id: new client id found in 1Password (same that will later work in v4.1 prod)
+* client secret: use new client secret found in 1Password (same that will later work in v4.1 prod)
+
 See the `b2c` auth examples:
 
 * [.NET Core Console application](../examples/netcore-b2c-client-credential-flow-console-app) (client credential flow)
