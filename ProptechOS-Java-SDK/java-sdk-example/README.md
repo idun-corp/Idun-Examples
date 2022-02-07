@@ -21,6 +21,7 @@ In order to start streaming api client spring component `StreamingApiServiceClie
 * `BASE_API_URL` - base ProptechOS api url "https://test.proptechos.com/api"
 * `APP_CLIENT_ID` - your application id in ProptechOS (also the application ID registered in Azure Active Directory)
 * `APP_CLIENT_SECRET` - your application secret in ProptechOS (also the secret generated for your Azure Active Directory application)
+* `APP_SCOPE` - application scope
 
 If streaming api is needed then not mandatory streaming api properties should be uncommented and updated correspondingly:
 * `EVENTHUB_NAME` - Azure kafka enebled eventhub name

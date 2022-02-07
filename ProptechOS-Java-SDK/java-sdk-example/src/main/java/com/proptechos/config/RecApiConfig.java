@@ -17,4 +17,6 @@ public class RecApiConfig {
 
   private String clientSecret;
 
+  private String scope;
+
 }
