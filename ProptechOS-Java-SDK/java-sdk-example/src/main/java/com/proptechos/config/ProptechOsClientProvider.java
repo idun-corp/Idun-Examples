@@ -15,20 +15,21 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ProptechOsClientProvider {
 
-  private final ProptechOsClient client;
+    private final ProptechOsClient client;
 
-  public ProptechOsClientProvider(RecApiConfig recApiConfig) {
-    this.client = ProptechOsClient.applicationClientBuilder(
-        recApiConfig.getBaseUrl())
-        .authConfig(AuthenticationConfig.builder()
-          .clientId(recApiConfig.getClientId())
-          .clientSecret(recApiConfig.getClientSecret()).build()).build();
-  }
+    public ProptechOsClientProvider(RecApiConfig recApiConfig) {
+        this.client = ProptechOsClient.applicationClientBuilder(
+                recApiConfig.getBaseUrl())
+                .authConfig(AuthenticationConfig.builder()
+                        .clientId(recApiConfig.getClientId())
+                        .clientSecret(recApiConfig.getClientSecret())
+                        .scope(recApiConfig.getScope()).build()).build();
+    }
 
-  @Bean
-  public ServiceFactory serviceFactory() {
-    return client.serviceFactory();
-  }
+    @Bean
+    public ServiceFactory serviceFactory() {
+        return client.serviceFactory();
+    }
 
 //  @Bean
 //  @ConditionalOnClass(StreamingApiConfig.class)

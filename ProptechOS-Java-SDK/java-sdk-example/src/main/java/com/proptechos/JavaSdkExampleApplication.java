@@ -2,16 +2,7 @@ package com.proptechos;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.proptechos.clients.ActuationInterfaceServiceClient;
-import com.proptechos.clients.AliasNamespaceServiceClient;
-import com.proptechos.clients.AssetServiceClient;
-import com.proptechos.clients.BuildingComponentServiceClient;
-import com.proptechos.clients.BuildingServiceClient;
-import com.proptechos.clients.CollectionServiceClient;
-import com.proptechos.clients.DeviceServiceClient;
-import com.proptechos.clients.PropertyOwnerServiceClient;
-import com.proptechos.clients.RealEstateServiceClient;
-import com.proptechos.clients.RecIndividualsServiceClient;
+import com.proptechos.clients.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -34,6 +25,7 @@ public class JavaSdkExampleApplication {
 	private final ActuationInterfaceServiceClient actuationInterfaceServiceClient;
 	private final AliasNamespaceServiceClient namespaceServiceClient;
 	private final CollectionServiceClient collectionServiceClient;
+	private final SystemServiceClient systemServiceClient;
 	private final RecIndividualsServiceClient recIndividualsServiceClient;
 
 	@Autowired
@@ -47,6 +39,7 @@ public class JavaSdkExampleApplication {
 			ActuationInterfaceServiceClient actuationInterfaceServiceClient,
 			AliasNamespaceServiceClient namespaceServiceClient,
 			CollectionServiceClient collectionServiceClient,
+			SystemServiceClient systemServiceClient,
 			RecIndividualsServiceClient recIndividualsServiceClient) {
 		this.propertyOwnerServiceClient = propertyOwnerServiceClient;
 		this.realEstateServiceClient = realEstateServiceClient;
@@ -57,6 +50,7 @@ public class JavaSdkExampleApplication {
 		this.actuationInterfaceServiceClient = actuationInterfaceServiceClient;
 		this.namespaceServiceClient = namespaceServiceClient;
 		this.collectionServiceClient = collectionServiceClient;
+		this.systemServiceClient = systemServiceClient;
 		this.recIndividualsServiceClient = recIndividualsServiceClient;
 	}
 
@@ -96,6 +90,9 @@ public class JavaSdkExampleApplication {
 
 			log.info("Return axioms included in Collection: ");
 			printJson(collectionServiceClient.listFirstTenIncludedAxioms());
+
+			log.info("Return axioms included in System: ");
+			printJson(systemServiceClient.listFirstTenIncludedAxioms());
 
 			log.info("Return RecIndividuals: ");
 			printJson(recIndividualsServiceClient.firstBuildingComponentClass());
