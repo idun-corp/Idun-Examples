@@ -1,0 +1,8 @@
+#server.port=8081
+
+azure.aad.clientId=<APP_CLIENT_ID>
+azure.aad.clientSecret=<APP_CLIENT_SECRET>
+azure.aad.user.login.url=https://login.microsoft.com/proptechos.onmicrosoft.com/
+
+proptechos.api.base.url=<BASE_P8S_API_URL>
+proptechos.api.application.scope=<P8S_API_APP_SCOPE>
