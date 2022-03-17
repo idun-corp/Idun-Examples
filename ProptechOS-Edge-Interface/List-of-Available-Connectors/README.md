@@ -70,6 +70,7 @@ The connectors below use the ProptechOS edge interface and translate the data of
 | ------------- | ------------------------------------------------------------------------------ | ------ | --------- | ----------- | ------------ | ------------ |
 | Cisco         | Camera and ML based presence analysis.                                         | Bronze | In progress |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_minus_sign:     | - |
 | Crestron      | Partner connector for getting telemetry out of [JML](https://jml.se/) Crestron processor.            | Gold   | Available |     :heavy_check_mark:, :heavy_minus_sign:      |     :heavy_check_mark:     | Partner hosted |
-| EpSpot        | Connector for [EpSpot](https://www.epspot.com/) EV chargers   | Bronze  | In Progress  | :heavy_check_mark:, :heavy_check_mark:  |:heavy_check_mark: | Cloud |
+| CTEK        | Partmner connector for [CTEK](https://www.ctek.com/) EV chargers   | Bronze  | In Progress  | :heavy_check_mark:, :heavy_check_mark:  |:heavy_minus_sign: | Cloud |
+| EpSpot        | Connector for [EpSpot](https://www.epspot.com/) EV chargers   | Bronze  | Available  | :heavy_check_mark:, :heavy_check_mark:  |:heavy_minus_sign: | Cloud |
 | Swegon        | Connector for [Swegon](https://www.swegon.com/) HVAC equipment and presence data.  | Gold | Available   |     :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_check_mark:     | Cloud |
 | SMHI          | Connector for [SMHI API](https://opendata.smhi.se/apidocs/). Supported device types are FORECAST and ANALYSIS. Http client based  | Bronze | Available   |     :heavy_check_mark:, :heavy_minus_sign:     |     :heavy_minus_sign:     | Cloud |
