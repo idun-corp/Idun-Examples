@@ -27,7 +27,11 @@ public class MessageSender implements Runnable {
         String msgStr = parseToString(telemetry);
         Message message = new Message(msgStr);
         System.out.println("Sending message: " + msgStr);
-        client.sendEventAsync(message, null, new Object());
+        try {
+          client.sendEventAsync(message, null, new Object());
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
         Thread.sleep(telemetryGenerator.getTelemetrySendPeriod());
       }
     } catch (InterruptedException e) {
