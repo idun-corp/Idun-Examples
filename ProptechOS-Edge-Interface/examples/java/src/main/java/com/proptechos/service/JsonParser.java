@@ -33,7 +33,7 @@ public class JsonParser {
     }
   }
 
-  public static String parseToString(RecMessage message) throws JsonProcessingException {
+  public static String serializeToString(RecMessage message) throws JsonProcessingException {
     return MAPPER.writeValueAsString(message);
   }
 

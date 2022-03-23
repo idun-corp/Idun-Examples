@@ -15,7 +15,7 @@ public class Sensor {
   public Sensor(@JsonProperty(value = "sensorId") String sensorId,
                 @JsonProperty(value = "quantityKind") String quantityKind) {
     this.sensorId = sensorId;
-    this.quantityKind = QuantityKind.valueOf(quantityKind.toUpperCase());
+    this.quantityKind = QuantityKind.getByLabel(quantityKind);
   }
 
   public String getSensorId() {

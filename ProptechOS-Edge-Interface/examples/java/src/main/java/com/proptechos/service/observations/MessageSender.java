@@ -1,6 +1,6 @@
 package com.proptechos.service.observations;
 
-import static com.proptechos.service.JsonParser.parseToString;
+import static com.proptechos.service.JsonParser.serializeToString;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.microsoft.azure.sdk.iot.device.DeviceClient;
@@ -10,8 +10,8 @@ import com.proptechos.model.message.RecMessage;
 
 public class MessageSender implements Runnable {
 
-  private DeviceClient client;
-  private TelemetryGenerator telemetryGenerator;
+  private final DeviceClient client;
+  private final TelemetryGenerator telemetryGenerator;
 
   public MessageSender(DeviceClient client, DeviceConfig deviceConfig) {
     this.client = client;
@@ -24,7 +24,7 @@ public class MessageSender implements Runnable {
         // Simulate telemetry.
         RecMessage telemetry = telemetryGenerator.generateTelemetry();
         // Add the telemetry to the message body as JSON.
-        String msgStr = parseToString(telemetry);
+        String msgStr = serializeToString(telemetry);
         Message message = new Message(msgStr);
         System.out.println("Sending message: " + msgStr);
         try {

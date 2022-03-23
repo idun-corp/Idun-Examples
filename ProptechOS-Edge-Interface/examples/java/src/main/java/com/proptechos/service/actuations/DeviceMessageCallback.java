@@ -1,6 +1,6 @@
 package com.proptechos.service.actuations;
 
-import static com.proptechos.service.JsonParser.parseToString;
+import static com.proptechos.service.JsonParser.serializeToString;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.microsoft.azure.sdk.iot.device.DeviceClient;
@@ -42,7 +42,7 @@ public class DeviceMessageCallback implements MessageCallback {
       throws JsonProcessingException {
     RecMessage deviceMessage = deviceResponseGenerator
         .getSimulatedMessageFromDevice(messageFromCloud);
-    String msgStr = parseToString(deviceMessage);
+    String msgStr = serializeToString(deviceMessage);
     System.out.println("Sending actuation response: " + msgStr);
     deviceClient.sendEventAsync(new Message(msgStr), null, new Object());
   }
