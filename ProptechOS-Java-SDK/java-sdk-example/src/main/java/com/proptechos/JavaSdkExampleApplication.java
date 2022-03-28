@@ -18,10 +18,11 @@ public class JavaSdkExampleApplication {
 
 	private final PropertyOwnerServiceClient propertyOwnerServiceClient;
 	private final RealEstateServiceClient realEstateServiceClient;
-	private final BuildingServiceClient buildingServiceClient;
+	private final RealEstateComponentClient buildingServiceClient;
 	private final BuildingComponentServiceClient buildingComponentServiceClient;
 	private final AssetServiceClient assetServiceClient;
 	private final DeviceServiceClient deviceServiceClient;
+	private final SensorServiceClient sensorServiceClient;
 	private final ActuationInterfaceServiceClient actuationInterfaceServiceClient;
 	private final AliasNamespaceServiceClient namespaceServiceClient;
 	private final CollectionServiceClient collectionServiceClient;
@@ -32,10 +33,11 @@ public class JavaSdkExampleApplication {
 	public JavaSdkExampleApplication(
 			PropertyOwnerServiceClient propertyOwnerServiceClient,
 			RealEstateServiceClient realEstateServiceClient,
-			BuildingServiceClient buildingServiceClient,
+			RealEstateComponentClient realEstateComponentClient,
 			BuildingComponentServiceClient buildingComponentServiceClient,
 			AssetServiceClient assetServiceClient,
 			DeviceServiceClient deviceServiceClient,
+			SensorServiceClient sensorServiceClient,
 			ActuationInterfaceServiceClient actuationInterfaceServiceClient,
 			AliasNamespaceServiceClient namespaceServiceClient,
 			CollectionServiceClient collectionServiceClient,
@@ -43,10 +45,11 @@ public class JavaSdkExampleApplication {
 			RecIndividualsServiceClient recIndividualsServiceClient) {
 		this.propertyOwnerServiceClient = propertyOwnerServiceClient;
 		this.realEstateServiceClient = realEstateServiceClient;
-		this.buildingServiceClient = buildingServiceClient;
+		this.buildingServiceClient = realEstateComponentClient;
 		this.buildingComponentServiceClient = buildingComponentServiceClient;
 		this.assetServiceClient = assetServiceClient;
 		this.deviceServiceClient = deviceServiceClient;
+		this.sensorServiceClient = sensorServiceClient;
 		this.actuationInterfaceServiceClient = actuationInterfaceServiceClient;
 		this.namespaceServiceClient = namespaceServiceClient;
 		this.collectionServiceClient = collectionServiceClient;
@@ -67,7 +70,7 @@ public class JavaSdkExampleApplication {
 			log.info("Return RealEstate: ");
 			printJson(realEstateServiceClient.getAxiomById());
 
-			log.info("Return Building: ");
+			log.info("Return RealEstateComponent: ");
 			printJson(buildingServiceClient.getAxiomById());
 
 			log.info("Return BuildingComponent: ");
@@ -78,6 +81,9 @@ public class JavaSdkExampleApplication {
 
 			log.info("Return Device: ");
 			printJson(deviceServiceClient.getAxiomById());
+
+			log.info("Return Sensor: ");
+			printJson(sensorServiceClient.getAxiomById());
 
 			log.info("Return ActuationInterface: ");
 			printJson(actuationInterfaceServiceClient.getAxiomById());
