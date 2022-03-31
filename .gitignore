@@ -14,8 +14,12 @@ target/
 *.nuget.props
 *.nuget.targets
 
-
-
 **/.vs/**
 [Bb]in
 [Oo]bj
+
+# IDE
+.idea/
+*.iml
+
+**/node_modules
