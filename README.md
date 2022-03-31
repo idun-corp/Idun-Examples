@@ -2,8 +2,9 @@
 ![ProptechOS logo](images/ProptechOS-logotype-ex.png)
 
 # ProptechOS Developer Examples
-![ProptechOS logo](images/p8s_overview.png)
 See examples for partial or end-to-end illustrations
+
+![ProptechOS logo](images/p8s_overview.png)
 
 ## API
 The API lets you explore and edit the knowledge graph, query telemetry, execute actuations and provision devices.  
