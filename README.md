@@ -4,6 +4,8 @@
 # ProptechOS Developer Examples
 See examples for partial or end-to-end illustrations
 
+For Documentation, please see our `docs` repository [github.com/idun-corp/docs](https://github.com/idun-corp/docs)
+
 ![ProptechOS logo](images/p8s_overview.png)
 
 ## API
