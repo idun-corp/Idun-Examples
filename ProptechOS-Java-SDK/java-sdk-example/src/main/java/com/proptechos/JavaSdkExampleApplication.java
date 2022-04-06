@@ -3,6 +3,14 @@ package com.proptechos;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proptechos.clients.*;
+import com.proptechos.model.AliasNamespace;
+import com.proptechos.model.Asset;
+import com.proptechos.model.PropertyOwner;
+import com.proptechos.model.RealEstate;
+import com.proptechos.model.actuation.ActuationInterface;
+import com.proptechos.model.common.IBuildingComponent;
+import com.proptechos.model.common.IDevice;
+import com.proptechos.model.common.IRealEstateComponent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,9 +24,10 @@ public class JavaSdkExampleApplication {
 
 	private final ObjectMapper mapper = new ObjectMapper();
 
+	private final TwinServiceClient twinServiceClient;
 	private final PropertyOwnerServiceClient propertyOwnerServiceClient;
 	private final RealEstateServiceClient realEstateServiceClient;
-	private final BuildingServiceClient buildingServiceClient;
+	private final RealEstateComponentServiceClient realEstateComponentServiceClient;
 	private final BuildingComponentServiceClient buildingComponentServiceClient;
 	private final AssetServiceClient assetServiceClient;
 	private final DeviceServiceClient deviceServiceClient;
@@ -30,9 +39,10 @@ public class JavaSdkExampleApplication {
 
 	@Autowired
 	public JavaSdkExampleApplication(
+			TwinServiceClient twinServiceClient,
 			PropertyOwnerServiceClient propertyOwnerServiceClient,
 			RealEstateServiceClient realEstateServiceClient,
-			BuildingServiceClient buildingServiceClient,
+			RealEstateComponentServiceClient realEstateComponentServiceClient,
 			BuildingComponentServiceClient buildingComponentServiceClient,
 			AssetServiceClient assetServiceClient,
 			DeviceServiceClient deviceServiceClient,
@@ -41,9 +51,10 @@ public class JavaSdkExampleApplication {
 			CollectionServiceClient collectionServiceClient,
 			SystemServiceClient systemServiceClient,
 			RecIndividualsServiceClient recIndividualsServiceClient) {
+		this.twinServiceClient = twinServiceClient;
 		this.propertyOwnerServiceClient = propertyOwnerServiceClient;
 		this.realEstateServiceClient = realEstateServiceClient;
-		this.buildingServiceClient = buildingServiceClient;
+		this.realEstateComponentServiceClient = realEstateComponentServiceClient;
 		this.buildingComponentServiceClient = buildingComponentServiceClient;
 		this.assetServiceClient = assetServiceClient;
 		this.deviceServiceClient = deviceServiceClient;
@@ -62,28 +73,36 @@ public class JavaSdkExampleApplication {
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
 			log.info("Return PropertyOwner: ");
-			printJson(propertyOwnerServiceClient.getAxiomById());
+			PropertyOwner propertyOwner = propertyOwnerServiceClient.getAxiomById();
+			printJson(propertyOwner);
 
 			log.info("Return RealEstate: ");
-			printJson(realEstateServiceClient.getAxiomById());
+			RealEstate realEstate = realEstateServiceClient.getAxiomById();
+			printJson(realEstate);
 
 			log.info("Return Building: ");
-			printJson(buildingServiceClient.getAxiomById());
+			IRealEstateComponent realEstateComponent = realEstateComponentServiceClient.getAxiomById();
+			printJson(realEstateComponent);
 
 			log.info("Return BuildingComponent: ");
-			printJson(buildingComponentServiceClient.getAxiomById());
+			IBuildingComponent buildingComponent = buildingComponentServiceClient.getAxiomById();
+			printJson(buildingComponent);
 
 			log.info("Return Asset: ");
-			printJson(assetServiceClient.getAxiomById());
+			Asset asset = assetServiceClient.getAxiomById();
+			printJson(asset);
 
 			log.info("Return Device: ");
-			printJson(deviceServiceClient.getAxiomById());
+			IDevice device = deviceServiceClient.getAxiomById();
+			printJson(device);
 
 			log.info("Return ActuationInterface: ");
-			printJson(actuationInterfaceServiceClient.getAxiomById());
+			ActuationInterface actuationInterface = actuationInterfaceServiceClient.getAxiomById();
+			printJson(actuationInterface);
 
 			log.info("Return AliasNamespace: ");
-			printJson(namespaceServiceClient.getAxiomById());
+			AliasNamespace aliasNamespace = namespaceServiceClient.getAxiomById();
+			printJson(aliasNamespace);
 
 			log.info("Return Collection: ");
 			printJson(collectionServiceClient.getAxiomById());
@@ -101,6 +120,15 @@ public class JavaSdkExampleApplication {
 			printJson(recIndividualsServiceClient.firstMeasurementUnit());
 			printJson(recIndividualsServiceClient.firstPlacementContext());
 			printJson(recIndividualsServiceClient.firstQuantityKind());
+
+			log.info("Return twins: ");
+			printJson(twinServiceClient.getTwin(realEstate.getId()));
+			printJson(twinServiceClient.getTwin(realEstateComponent.getId()));
+			printJson(twinServiceClient.getTwin(buildingComponent.getId()));
+			printJson(twinServiceClient.getTwin(asset.getId()));
+			printJson(twinServiceClient.getTwin(device.getId()));
+			printJson(twinServiceClient.getTwin(actuationInterface.getId()));
+			printJson(twinServiceClient.getTwin(aliasNamespace.getId()));
 			log.info("-------------- ALL DONE ----------------");
 		};
 	}
