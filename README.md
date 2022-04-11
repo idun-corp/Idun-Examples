@@ -1,7 +1,11 @@
 ![Idun logo](images/Idun-logotype-ex.png)  
 ![ProptechOS logo](images/ProptechOS-logotype-ex.png)
 
-# ProptechOS Developer Documents
+# ProptechOS Developer Examples
+See examples for partial or end-to-end illustrations
+
+For Documentation, please see our `docs` repository [github.com/idun-corp/docs](https://github.com/idun-corp/docs)
+
 ![ProptechOS logo](images/p8s_overview.png)
 
 ## API
@@ -16,5 +20,10 @@ The streaming API lets you consume telemetry.
 ## Edge Interface
 The Edge Interface is for Devices communicating with ProptechOS.
 Devices send Observations, receive and repond to Actuations and send status messages.
-Learn about Edge integrations with the [ProptechOS Edge Interface and sample Connector](ProptechOS-Edge-Interface).  
+[ProptechOS Edge Interface and sample Connector](ProptechOS-Edge-Interface).  
 
+## Contribute
+
+Read our [Contributing guidance](https://github.com/idun-corp/docs/blob/master/CONTRIBUTING.md).
+
+Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for the [GitHub account setup](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account) from GitHub documentation page.

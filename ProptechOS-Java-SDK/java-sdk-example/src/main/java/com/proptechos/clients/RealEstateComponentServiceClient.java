@@ -1,6 +1,5 @@
 package com.proptechos.clients;
 
-import com.proptechos.model.Building;
 import com.proptechos.model.Point;
 import com.proptechos.model.common.IRealEstateComponent;
 import com.proptechos.model.common.Paged;
@@ -8,15 +7,16 @@ import com.proptechos.service.RealEstateComponentService;
 import com.proptechos.service.ServiceFactory;
 import com.proptechos.service.filters.common.AliasFilter;
 import com.proptechos.service.filters.common.LitteraFilter;
-import java.util.List;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class RealEstateComponentClient {
+public class RealEstateComponentServiceClient {
 
   private final RealEstateComponentService realEstateComponentService;
 
-  public RealEstateComponentClient(ServiceFactory serviceFactory) {
+  public RealEstateComponentServiceClient(ServiceFactory serviceFactory) {
     this.realEstateComponentService = serviceFactory.realEstateComponentService();
   }
 
@@ -35,12 +35,12 @@ public class RealEstateComponentClient {
   }
 
   public IRealEstateComponent getAxiomById() {
-    IRealEstateComponent building = listFirstTenAxioms().getContent().iterator().next();
-    return realEstateComponentService.getById(building.getId());
+    IRealEstateComponent realEstateComponent = listFirstTenAxioms().getContent().iterator().next();
+    return realEstateComponentService.getById(realEstateComponent.getId());
   }
 
-  public List<Building> getInRange(Point point) {
-    return realEstateComponentService.getBuildingsInRange(point);
+  public List<IRealEstateComponent> getInRange(Point point) {
+    return realEstateComponentService.getRealEstateComponentsInRange(point);
   }
 
 }
