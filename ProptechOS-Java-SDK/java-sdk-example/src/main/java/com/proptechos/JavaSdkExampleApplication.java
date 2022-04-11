@@ -11,6 +11,7 @@ import com.proptechos.model.actuation.ActuationInterface;
 import com.proptechos.model.common.IBuildingComponent;
 import com.proptechos.model.common.IDevice;
 import com.proptechos.model.common.IRealEstateComponent;
+import com.proptechos.model.Sensor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -31,6 +32,7 @@ public class JavaSdkExampleApplication {
 	private final BuildingComponentServiceClient buildingComponentServiceClient;
 	private final AssetServiceClient assetServiceClient;
 	private final DeviceServiceClient deviceServiceClient;
+	private final SensorServiceClient sensorServiceClient;
 	private final ActuationInterfaceServiceClient actuationInterfaceServiceClient;
 	private final AliasNamespaceServiceClient namespaceServiceClient;
 	private final CollectionServiceClient collectionServiceClient;
@@ -46,6 +48,7 @@ public class JavaSdkExampleApplication {
 			BuildingComponentServiceClient buildingComponentServiceClient,
 			AssetServiceClient assetServiceClient,
 			DeviceServiceClient deviceServiceClient,
+			SensorServiceClient sensorServiceClient,
 			ActuationInterfaceServiceClient actuationInterfaceServiceClient,
 			AliasNamespaceServiceClient namespaceServiceClient,
 			CollectionServiceClient collectionServiceClient,
@@ -58,6 +61,7 @@ public class JavaSdkExampleApplication {
 		this.buildingComponentServiceClient = buildingComponentServiceClient;
 		this.assetServiceClient = assetServiceClient;
 		this.deviceServiceClient = deviceServiceClient;
+		this.sensorServiceClient = sensorServiceClient;
 		this.actuationInterfaceServiceClient = actuationInterfaceServiceClient;
 		this.namespaceServiceClient = namespaceServiceClient;
 		this.collectionServiceClient = collectionServiceClient;
@@ -80,7 +84,7 @@ public class JavaSdkExampleApplication {
 			RealEstate realEstate = realEstateServiceClient.getAxiomById();
 			printJson(realEstate);
 
-			log.info("Return Building: ");
+			log.info("Return RealEstateComponent: ");
 			IRealEstateComponent realEstateComponent = realEstateComponentServiceClient.getAxiomById();
 			printJson(realEstateComponent);
 
@@ -95,6 +99,10 @@ public class JavaSdkExampleApplication {
 			log.info("Return Device: ");
 			IDevice device = deviceServiceClient.getAxiomById();
 			printJson(device);
+
+			log.info("Return Sensor: ");
+			Sensor sensor = sensorServiceClient.getAxiomById();
+			printJson(sensor);
 
 			log.info("Return ActuationInterface: ");
 			ActuationInterface actuationInterface = actuationInterfaceServiceClient.getAxiomById();
