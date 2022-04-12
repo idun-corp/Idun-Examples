@@ -15,6 +15,14 @@
     {
       "quantityKind": "CO2",
       "sensorId": "id of CO2 sensor"
+    },
+    {
+      "quantityKind": "AlarmMajor",
+      "sensorId": "id of AlarmMajor sensor"
+    },
+    {
+      "quantityKind": "AgentInteraction",
+      "sensorId": "id of AgentInteraction sensor"
     }
   ],
   "actuators": [
