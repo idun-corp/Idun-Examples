@@ -20,6 +20,10 @@ public class RecObservation {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean valueBoolean;
 
+    public RecObservation(ZonedDateTime observationTime, Object value, String sensorId) {
+        this(observationTime, value, null, sensorId);
+    }
+
     public RecObservation(ZonedDateTime observationTime, Object value, String quantityKind,
                           String sensorId) {
         this.observationTime = observationTime;

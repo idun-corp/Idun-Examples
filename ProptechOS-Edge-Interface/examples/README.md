@@ -81,7 +81,7 @@ We will need this connection string to create DeviceClient [Azure Docs - DeviceC
 1. Our telemetry will be RecMessage class with fields:
 
 ```java
-private final String format = "rec3.1.1";
+private final String format = "rec3.3";
 private String deviceId;
 private List<RecObservation> observations;
 private List<RecActuationCommand> actuationCommands;
@@ -96,7 +96,7 @@ private final Object value;
 private final String quantityKind;
 private final String sensorId;
 ```
-
+Starting from RealEstateCore message format version `rec3.3` field `quantityKind` is not mandatory. 
 This `RecMessage` is the actual content that will be sent to ProptechOS.  
 We will talk about `RecActuationCommand` and `RecActuationResponse` in more detail when we move to receiving messages from the ProptechOS section.  
 `ModuleMessage` object will not be used in our example.
@@ -183,12 +183,12 @@ Implementation of `main(String[] args)` method:
 
 ## Verify the Edge Connector
 ### Sending observations
-To check what observation messages are sent to ProptechOS add `System.out. println(“Sending message: ” + message)`or add some simple logging.  And you should see in application console something similar to this:
+To check what observation messages are sent to ProptechOS add `System.out.println(“Sending message: ” + message)`or add some simple logging.  And you should see in application console something similar to this:
 
 ```
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Sending message: {"format":"rec3.1.1","deviceId":"40890e8d-2112-4ea2-b9d0-9cb21ecb462d","observations":[{"observationTime":"2021-03-31T09:22:19.1840353Z","value":29.879427014069805,"quantityKind":"Temperature","sensorId":"8c4585c6-f9ed-4bdf-b197-6ea3afa44003"},{"observationTime":"2021-03-31T09:22:19.1850349Z","value":45.79829461178331,"quantityKind":"Humidity","sensorId":"95d1a394-8178-4be5-94c7-43bde0dfca1a"},{"observationTime":"2021-03-31T09:22:19.1850349Z","value":707.8385799347906,"quantityKind":"CO2","sensorId":"f46e8f3a-f319-4118-9ed3-74d4ec7007a1"}],"exceptions":[],"actuationCommands":[],"actuationResponses":[]}
+Sending message: {"format":"rec3.3","deviceId":"40890e8d-2112-4ea2-b9d0-9cb21ecb462d","observations":[{"observationTime":"2021-03-31T09:22:19.1840353Z","value":29.879427014069805,"quantityKind":"Temperature","sensorId":"8c4585c6-f9ed-4bdf-b197-6ea3afa44003"},{"observationTime":"2021-03-31T09:22:19.1850349Z","value":45.79829461178331,"quantityKind":"Humidity","sensorId":"95d1a394-8178-4be5-94c7-43bde0dfca1a"},{"observationTime":"2021-03-31T09:22:19.1850349Z","value":707.8385799347906,"quantityKind":"CO2","sensorId":"f46e8f3a-f319-4118-9ed3-74d4ec7007a1"}],"exceptions":[],"actuationCommands":[],"actuationResponses":[]}
 
 ```
 
@@ -277,7 +277,7 @@ Now we can check in our connector console logs if it receives any messages from 
 Sending observation message (like above):
 ```JSON
 {
-  "format": "rec3.1.1",
+  "format": "rec3.3",
   "deviceId": "c16d5e09-ed5c-4297-b6b9-cc733b1b1065",
   "observations": [
     {
@@ -296,7 +296,7 @@ Sending observation message (like above):
 Incoming ActuationCommand message:
 ```json
 {
-	"format":"rec3.1.1",
+	"format":"rec3.3",
 	"deviceId":"7387e678-b151-426e-a1c7-70f26f414859",
 	"observations":null,
 	"actuationCommands":[
@@ -317,7 +317,7 @@ Incoming ActuationCommand message:
 Sending ActuationResponse message:
 ```json
 {
-	"format":"rec3.1.1",
+	"format":"rec3.3",
 	"deviceId":"7387e678-b151-426e-a1c7-70f26f414859",
 	"observations":[],
 	"exceptions":[],

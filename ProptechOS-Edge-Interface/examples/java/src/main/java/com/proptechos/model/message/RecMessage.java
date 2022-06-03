@@ -11,7 +11,7 @@ import com.proptechos.model.message.exception.RecException;
 
 public class RecMessage {
 
-  private final String format = "rec3.1.1";
+  private final String format = "rec3.3";
   private String deviceId;
   private List<RecObservation> observations;
   private List<RecException> exceptions;
