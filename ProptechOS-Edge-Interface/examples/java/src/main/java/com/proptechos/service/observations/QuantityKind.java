@@ -16,21 +16,21 @@ public enum QuantityKind {
         @Override
         public RecObservation createObservation(String sensorId) {
             return new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-                    generateRandomTemperature(), getQuantityKind(), sensorId);
+                generateRandomTemperature(), getQuantityKind(), sensorId);
         }
     },
     HUMIDITY("Humidity") {
         @Override
         public RecObservation createObservation(String sensorId) {
             return new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-                    generateRandomHumidity(), getQuantityKind(), sensorId);
+                generateRandomHumidity(), getQuantityKind(), sensorId);
         }
     },
     CO2("CO2") {
         @Override
         public RecObservation createObservation(String sensorId) {
             return new RecObservation(ZonedDateTime.now(ZoneOffset.UTC),
-                    generateRandomCO2(), getQuantityKind(), sensorId);
+                generateRandomCO2(), getQuantityKind(), sensorId);
         }
     },
     ALARM_MAJOR("AlarmMajor") {
@@ -69,25 +69,28 @@ public enum QuantityKind {
         return null;
     }
 
-    private static final int MIN_TEMPERATURE = 15;
+    private static final int MIN_TEMPERATURE = 18;
+    private static final int MAX_TEMPERATURE = 26;
     private static final int MIN_HUMIDITY = 40;
-    private static final int MIN_CO2 = 700;
-    private static final List<String> INTERACTIONS = List.of("PUSH","PULL","STAY","GO");
+    private static final int MAX_HUMIDITY = 65;
+    private static final int MIN_CO2 = 450;
+    private static final int MAX_CO2 = 650;
+    private static final List<String> INTERACTIONS = List.of("PUSH", "PULL", "STAY", "GO");
 
     private static final Random random = new Random();
 
     private static Object generateRandomTemperature() {
         return isNull(actuationValue)
-                ? MIN_TEMPERATURE + Math.random() * 15
-                : actuationValue;
+            ? (int) ((Math.random() * (MAX_TEMPERATURE - MIN_TEMPERATURE)) + MIN_TEMPERATURE)
+            : actuationValue;
     }
 
     private static double generateRandomHumidity() {
-        return MIN_HUMIDITY + Math.random() * 30;
+        return (int) ((Math.random() * (MAX_HUMIDITY - MIN_HUMIDITY)) + MIN_HUMIDITY);
     }
 
     private static double generateRandomCO2() {
-        return MIN_CO2 + Math.random() * 500;
+        return (int) ((Math.random() * (MAX_CO2 - MIN_CO2)) + MIN_CO2);
     }
 
     private static boolean generateRandomBoolean() {
