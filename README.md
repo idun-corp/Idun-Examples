@@ -2,7 +2,7 @@
 ![ProptechOS logo](images/ProptechOS-logotype-ex.png)
 
 # ProptechOS Developer Examples
-[Develop apps for ProptechOS](https://proptechos.com/)
+[Develop apps for ProptechOS](https://proptechos.com/)  
 See examples for partial or end-to-end illustrations
 
 For Documentation, please see our `docs` repository [github.com/idun-corp/docs](https://github.com/idun-corp/docs)
